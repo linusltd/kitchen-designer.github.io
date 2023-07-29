@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+:root {
+  --color-black: #000;
+  --color-dark-1: #222222;
+  --color-dark-2: #444444;
+  --color-gray: #8d8d8d;
+  --color-gray-1: #666666;
+  --color-gray-2: #595959;
+  --light-gray: #cccccc;
+  --color-blue: #0053a8;
+  --color-white: #fff;
+
+  --container-xl: 2000px;
+  --container-lg: 1440px;
+  --container-md: 90%;
+  --container-sm: 95%;
+
+  --font-family-roboto: "Roboto", sans-serif;
+}
+
+/* General Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-roboto);
+}
+
+.container__fluid {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+}
+
+/* Email Container */
+
+.email__container {
+  padding: 49px;
+  width: 100%;
+}
+
+/* Brand Logo */
+
+.email__container .brand {
+  margin-bottom: 20px;
+}
+
+/* Order id & Date */
+
+.email__container .orderid__details {
+  margin: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.email__container .orderid__details p {
+  text-align: right;
+  font-size: 14px;
+  color: var(--color-gray);
+  font-weight: 400;
+}
+
+/* Thanking Paras */
+
+.email__container .thankforpurchase {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-gray-1);
+  line-height: 28px;
+}
+
+.email__container .orderreminder {
+  margin: 30px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-dark-1);
+}
+
+/* Buttons */
+
+.email__container .buttons {
+  display: flex;
+  gap: 11px;
+  justify-content: center;
+  align-items: center;
+}
+
+.email__container .buttons .btn {
+  text-decoration: none;
+  color: var(--color-blue);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.email__container .buttons .btn__vieworder {
+  padding: 14px 18px;
+  border: 1.5px solid var(--color-blue);
+  background-color: var(--color-white);
+}
+
+/* Order Summary Section */
+
+.email__container .order__summary {
+  margin-top: 57px;
+}
+
+.email__container .ordersummary {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+.email__container .summary__block {
+  width: 100%;
+  border: 1px solid var(--light-gray);
+  padding: 0 50px;
+}
+
+.email__container .summary {
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email__container .summary:not(:last-child) {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.email__container .summary .summary__details {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.email__container .summary .summary__details img{
+    width: 100px;
+    height: 150px;
+}
+
+.email__container .summary .product__name {
+  color: var(--color-gray-2);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.email__container .summary .product__quantity {
+  color: var(--color-gray-2);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.email__container .summary .product__price {
+  color: var(--color-dark-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Price Section */
+
+.email__container .total__price {
+  width: 288px;
+  margin-top: 26px;
+  margin-left: auto;
+}
+
+.email__container .total__price table {
+  width: 100%;
+}
+
+.email__container .total__price tr {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-gray-2);
+  text-align: center;
+}
+
+.email__container .total__price tr td:first-child {
+  text-align: left;
+}
+
+.email__container .total__price td {
+  padding: 7px 0;
+}
+
+.email__container .total__price .subtotal__value {
+  color: var(--color-dark-1);
+}
+
+.email__container .total__price .totalvalue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  border-top: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--light-gray);
+  margin-top: 20px;
+}
+
+.email__container .total__price .totalvalue .total__value {
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--color-black);
+}
+
+/* Order Details Section */
+
+.email__container .order__details {
+  margin: 55px 0;
+  display: flex;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.email__container .order__details h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-black);
+  padding-bottom: 12px;
+}
+
+.email__container .order__details p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-gray-1);
+  padding: 5px 0;
+}
+
+/* Footer */
+
+.email__footer {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-black);
+  padding: 40px 20px;
+  border-top: 1px solid var(--light-gray);
+}
+
+.email__footer span {
+  color: var(--color-blue);
+}
+
+/* Shippment Section */
+
+.email__container .itemsin__shippment {
+  margin-top: 57px;
+}
+
+.email__container .itemsinshippment {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+.email__container .shippment__block {
+  width: 300px;
+  border: 1px solid var(--light-gray);
+  padding: 0 50px;
+}
+
+.email__container .shippment {
+  padding: 18px 0;
+}
+
+.email__container .shippment:not(:last-child) {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.email__container .shippment__details {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.email__container .shippment__details .product__name {
+  color: var(--color-gray-2);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.email__container .shippment__details .product__quantity {
+  color: var(--color-gray-2);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Media Queries */
+
+@media (max-width: 500px) {
+    .email__container {
+        padding: 20px;
+        width: 100%;
+    }
+
+  .email__container .summary {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .email__container .summary__block {
+    width: 100%;
+    border: 1px solid var(--light-gray);
+    padding: 0;
+  }
+
+  .email__container .summary{
+    gap: 5px;
+    padding: 10px;
+  }
+  .email__container .summary .summary__details {
+    gap: 10px;
+}
+}
+
+@media (max-width: 370px) {
+  .email__container .summary .summary__details {
+    flex-direction: column;
+  }
+
+  .email__container .total__price {
+    width: 100%;
+  }
+
+  .email__container .total__price .totalvalue .total__value {
+    font-size: 30px;
+  }
+
+  .email__container .shippment__block {
+    width: 100%;
+  }
+
+  .email__container .shippment .shippment__details {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 280px) {
+  .email__container .buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .email__container .total__price .totalvalue .total__value {
+    font-size: 20px;
+  }
+}

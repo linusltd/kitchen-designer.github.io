@@ -1,0 +1,129 @@
+/*===============Breadcrumb===============*/
+.breadcrumb{
+    width: 100%;
+    height: 58px;
+    background-color: var(--color-primary);
+    margin-bottom: 48px;
+}
+
+.breadcrumb__container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    gap: 17px;
+}
+
+.breadcrumb__link{
+    font-size: 14px;
+    line-height: 16px;
+    color:var(--color-white);
+}
+
+.breadcrumb__link.active{
+    font-weight: 700;
+}
+
+/*===============Breadcrumb===============*/
+.banner__header{
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+}
+/* ===============Book Category Section=================== */
+.bookcategory{
+    width: 100%;
+    height: auto;
+}
+
+.bookcategory__container{
+    max-width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.bookcategory-title{
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.bookcategory__category-menu{
+    max-width: 18.66667%;
+    flex-basis: 18.66667%;
+    padding: 0 15px 30px;
+}
+
+.bookcategory__category-section{
+    max-width: 81.33333%;
+    flex-basis: 81.33333%;
+    padding: 0 15px 30px;
+}
+
+.category__menu{
+    border-top: 2px solid var(--color-black);
+    display: flex;
+    flex-direction: column;
+}
+
+.category__menu li{
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid #ededed;
+    padding: 3px 15px;
+}
+
+.category__menu li a{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    font-weight: 300;
+}
+
+.category__menu li a p{
+    display: inline-block;
+    padding: 6px 0;
+    flex: 1;
+    transition: var(--transition);
+}
+
+.category__menu li a p:hover{
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.category__count{
+    font-weight: 500;
+    font-size: 16px;
+    color:var(--color-danger);
+}
+
+.books__wrapper{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 4px;
+    row-gap: 20px;
+}
+
+.books__wrapper .book__card{
+    max-width: 24.5%;
+    -ms-flex-preferred-size: 24.5%;
+    flex-basis: 24.5%;
+}
+
+.shop__header{
+    height: 330px;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.shop__header .dot__wrapper{
+    margin-bottom: 7px;
+}
+
+.shop__category-title{
+    margin-bottom: 15px;
+    text-align: center;
+}

@@ -1,0 +1,98 @@
+/* ===========Contact Us=========== */
+.contactus__container {
+    display: grid;
+    grid-template-columns: 45% 50% !important;
+    gap: 20px;
+}
+
+.contactus__container .right__container{
+    justify-content: flex-start;
+}
+
+.contact__us{
+    font-weight: 700;
+    font-size: 25px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.contact__container{
+    width: 85%;
+    margin: 0px auto;
+}
+.sendmessage__btn{
+    width: 150px;
+    height: 52px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #FFFFFF;
+    background: #0053A8;
+    float: right;
+    align-self: flex-end;
+    margin-top: 10px;
+    transition: var(--transition);
+}
+
+.sendmessage__btn:hover{
+    color: #0053A8;
+    background-color: #fff;
+    border: 1px solid #0053A8;
+}
+
+.contanct__form{
+    padding: 47px 57px;
+    background: #FFFFFF;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========Contact Info=========== */
+.contact__info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.contact__info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 37px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    gap: 50px;
+    cursor: pointer;
+}
+
+.contact__info-content h3{
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.contact__info-content p{
+    font-weight: 300;
+    font-size: 14px;
+    color: #333333;
+    gap: 12px;
+}
+
+/* =========My Contact Form=========== */
+.mycontact__form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.mycontact__form input, textarea{
+    width: 100%;
+    font-family: var(--ff-roboto);
+    padding: 20px 20px;
+    font-size: 18px;
+}
+
+.mycontact__form input{
+    height: 60px;
+}
+
+
