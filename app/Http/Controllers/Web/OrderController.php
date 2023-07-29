@@ -87,7 +87,7 @@ class OrderController extends Controller
 
         /*Getting Cart Data*/
         $cart = getCartDetails();
-        $delivery_charges = $cart->items_subtotal_price <= 5000 ? 150 : 0;
+        $delivery_charges = $cart->items_subtotal_price <= 10000 ? 300 : 0;
         /*Creating Order No*/
         $recentOrder = Order::where('type', 0)->orderBy('id', 'desc')->first();
         $order_no = 0;

@@ -176,8 +176,9 @@ class HomeController extends Controller
                 <div class="quick__spacer"></div>
                 <div class="quick__view-info">
                     <p><span>SKU: </span>  '.$book->sku.'</p>
-                    <p><span>Author: </span>  '.$authors.'</p>
-                    <p><span>Categories: </span> '.$categories.'</p>
+                    <div>
+                    '.htmlspecialchars_decode(stripslashes($book->highlights)).'
+                    </div>
                 </div>
                 <div class="quick__spacer"></div>
                 <div class="quick__view-socials">

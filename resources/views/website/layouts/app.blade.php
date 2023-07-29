@@ -18,6 +18,7 @@
     @yield('seo')
 </head>
 <body>
+
     @php $general = getGeneral();  @endphp
     <!-- Layout Wrapper -->
     <div class="container-fluid-xl">
@@ -42,9 +43,10 @@
 
         @include('website.layouts.partials.modals')
 
+
+    </div>
     <!-- /Layout Wrapper -->
     <!-- Scripts -->
     @include('website.layouts.partials.scripts')
-
 </body>
 </html>

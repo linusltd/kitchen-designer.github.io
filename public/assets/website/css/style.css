@@ -217,14 +217,14 @@ a{
 }
 
 .navbar__brand{
-    width: 92px;
+    width: 125px;
     height: 61.94px;
 }
 
 .navbar__logo{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .navbar__menu{
@@ -847,15 +847,15 @@ background-color: #717171;
 }
 
 .footer__logo__wrapper{
-    width:103.59px;
-    height:69.95px;
+    width:125px;
+    height:61px;
     margin-bottom: 24px;
 }
 
 .footer__logo{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .footer__address{
@@ -1120,7 +1120,7 @@ label.is-invalid{
 .quick__img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .quick__view-right{

@@ -96,7 +96,7 @@ class CartController extends Controller
             </tr>';
         }
 
-        $delivery_charges = $cart->items_subtotal_price <= 5000 ? 150 : 0;
+        $delivery_charges = $cart->items_subtotal_price <= 10000 ? 300 : 0;
         $totalBillHtml .= '
             <tr>
                 <td><strong>SUB TOTAL</strong></td>

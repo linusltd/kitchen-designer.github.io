@@ -66,5 +66,6 @@ class Book extends Model
      */
     protected $casts = [
         'description' => Json::class,
+        'highlights' => Json::class,
     ];
 }

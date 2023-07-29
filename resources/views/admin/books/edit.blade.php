@@ -104,7 +104,7 @@
                     <div class="card-body">
                         <form>
                             <div class="">
-                                <strong class="m-0">Book Images <span class="text-danger">*</span></strong>
+                                <strong class="m-0">Product Images <span class="text-danger">*</span></strong>
                                 <p>The picture will be displayed on the cover of the book details page.</p>
                                 <div class="upload__box">
                                     <div class="upload__img-wrap">
@@ -129,7 +129,7 @@
                                 <span class="text-danger main_image-error"></span>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="name">Book Name <span
+                                <label class="col-sm-2 col-form-label" for="name">Product Name <span
                                         class="text-danger">*</span></label>
 
                                 <div class="col-sm-10">
@@ -139,7 +139,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="slug">Book Slug <span
+                                <label class="col-sm-2 col-form-label" for="slug">Product Slug <span
                                         class="text-danger">*</span></label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="slug" id="slug"
@@ -176,7 +176,7 @@
                 </div>
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Book Meta Section</h5>
+                        <h5 class="mb-0">Product Meta Section</h5>
                     </div>
                     <div class="card-body">
                         <div class="row d-flex justify-content-center">
@@ -194,16 +194,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-2 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Description</label>
-                                            <div class="col-sm-10">
-                                                <textarea name="meta_description" id="meta_description" cols="30" rows="10" class="form-control" placeholder="Meta Description">{{ $book->meta_description }}</textarea>
-                                                <span class="text-danger meta_description-error"></span>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -211,9 +201,9 @@
                         </form>
                     </div>
                 </div>
-                <div class="card mb-4">
+                {{-- <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Book Attributes</h5>
+                        <h5 class="mb-0">Product Attributes</h5>
                     </div>
                     <div class="card-body">
                         <div class="row d-flex justify-content-center">
@@ -322,6 +312,21 @@
 
                         </form>
                     </div>
+                </div> --}}
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Highlights</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Product Highlights <span
+                                    class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <textarea name="highlights" id="highlights" cols="30" rows="10">{!! $book->highlights !!}</textarea>
+                                <span class="text-danger highlights-error"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
@@ -329,7 +334,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Book Description <span
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Product Description <span
                                     class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <textarea name="description" id="description" cols="30" rows="10">{!! $book->description !!}</textarea>
@@ -345,7 +350,7 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col-12">
-                                <p>Drag and drop pictures below to upload.Add at least 3 images of Book book from different
+                                <p>Drag and drop pictures below to upload.Add at least 3 images of Product book from different
                                     angles. <span class="text-danger">*</span></p>
                                 <div class="">
                                     <div class="upload__box">
@@ -469,7 +474,7 @@
                 <div class="row mt-2 d-flex flex-wrap justify-content-center">
                     <div class="col-12">
                         <button class="btn btn-primary btn-lg  mb-3" style="border-radius: 0"
-                            id="submitBookBtn">Submit</button>
+                            id="submitProductBtn">Submit</button>
                     </div>
                 </div>
             </div>

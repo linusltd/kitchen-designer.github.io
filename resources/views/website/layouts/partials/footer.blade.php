@@ -1,4 +1,5 @@
  <!-- Footer -->
+
  <footer class="footer">
     <div class="container footer__container">
         <div class="footer__introduction">
@@ -50,5 +51,9 @@
     <p class="footer__rights">
         Copyright 2022 {{ $general->name }}. All rights reserved.
     </p>
+    <a href="https://api.whatsapp.com/send?phone=+923004716058" class="whatsapp-btn">
+        <img src="{{ asset('assets/website/images/whatsapp.png') }}" alt="">
+    </a>
+
 </footer>
 <!-- /Footer -->

@@ -186,16 +186,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-2 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Description</label>
-                                            <div class="col-sm-10">
-                                                <textarea name="meta_description" id="meta_description" cols="30" rows="10" class="form-control" placeholder="Meta Description"></textarea>
-                                                <span class="text-danger meta_description-error"></span>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -308,6 +299,21 @@
                         </form>
                     </div>
                 </div> --}}
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Highlights</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Product Highlights <span
+                                    class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <textarea name="highlights" id="highlights" cols="30" rows="10"></textarea>
+                                <span class="text-danger highlights-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Description</h5>

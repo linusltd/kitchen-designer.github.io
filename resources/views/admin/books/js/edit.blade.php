@@ -3,6 +3,142 @@
         $(document).ready(function() {
             @include('admin.common.jshelper')
             let editorInstance;
+            let editorHighlightsInstance;
+            /*Loading CkEditor*/
+            CKEDITOR.ClassicEditor
+            .create( document.querySelector( '#highlights' ), {
+                toolbar: {
+                    items: [
+                        'exportPDF', 'exportWord', '|',
+                        'findAndReplace', 'selectAll', '|',
+                        'heading', '|',
+                        'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|',
+                        'bulletedList', 'numberedList', 'todoList', '|',
+                        'outdent', 'indent', '|',
+                        'undo', 'redo', '-',
+                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                        'alignment', '|',
+                        'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|',
+                        'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                        'textPartLanguage', '|',
+                        'sourceEditing'
+                    ],
+                    shouldNotGroupWhenFull: true
+                },
+                list: {
+                    properties: {
+                        styles: true,
+                        startIndex: true,
+                        reversed: true
+                    }
+                },
+                heading: {
+                    options: [
+                        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                        { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+                        { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+                        { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
+                        { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
+                    ]
+                },
+                placeholder: 'Write Product Description here!',
+                fontFamily: {
+                    options: [
+                        'default',
+                        'Arial, Helvetica, sans-serif',
+                        'Courier New, Courier, monospace',
+                        'Georgia, serif',
+                        'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                        'Tahoma, Geneva, sans-serif',
+                        'Times New Roman, Times, serif',
+                        'Trebuchet MS, Helvetica, sans-serif',
+                        'Verdana, Geneva, sans-serif'
+                    ],
+                    supportAllValues: true
+                },
+                fontSize: {
+                    options: [ 10, 12, 14, 'default', 18, 20, 22 ],
+                    supportAllValues: true
+                },
+                lineHeight: {
+                    options: [ 1, 1.15, 1.5, 2 ]
+                },
+                htmlSupport: {
+                    allow: [
+                        {
+                            name: /.*/,
+                            attributes: true,
+                            classes: true,
+                            styles: true
+                        }
+                    ]
+                },
+                htmlEmbed: {
+                    showPreviews: true
+                },
+                link: {
+                    decorators: {
+                        addTargetToExternalLinks: true,
+                        defaultProtocol: 'https://',
+                        toggleDownloadable: {
+                            mode: 'manual',
+                            label: 'Downloadable',
+                            attributes: {
+                                download: 'file'
+                            }
+                        }
+                    }
+                },
+                mention: {
+                    feeds: [
+                        {
+                            marker: '@',
+                            feed: [
+                                '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes', '@chocolate', '@cookie', '@cotton', '@cream',
+                                '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread', '@gummi', '@ice', '@jelly-o',
+                                '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding', '@sesame', '@snaps', '@soufflé',
+                                '@sugar', '@sweet', '@topping', '@wafer'
+                            ],
+                            minimumCharacters: 1
+                        }
+                    ]
+                },
+                removePlugins: [
+                    'CKBox',
+                    'CKFinder',
+                    'EasyImage',
+                    'RealTimeCollaborativeComments',
+                    'RealTimeCollaborativeTrackChanges',
+                    'RealTimeCollaborativeRevisionHistory',
+                    'PresenceList',
+                    'Comments',
+                    'TrackChanges',
+                    'TrackChangesData',
+                    'RevisionHistory',
+                    'Pagination',
+                    'WProofreader',
+                    'MathType',
+                    'SlashCommand',
+                    'Template',
+                    'DocumentOutline',
+                    'FormatPainter',
+                    'TableOfContents'
+                ]
+            } )
+            .then( editor => {
+                editorHighlightsInstance = editor;
+                // console.log( 'Editor initialized successfully:', editor );
+
+                $('#getValueButton').click(function() {
+                    var editorData = editor.getData();
+                    // console.log('Editor Value:', editorData);
+                });
+            } )
+            .catch( error => {
+                console.error( 'Error initializing editor:', error );
+            } );
             /*Loading CkEditor*/
             CKEDITOR.ClassicEditor
             .create( document.querySelector( '#description' ), {
@@ -42,7 +178,7 @@
                         { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
                     ]
                 },
-                placeholder: 'Write Book Description here!',
+                placeholder: 'Write Product Description here!',
                 fontFamily: {
                     options: [
                         'default',
@@ -138,6 +274,7 @@
             .catch( error => {
                 console.error( 'Error initializing editor:', error );
             } );
+
             var mainImgWrap = "";
             var mainImgArray = [];
             var sideImgWrap = "";
@@ -276,19 +413,9 @@
             $('#category_id').select2({
                 placeholder: '--select categories--'
             });
+;
 
-            /*Multiselect*/
-            $('#author_id').select2({
-                placeholder: '--select authors--'
-            });
-
-
-            /*Multiselect*/
-            $('#language_id').select2({
-                placeholder: '--select languages--'
-            });
-
-            $('#submitBookBtn').click(function() {
+            $('#submitProductBtn').click(function() {
                 saveProduct("{{ $book->status }}", '.btn-primary', 'Submit');
             });
 
@@ -306,13 +433,8 @@
                 const name = $('input[name="name"]').val();
                 const slug = $('input[name="slug"]').val();
                 const category_id = $('select[name="category_id[]"]').val();
-                const pages = $('input[name="pages"]').val();
-                const binding = $('input[name="binding"]').val();
-                const volume = $('input[name="volume"]').val();
-                const size = $('input[name="size"]').val();
-                const author_id = $('select[name="author_id[]"]').val();
-                const language_id = $('select[name="language_id[]"]').val();
                 const description = editorInstance.getData();
+                const highlights = editorHighlightsInstance.getData();
                 let images = $('input[name="images[]"]').val();
                 const price = $('input[name="price"]').val();
                 const special_price = $('input[name="special_price"]').val();
@@ -335,35 +457,7 @@
                     $('.name-error').html(``);
                     $('.slug-error').html(``);
                     $('.category_id-error').html(`select book categories.`);
-                } else if (!$.trim(pages)) {
-                    $('.main_image-error').html(``);
-                    $('.name-error').html(``);
-                    $('.slug-error').html(``);
-                    $('.category_id-error').html(``);
-                    $('.pages-error').html(`enter book pages`);
-                    $('input[name="pages"]').focus();
-                } else if (author_id.length <= 0) {
-                    $('.main_image-error').html(``);
-                    $('.name-error').html(``);
-                    $('.slug-error').html(``);
-                    $('.category_id-error').html(``);
-                    $('.pages-error').html(``);
-                    $('.binding-error').html(``);
-                    $('.volume-error').html(``);
-                    $('.size-error').html(``);
-                    $('.author_id-error').html(`select author.`);
-                } else if (language_id.length <= 0) {
-                    $('.main_image-error').html(``);
-                    $('.name-error').html(``);
-                    $('.slug-error').html(``);
-                    $('.category_id-error').html(``);
-                    $('.pages-error').html(``);
-                    $('.binding-error').html(``);
-                    $('.volume-error').html(``);
-                    $('.size-error').html(``);
-                    $('.author_id-error').html(``);
-                    $('.language_id-error').html(`select language.`);
-                } else if (!$.trim(description).length) {
+                }else if (!$.trim(highlights).length) {
                     $('.main_image-error').html(``);
                     $('.name-error').html(``);
                     $('.slug-error').html(``);
@@ -374,6 +468,19 @@
                     $('.size-error').html(``);
                     $('.author_id-error').html(``);
                     $('.language_id-error').html(``);
+                    $('.highlights-error').html(`please enter book description`);
+                }  else if (!$.trim(description).length) {
+                    $('.main_image-error').html(``);
+                    $('.name-error').html(``);
+                    $('.slug-error').html(``);
+                    $('.category_id-error').html(``);
+                    $('.pages-error').html(``);
+                    $('.binding-error').html(``);
+                    $('.volume-error').html(``);
+                    $('.size-error').html(``);
+                    $('.author_id-error').html(``);
+                    $('.language_id-error').html(``);
+                    $('.highlights-error').html(``);
                     $('.description-error').html(`please enter book description`);
                 } else if (!$.trim(price).length || price <= 0) {
                     $('.main_image-error').html(``);
@@ -388,6 +495,7 @@
                     $('.language_id-error').html(``);
                     $('.description-error').html(``);
                     $('.images-error').html(``);
+                    $('.highlights-error').html(``);
                     $('.price-error').html(`book price should be less than 0`);
                     $('input[name="price"]').focus();
                 } else {
@@ -404,19 +512,14 @@
                     $('.description-error').html(``);
                     $('.images-error').html(``);
                     $('.price-error').html(``);
-
+                    $('.highlights-error').html(``);
                     image = document.getElementById('image').files[0];
                     const formData = new FormData();
                     formData.append('name', name);
                     formData.append('slug', slug);
                     formData.append('category_id', category_id);
-                    formData.append('pages', pages);
-                    formData.append('binding', binding);
-                    formData.append('volume', volume);
-                    formData.append('size', size);
-                    formData.append('author_id', author_id);
-                    formData.append('language_id', language_id);
                     formData.append('description', description);
+                    formData.append('highlights', highlights);
                     formData.append('price', price);
                     formData.append('special_price', special_price);
                     formData.append('low_stock_min', low_stock_min);
@@ -438,7 +541,7 @@
                             formData.append("ImagesToRemove[]", ImagesToRemove[index]);
                         }
                     }
-                    /*Sending Store Book Ajax Request*/
+                    /*Sending Store Product Ajax Request*/
                     const route = "{{ route('admin.books.update', ':id') }}";
                     const url = route.replace(':id', "{{ $book->id }}");
                     $.ajax({

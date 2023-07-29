@@ -180,7 +180,7 @@
                                     <td><strong>SUB TOTAL</strong></td>
                                     <td align="center">Rs.{{ number_format($cart->items_subtotal_price, 2) }}</td>
                                 </tr>
-                                @php $delivery_charges = $cart->items_subtotal_price <= 5000 ? 150 : 0; @endphp
+                                @php $delivery_charges = $cart->items_subtotal_price <= 10000 ? 300: 0; @endphp
                                 <tr>
                                     <td><strong>SHIPPING FEE</strong></td>
                                     <td align="center" class="shipping__fee">Rs.{{$delivery_charges}}.00</td>

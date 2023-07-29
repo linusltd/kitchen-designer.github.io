@@ -7,7 +7,7 @@
     <div class="message">
         <div class="container message__container">
             <p class="messsage__content">
-                FREE SHIPPING FOR ORDERS OVER RS: 5000
+                FREE SHIPPING FOR ORDERS OVER RS: 10,000
             </p>
             <div class="message__social-wrapper">
                 <a href="{{ $general->facebook }}" target="_blank">

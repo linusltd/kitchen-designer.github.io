@@ -297,7 +297,7 @@ textarea{
 
 }
 .show__wrapper .show {
-    width: 346px !important;
+    width: 100% !important;
     height: 501px !important;
   }
 

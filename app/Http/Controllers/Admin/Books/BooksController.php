@@ -33,7 +33,6 @@ class BooksController extends Controller
         // ->select('name', 'slug', 'pages', 'binding', 'size', 'volume', 'description', 'price', 'special_price', 'quantity', 'low_stock_min', 'sku', 'status', 'in_stock', 'meta_keywords', 'meta_description', 'id')
         // ->get();
 
-
         return view('admin.books.index', get_defined_vars());
     }
 
@@ -107,13 +106,11 @@ class BooksController extends Controller
 
         /*Creating MultiSelect Arrays*/
         $book->categories()->attach(explode(',', $request->category_id));
-        $book->authors()->attach(explode(',', $request->author_id));
-        $book->languages()->attach(explode(',', $request->language_id));
 
         /*Creating Book SKU*/
         generateSKU($book->id);
 
-        return response()->json(['success' => true, 'response' => 'Book Stored Successfully!']);
+        return response()->json(['success' => true, 'response' => 'Product Stored Successfully!']);
     }
 
     /**
@@ -139,7 +136,7 @@ class BooksController extends Controller
         $categories = Category::with('child')->where('parent_id', 0)->get();
         $languages = Language::all();
         $book =  Book::with('categories', 'authors', 'languages', 'images')->where('id', $id)->first();
-        return $book;
+
         return view('admin.books.edit', get_defined_vars());
     }
 
@@ -184,10 +181,8 @@ class BooksController extends Controller
 
         /*Creating MultiSelect Arrays*/
         $book->categories()->sync(explode(',', $request->category_id));
-        $book->authors()->sync(explode(',', $request->author_id));
-        $book->languages()->sync(explode(',', $request->language_id));
 
-        return response()->json(['success' => true, 'response' => 'Book Updated Successfully!']);
+        return response()->json(['success' => true, 'response' => 'Product Updated Successfully!']);
     }
 
     /**

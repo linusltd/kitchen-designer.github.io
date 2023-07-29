@@ -18,6 +18,17 @@
 
 <!-- Toaster CSS & JS -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<style>
+    .whatsapp-btn{
+        position: absolute;
+        bottom:50px;
+        right: 20px;
+    }
+    .whatsapp-btn img{
+        width: 70px;
+        height: 70px;
+    }
 
+</style>
 
 @stack('styles')

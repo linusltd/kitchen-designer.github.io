@@ -138,11 +138,14 @@
                 <div class="quick__spacer"></div>
                 <div class="quick__view-info">
                     <p><span>SKU: </span>  {{ $book->sku }}</p>
-                    <p><span>Author: </span>  {{ $authors }}</p>
+                    <div>
+                         {!! $book->highlights !!}
+                    </div>
+                    {{-- <p><span>Author: </span>  {{ $authors }}</p>
                     <p><span>Pages: </span> {{ $book->pages }}</p>
                     <p><span>Cover: </span> {{ $book->binding }}</p>
                     <p><span>Size: </span> {{ $book->size }}</p>
-                    <p><span>Categories: </span> {{ $categories }}</p>
+                    <p><span>Categories: </span> {{ $categories }}</p> --}}
                 </div>
                 <div class="quick__spacer"></div>
                 <div class="quick__view-socials">
