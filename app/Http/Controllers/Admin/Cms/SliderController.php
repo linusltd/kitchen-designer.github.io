@@ -29,7 +29,7 @@ class SliderController extends Controller
     public function create()
     {
         $books = Book::where('status', 1)->get();
-        $categories = Category::where('status', 0)->get();
+        $categories = Category::with('child')->where('status', 0)->get();
         return view('admin.cms.slider.create', get_defined_vars());
     }
 
@@ -62,7 +62,7 @@ class SliderController extends Controller
     public function edit($id)
     {
         $books = Book::where('status', 1)->get();
-        $categories = Category::where('status', 0)->get();
+        $categories = Category::with('child')->where('status', 0)->get();
         $slider = Slider::where('id', $id)->first();
         return view('admin.cms.slider.edit', get_defined_vars());
     }

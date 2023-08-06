@@ -210,11 +210,11 @@
                 </div>
                 <div class="row mb-3" id="bookDiv">
                     <div class="col-6 mb-3">
-                        <label class="form-label" for="issue_date">Products <span class="text-danger">*</span></label>
+                        <label class="form-label" for="issue_date">Books <span class="text-danger">*</span></label>
                         <select name="book_id" id="book_id" class="form-control">
                             <option value="">---select a book---</option>
                             @foreach ($books as $book)
-                                <option value="{{ $book->id }}">{{ $book->name }}</option>
+                                <option value="{{ $book->id }}" @selected($book->id == $slider->book_id)>{{ $book->name }}</option>
                             @endforeach
                         </select>
                         <small class="book_id-error text-danger"></small>
@@ -226,7 +226,10 @@
                         <select name="category_id" class="form-control" id="category_id">
                             <option value="">---select a category---</option>
                             @foreach ($categories as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                <option value="{{ $cat->id }}" @selected($cat->id == $slider->category_id)>{{ $cat->name }}</option>
+                                @foreach ($cat->child as $item)
+                                <option value="{{ $item->id }}" @selected($item->id == $slider->category_id)>---{{ $item->name }}</option>
+                                @endforeach
                             @endforeach
                         </select>
                       </div>
