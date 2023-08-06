@@ -163,6 +163,11 @@
                             $('.place__order-btn').removeAttr('disabled')
                         },
                         success: function(response) {
+                            if(response.status == false){
+                                $('input[name="email"]').focus()
+                                return alert('Your email address is not valid. Please use a valid email address');
+
+                            }
                             window.location = response;
                         },
                         error: function(xhr) {

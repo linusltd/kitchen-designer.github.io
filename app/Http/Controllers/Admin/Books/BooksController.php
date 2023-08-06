@@ -27,11 +27,6 @@ class BooksController extends Controller
         $draftProductsCount = Book::with('images')->where('status', 2)->count();
         $onlineProductsCount = Book::with('images')->where('status', 1)->count();
 
-        // return Book::with(['images' => function ($query) {
-        //     $query->select('filename', 'type', 'book_id');
-        // }])
-        // ->select('name', 'slug', 'pages', 'binding', 'size', 'volume', 'description', 'price', 'special_price', 'quantity', 'low_stock_min', 'sku', 'status', 'in_stock', 'meta_keywords', 'meta_description', 'id')
-        // ->get();
 
         return view('admin.books.index', get_defined_vars());
     }

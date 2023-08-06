@@ -141,10 +141,15 @@ class OrderController extends Controller
             'address' => $address,
             'payment_method' => 'Cash on delivery'
         ];
-        Mail::to($request->email)->send(new \App\Mail\ConfirmOrderMail(['details' => $details]));
+        try{
+            Mail::to($request->email)->send(new \App\Mail\ConfirmOrderMail(['details' => $details]));
+        }catch(\Exception $e){
+            $order->delete();
+            return response()->json(['status' => false]);
+        }
         /*Sending Mail To My Staff*/
         Mail::to('hamzaashraf160@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
-        Mail::to('talhaashraf235@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
+        // Mail::to('talhaashraf235@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
 
         return response(route('website.order.complete-order', $order->order_no))->withCookie($cookie);
     }
