@@ -26,9 +26,9 @@
                 Poupulat Categories
             </h3>
             <ul class="footer__info-links">
-                <li><a href="#">History</a></li>
-                <li><a href="#">Islamic</a></li>
-                <li><a href="#">Drama</a></li>
+                <li><a href="#">Wood Wave</a></li>
+                <li><a href="#">Dish Rack</a></li>
+                <li><a href="#">Sink Accessories</a></li>
             </ul>
         </div>
         <div class="footer__info">
@@ -51,7 +51,7 @@
     <p class="footer__rights">
         Copyright 2022 {{ $general->name }}. All rights reserved.
     </p>
-    <a href="https://api.whatsapp.com/send?phone=+923004716058" class="whatsapp-btn">
+    <a href="https://api.whatsapp.com/send?phone=03004716058" class="whatsapp-btn">
         <img src="{{ asset('assets/website/images/whatsapp.png') }}" alt="">
     </a>
 

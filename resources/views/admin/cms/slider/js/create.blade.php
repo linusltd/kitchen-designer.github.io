@@ -3,7 +3,7 @@
         $(document).ready(function() {
             @include('admin.common.jshelper')
             /*Loading CkEditor*/
-            $('textarea').ckeditor();
+
             var mainImgWrap = "";
             var mainImgArray = [];
 

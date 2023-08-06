@@ -1,14 +1,14 @@
 @extends('website.layouts.app')
-@section('title', 'Kitchen Designer - Pakistan No. 1 OnlineKitchen Store')
+@section('title', 'Kitchen Designer - Pakistan No. 1 Online Kitchen Store')
 @section('seo')
 <meta property="og:site_name" content="Kitchen Designer">
 <meta property="og:url" content="{{ Request::url() }}">
-<meta property="og:title" content="Kitchen Designer - Pakistan No. 1 OnlineKitchen Store">
+<meta property="og:title" content="Kitchen Designer - Pakistan No. 1 Online Kitchen Store">
 <meta property="og:type" content="website">
 <meta property="og:description" content="Kitchen Designer is one of the largest online Kitchen Store in Pakistan. And Kitchen Designer first of its kind Products.">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kitchen Designer - Pakistan No. 1 OnlineKitchen Store">
+<meta name="twitter:title" content="Kitchen Designer - Pakistan No. 1 Online Kitchen Store">
 <meta name="twitter:description" content="Kitchen Designer is one of the largest online Kitchen Store in Pakistan. And Kitchen Designer first of its kind Products.">
 
 <link rel="canonical" href="{{ Request::url() }}">
