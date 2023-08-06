@@ -144,17 +144,24 @@ class OrderController extends Controller
         ];
 
 
-
         $order->status = $request->status;
-        if($request->status == 3){
-            /*Shipped Mail*/
+        if($request->status == 3){ // Shipped Order
             Mail::to($order->address)->send(new \App\Mail\ShipOrderMail(['details' => $details]));
             $order->shipped_at = Carbon::now();
-        }elseif($request->status == 2){
-            /*Cancel Order Mail*/
+        }elseif($request->status == 2){ // Cancelled Order
             Mail::to($order->address)->send(new \App\Mail\CancelOrderMail(['details' => $details]));
+            // Increament Books Quantity
+            foreach($order->order_items as $cartItem){
+            Book::where('id', $cartItem->book_id)->increment('qty', $cartItem->quantity);
+        }
             $order->cancelled_at = Carbon::now();
-        }elseif($request->status == 5){
+        }elseif($request->status == 5){ // Failed Delivery
+            $order->cancelled_at = Carbon::now();
+            // Increament Books Quantity
+            foreach($order->order_items as $cartItem){
+            Book::where('id', $cartItem->book_id)->increment('qty', $cartItem->quantity);
+        }
+        }elseif($request->status == 1){ // Delivered Delivery
             $order->cancelled_at = Carbon::now();
         }
         $order->update();

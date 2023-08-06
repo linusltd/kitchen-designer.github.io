@@ -108,7 +108,14 @@
                                 @endif
                             </td>
                             <td>
-
+                                <form id="myForm" action="{{ route('admin.order.change-order-status') }}" method="GET">
+                                    <input type="hidden" name="id" value="{{ $order->id }}">
+                                    <select name="status" id="mySelect" class="form-control">
+                                        <option value="3">Ready To Ship</option>
+                                        <option value="1"> Delievered</option>
+                                        <option value="5"> Failed Delievery</option>
+                                    </select>
+                                </form>
                             </td>
                         </tr>
                         {{-- Nested Table --}}

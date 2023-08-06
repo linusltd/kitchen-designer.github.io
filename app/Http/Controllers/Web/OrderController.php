@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Address;
+use App\Models\Book;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderAdress;
@@ -122,6 +123,7 @@ class OrderController extends Controller
                 'qty' => $cartItem->quantity,
                 'total_amount' => $cartItem->total_price,
             ]);
+            Book::where('id', $cartItem->book_id)->decrement('qty', $cartItem->quantity);
         }
 
         $orderItems = OrderItem::with('book')->where('order_id', $order->id)->get();

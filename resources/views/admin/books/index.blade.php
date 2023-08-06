@@ -145,7 +145,7 @@
                             <td>{{ $book->created_at }}</td>
                             <td>
                                 <a href="{{ route('admin.books.edit', $book->id) }}" target="_blank" class="">Edit</a>
-                                <a href="{{ route('admin.books.edit', $book->id) }}" class="text-danger">Deactivate</a>
+                                {{-- <a href="{{ route('admin.books.edit', $book->id) }}" class="text-danger">Deactivate</a> --}}
                             </td>
                         </tr>
                         @endforeach
