@@ -113,7 +113,7 @@
                         <form>
                             <div class="">
                                 <strong class="m-0">Product Images <span class="text-danger">*</span></strong>
-                                <p>The picture will be displayed on the cover of the book details page.</p>
+                                <p>The picture will be displayed on the cover of the Product details page.</p>
                                 <div class="upload__box">
                                     <div class="upload__img-wrap"></div>
                                     <div class="upload__btn-box">

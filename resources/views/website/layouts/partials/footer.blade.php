@@ -25,9 +25,9 @@
                 Poupulat Categories
             </h3>
             <ul class="footer__info-links">
-                <li><a href="#">History</a></li>
-                <li><a href="#">Islamic</a></li>
-                <li><a href="#">Drama</a></li>
+                <li><a href="#">Kitchen & Dining</a></li>
+                <li><a href="#">Dish Racks</a></li>
+                <li><a href="#">Wood Wave</a></li>
             </ul>
         </div>
         <div class="footer__info">
