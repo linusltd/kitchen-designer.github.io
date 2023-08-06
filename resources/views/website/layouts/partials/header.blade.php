@@ -20,9 +20,10 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
     .whatsapp-btn{
-        position: absolute;
-        bottom:50px;
+        position: fixed;
+        bottom: 70px;
         right: 20px;
+        z-index: 100;
     }
     .whatsapp-btn img{
         width: 70px;

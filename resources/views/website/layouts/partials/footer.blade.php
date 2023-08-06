@@ -1,5 +1,4 @@
  <!-- Footer -->
-
  <footer class="footer">
     <div class="container footer__container">
         <div class="footer__introduction">
@@ -26,9 +25,9 @@
                 Poupulat Categories
             </h3>
             <ul class="footer__info-links">
-                <li><a href="#">Wood Wave</a></li>
-                <li><a href="#">Dish Rack</a></li>
-                <li><a href="#">Sink Accessories</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Islamic</a></li>
+                <li><a href="#">Drama</a></li>
             </ul>
         </div>
         <div class="footer__info">
@@ -51,9 +50,7 @@
     <p class="footer__rights">
         Copyright {{ date('Y') }} {{ $general->name }}. All rights reserved.
     </p>
-    <a href="https://wa.me/+923004716058" class="whatsapp-btn">
-        <img src="{{ asset('assets/website/images/whatsapp.png') }}" alt="">
-    </a>
 
 </footer>
+
 <!-- /Footer -->

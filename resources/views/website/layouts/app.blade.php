@@ -18,7 +18,6 @@
     @yield('seo')
 </head>
 <body>
-
     @php $general = getGeneral();  @endphp
     <!-- Layout Wrapper -->
     <div class="container-fluid-xl">
@@ -28,13 +27,19 @@
         <!-- /Navbar -->
 
         <!-- Content -->
-        <div style="margin-top: 113px">
+        <div style="margin-top: 113px;">
             @yield('content')
+
         </div>
         <!-- /Content -->
 
         <!-- Scroll To Up Button -->
         <button id="scrollToTopBtn" title="Go to top">&#8593;</button>
+        <div class="whatsapp-btn">
+            <a href="https://wa.me/+923030126345">
+                <img src="{{ asset('assets/website/images/whatsapp.png') }}" alt="">
+            </a>
+        </div>
         <!-- /Scroll To Up Button -->
 
         <!-- Footer -->
@@ -43,10 +48,9 @@
 
         @include('website.layouts.partials.modals')
 
-
-    </div>
     <!-- /Layout Wrapper -->
     <!-- Scripts -->
     @include('website.layouts.partials.scripts')
+
 </body>
 </html>
