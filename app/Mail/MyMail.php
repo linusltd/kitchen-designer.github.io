@@ -9,19 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class CancelOrderMail extends Mailable
+class MyMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct()
     {
-        $this->details = $details;
+        //
     }
 
     /**
@@ -29,10 +28,10 @@ class CancelOrderMail extends Mailable
      *
      * @return \Illuminate\Mail\Mailables\Envelope
      */
-    public function envelope(): Envelope
+    public function envelope()
     {
         return new Envelope(
-            subject: 'Your order '.$this->details['details']['order']['order_no'].' has been cancelled',
+            subject: 'My Mail',
         );
     }
 
@@ -44,7 +43,7 @@ class CancelOrderMail extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'emails.cancel-email',
+            view: 'view.name',
         );
     }
 
