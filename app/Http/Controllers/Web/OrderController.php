@@ -167,7 +167,7 @@ class OrderController extends Controller
             'payment_method' => 'Cash on delivery'
         ];
         Mail::to('hamzaashraf160@gmail.com')->send(new \App\Mail\CancelOrderRequestMail(['details' => $details]));
-        Mail::to('talhaashraf235@gmail.com')->send(new \App\Mail\CancelOrderRequestMail(['details' => $details]));
+        // Mail::to('talhaashraf235@gmail.com')->send(new \App\Mail\CancelOrderRequestMail(['details' => $details]));
         $order->status = 4;
         $order->update();
 
