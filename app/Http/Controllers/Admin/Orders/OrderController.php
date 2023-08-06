@@ -152,16 +152,16 @@ class OrderController extends Controller
         }elseif($request->status == 2){ // Cancelled Order
             Mail::to($order->address)->send(new \App\Mail\CancelOrderMail(['details' => $details]));
             // Increament Books Quantity
-            foreach($order->order_items as $cartItem){
-            Book::where('id', $cartItem->book_id)->increment('quantity', intval($cartItem->qty));
-        }
+            foreach ($order->order_items as $cartItem) {
+                Book::where('id', $cartItem->book_id)->increment('quantity', intval($cartItem->qty));
+            }
             $order->cancelled_at = Carbon::now();
         }elseif($request->status == 5){ // Failed Delivery
             $order->cancelled_at = Carbon::now();
             // Increament Books Quantity
-            foreach($order->order_items as $cartItem){
-            Book::where('id', $cartItem->book_id)->increment('quantity', intval($cartItem->qty));
-        }
+            foreach ($order->order_items as $cartItem) {
+                Book::where('id', $cartItem->book_id)->increment('quantity', intval($cartItem->qty));
+            }
         }elseif($request->status == 1){ // Delivered Delivery
             $order->cancelled_at = Carbon::now();
         }
