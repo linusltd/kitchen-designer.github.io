@@ -153,14 +153,14 @@ class OrderController extends Controller
             Mail::to($order->address)->send(new \App\Mail\CancelOrderMail(['details' => $details]));
             // Increament Books Quantity
             foreach($order->order_items as $cartItem){
-            Book::where('id', $cartItem->book_id)->increment('quantity', $cartItem->quantity);
+            Book::where('id', $cartItem->book_id)->increment('quantity', intval($cartItem->quantity));
         }
             $order->cancelled_at = Carbon::now();
         }elseif($request->status == 5){ // Failed Delivery
             $order->cancelled_at = Carbon::now();
             // Increament Books Quantity
             foreach($order->order_items as $cartItem){
-            Book::where('id', $cartItem->book_id)->increment('quantity', $cartItem->quantity);
+            Book::where('id', $cartItem->book_id)->increment('quantity', intval($cartItem->quantity));
         }
         }elseif($request->status == 1){ // Delivered Delivery
             $order->cancelled_at = Carbon::now();
