@@ -36,13 +36,13 @@
                 Follow us
             </h3>
             <div class="footer__social-links">
-                <a href="{{ $general->facebook }}" target="_blank">
+                <a href="{{ $general->twitter }}" target="_blank">
                     <img src="{{ asset('assets/website') }}/images/fb-soc.svg" alt="Facebook">
                 </a>
                 <a href="{{ $general->instagram }}" target="_blank">
                     <img src="{{ asset('assets/website') }}/images/insta-soc.svg" alt="Instagram">
                 </a>
-                <a href="{{ $general->twitter }}" target="_blank">
+                <a href="{{ $general->facebook }}" target="_blank">
                     <img src="{{ asset('assets/website') }}/images/twit-soc.svg" alt="Twitter">
                 </a>
             </div>
