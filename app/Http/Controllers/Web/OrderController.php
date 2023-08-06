@@ -123,7 +123,7 @@ class OrderController extends Controller
                 'qty' => $cartItem->quantity,
                 'total_amount' => $cartItem->total_price,
             ]);
-            Book::where('id', $cartItem->book_id)->decrement('qty', $cartItem->quantity);
+            Book::where('id', $cartItem->book_id)->decrement('quantity', $cartItem->quantity);
         }
 
         $orderItems = OrderItem::with('book')->where('order_id', $order->id)->get();
