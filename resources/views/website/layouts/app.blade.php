@@ -36,7 +36,7 @@
         <!-- Scroll To Up Button -->
         <button id="scrollToTopBtn" title="Go to top">&#8593;</button>
         <div class="whatsapp-btn">
-            <a href="https://wa.me/+923030126345">
+            <a href="https://wa.me/+923004716058">
                 <img src="{{ asset('assets/website/images/whatsapp.png') }}" alt="">
             </a>
         </div>
