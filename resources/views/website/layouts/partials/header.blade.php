@@ -26,8 +26,8 @@
         z-index: 100;
     }
     .whatsapp-btn img{
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
     }
 
 </style>
