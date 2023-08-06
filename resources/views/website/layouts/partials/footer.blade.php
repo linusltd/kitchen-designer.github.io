@@ -49,7 +49,7 @@
         </div>
     </div>
     <p class="footer__rights">
-        Copyright 2022 {{ $general->name }}. All rights reserved.
+        Copyright {{ date('Y') }} {{ $general->name }}. All rights reserved.
     </p>
     <a href="https://wa.me/+923004716058" class="whatsapp-btn">
         <img src="{{ asset('assets/website/images/whatsapp.png') }}" alt="">
