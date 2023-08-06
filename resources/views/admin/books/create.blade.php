@@ -155,7 +155,7 @@
                                     <select name="category_id[]" id="category_id" class="form-control" multiple>
                                         <option value="">--select categories--</option>
                                         @foreach ($categories as $item)
-                                            <option value="{{ $item->id }}" {{ $item->child->count() ? 'disabled' : '' }}>{{ $item->name }}</option>
+                                            <option value="{{ $item->id }}" >{{ $item->name }}</option>
                                             @foreach ($item->child as $cat)
                                                 <option value="{{ $cat->id }}">----{{ $cat->name }}</option>
                                             @endforeach

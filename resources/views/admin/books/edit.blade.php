@@ -157,7 +157,7 @@
                                             <option value="{{ $item->id }}"
                                                 @foreach ($book->categories as $cat)
                                                 @selected($cat->id == $item->id) @endforeach
-                                                {{ $item->child->count() ? 'disabled' : '' }}>
+                                                >
                                                 {{ $item->name }}
                                             </option>
                                             @foreach ($item->child as $sub_cat)
