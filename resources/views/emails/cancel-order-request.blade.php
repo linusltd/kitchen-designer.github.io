@@ -29,7 +29,7 @@
     @foreach ($details['details']['orderItems'] as $item)
     <div class="summary">
         <div class="summary__details">
-          <a href="{{ route('website.home.book-detail-view', $item['book']['slug']) }}"><img src="{{ asset('storage/'. $item['book']['images'][0]['filename'] ) }}" alt="{{ $item['book']['name'] }}" /></a>
+          <a href="{{ route('website.home.book-detail-view', $item['book']['slug']) }}"><img src="{{ asset('storage/'. $item['book']['images'][0]['filename'] ) }}" alt="{{ $item['book']['name'] }}" width="150" height="150"/></a>
           <a href="{{ route('website.home.book-detail-view', $item['book']['slug']) }}"><p class="product__name">{{ $item['book']['name'] }}</p>
           </a>
           <p class="product__quantity">{{ intval($item['qty']) }} x {{ intval($item['price']) }}</p>
