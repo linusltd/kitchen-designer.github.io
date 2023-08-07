@@ -77,16 +77,14 @@
 
 <!-- Products Section -->
 <section class="books">
-    @foreach ($categoriesWithProducts as $category)
     <div class="container books__container">
         <div class="books__header">
 
-            <h3 class="books__category-title">{{ $category->name }}</h3>
+            <h3 class="books__category-title">All Products</h3>
 
         </div>
         <div class="row col-8">
-            @php $books = $category->books()->take(12)->get();   @endphp
-            @foreach ($books as $book)
+            @foreach ($categoriesWithProducts as $book)
                 <article class="book__card">
                     <div class="book__img-wrapper">
                         <a href="{{ route('website.home.book-detail-view', $book->slug) }}">
@@ -158,7 +156,6 @@
             @endforeach
         </div>
     </div>
-    @endforeach
 </section>
 <!-- /Products Section -->
 

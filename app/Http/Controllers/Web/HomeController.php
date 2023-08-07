@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         $sliders = Slider::with('book', 'category')->where(['type' => 0, 'status' => 0])->get();
         $categories = getAllCategories();
-        $categoriesWithProducts = getProductsByCategory();
+        $categoriesWithProducts = Book::all();
 
         return view('website.home.index', get_defined_vars());
     }

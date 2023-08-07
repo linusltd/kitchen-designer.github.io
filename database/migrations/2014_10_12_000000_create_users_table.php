@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('is_verified')->comment('0=Not Verified, 1=Verified')->default(0);
-        $table->string('password');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
