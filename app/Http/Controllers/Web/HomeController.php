@@ -19,7 +19,6 @@ class HomeController extends Controller
         $sliders = Slider::with('book', 'category')->where(['type' => 0, 'status' => 0])->get();
         $categories = getAllCategories();
         $categoriesWithProducts = Book::all();
-
         return view('website.home.index', get_defined_vars());
     }
 
@@ -66,7 +65,7 @@ class HomeController extends Controller
             'phone' => $request->phone,
         ];
 
-        Mail::to('hamzaashraf160@gmail.com')->send(new \App\Mail\ContactUsMail(['details' => $details]));
+        Mail::to('zainveeray@gmail.com')->send(new \App\Mail\ContactUsMail(['details' => $details]));
 
         return redirect()->back()->with('message','Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.');
 
