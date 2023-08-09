@@ -44,7 +44,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($cart->order_items as $item)
+                                        @foreach ($cart->cart_items as $item)
                                         <tr>
                                             <td>
                                                 <a href="{{ route('website.home.book-detail-view', $item->book->slug) }}" target="_blank">
