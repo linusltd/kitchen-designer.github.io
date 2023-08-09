@@ -26,7 +26,7 @@ class DashboardController extends Controller
         $reviewsCount = Review::count();
         $customersCount = User::count();
         $toDayCartCount = Cart::whereDate('created_at', today())->count();
-        $totalCartCount = Cart::count();
+        $totalCartCount = Cart::withTrashed()->count();
 
         return view('admin.dashboard.index', get_defined_vars());
     }
