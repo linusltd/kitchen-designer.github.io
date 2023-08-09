@@ -27,7 +27,7 @@
                             <td><i class="toggle-button fas fa-plus cursor-pointer" data-id="{{ $cart->id }}"></i></td>
                             <td>{{  \Carbon\Carbon::parse($cart->updated_at)->format('d M Y H:i') }}</td>
 
-                            <td>{{ $cart->total_price }}</td>
+                            <td>{{ $cart->original_total_price }}</td>
                             <td>{{ $cart->item_count }}</td>
                         </tr>
                         {{-- Nested Table --}}
