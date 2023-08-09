@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                                 <span class="fw-semibold d-block mb-1" style="font-size:18px">Total Active Cart</span>
-                                <a href="{{ route('admin.reviews.index') }}">
+                                <a href="{{ route('admin.cart.index') }}">
                                     <h3 class="card-title mb-2" style="color: black; text-decoration:underline">{{ $totalCartCount }}</h3>
                                 </a>
                             </div>
