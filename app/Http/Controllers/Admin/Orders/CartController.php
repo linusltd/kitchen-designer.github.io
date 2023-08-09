@@ -15,7 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $carts = Cart::with('cart_items')->get();
+        $carts = Cart::with('cart_items')->paginate(30);
         return view('admin.cart.index', get_defined_vars());
     }
 
