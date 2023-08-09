@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\Cms\SliderController;
 use App\Http\Controllers\Admin\Customer\CustomerController;
 use App\Http\Controllers\Admin\Customer\QueryController;
 use App\Http\Controllers\Admin\Orders\OrderController as OrdersOrderController;
+use App\Http\Controllers\Admin\Orders\CartController as OrdersCartController;
 use App\Http\Controllers\Admin\Parameters\SupplierController;
 use App\Http\Controllers\Admin\Purchases\PurchaseOrderController;
 
@@ -43,13 +44,6 @@ use App\Http\Controllers\Admin\Purchases\PurchaseOrderController;
 |
 */
 
-/*Route Configurations*/
-
-Route::get('/config', function () {
-    Artisan::call('config:cache');
-    Artisan::call('route:clear');
-    Artisan::call('optimize');
-});
 
 /*Web Routes*/
 Route::group(['prefix' => '/', 'as' => 'website.'], function () {
@@ -200,6 +194,8 @@ Route::group(['prefix' => "portal-control-head-quarter", 'as' => 'admin.'], func
             Route::get('print-shipping-label/{orderIds}', 'printShippingLabels')->name('order.print-shipping-label');
 
         });
+
+        Route::resource('cart', OrdersCartController::class);
 
         /*Purchases Route*/
         Route::resources([

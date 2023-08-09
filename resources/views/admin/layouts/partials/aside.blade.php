@@ -108,6 +108,11 @@
                         <div data-i18n="Without menu">Manage Orders</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.cart.index') }}" class="menu-link">
+                        <div data-i18n="Without menu">Manage Carts</div>
+                    </a>
+                </li>
             </ul>
         </li>
         <!-- Purchases -->
