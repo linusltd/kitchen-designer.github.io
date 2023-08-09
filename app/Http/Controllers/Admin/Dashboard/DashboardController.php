@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Review;
 use App\Models\User;
@@ -24,6 +25,8 @@ class DashboardController extends Controller
         $onlineProductsCount = Book::where('status', 1)->count();
         $reviewsCount = Review::count();
         $customersCount = User::count();
+        $toDayCartCount = Cart::whereDate('created_at', today())->count();
+        $totalCartCount = Cart::count();
 
         return view('admin.dashboard.index', get_defined_vars());
     }

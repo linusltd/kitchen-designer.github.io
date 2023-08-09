@@ -46,9 +46,25 @@
                                             alt="chart success" class="rounded" />
                                     </div>
                                 </div>
-                                <span class="fw-semibold d-block mb-1" style="font-size:18px">New Reviews</span>
+                                <span class="fw-semibold d-block mb-1" style="font-size:18px">Today Active Cart</span>
                                 <a href="{{ route('admin.reviews.index') }}">
-                                    <h3 class="card-title mb-2" style="color: black; text-decoration:underline">{{ $reviewsCount }}</h3>
+                                    <h3 class="card-title mb-2" style="color: black; text-decoration:underline">{{ $toDayCartCount }}</h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-3 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title d-flex align-items-start justify-content-between">
+                                    <div class="avatar flex-shrink-0">
+                                        <img src="{{ asset('assets/admin') }}/img/icons/unicons/chart-success.png"
+                                            alt="chart success" class="rounded" />
+                                    </div>
+                                </div>
+                                <span class="fw-semibold d-block mb-1" style="font-size:18px">Total Active Cart</span>
+                                <a href="{{ route('admin.reviews.index') }}">
+                                    <h3 class="card-title mb-2" style="color: black; text-decoration:underline">{{ $totalCartCount }}</h3>
                                 </a>
                             </div>
                         </div>
@@ -146,6 +162,22 @@
                                 <span class="fw-semibold d-block mb-1" style="font-size:18px">Online Products</span>
                                 <a href="{{ route('admin.books.index') }}">
                                     <h3 class="card-title mb-2" style="color: black; text-decoration:underline">{{ $onlineProductsCount }}</h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-3 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title d-flex align-items-start justify-content-between">
+                                    <div class="avatar flex-shrink-0">
+                                        <img src="{{ asset('assets/admin') }}/img/icons/unicons/chart-success.png"
+                                            alt="chart success" class="rounded" />
+                                    </div>
+                                </div>
+                                <span class="fw-semibold d-block mb-1" style="font-size:18px">New Reviews</span>
+                                <a href="{{ route('admin.reviews.index') }}">
+                                    <h3 class="card-title mb-2" style="color: black; text-decoration:underline">{{ $reviewsCount }}</h3>
                                 </a>
                             </div>
                         </div>
