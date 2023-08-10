@@ -150,7 +150,7 @@
     </div>
 <br><br> <br><br>
 
-    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4919.764532528218!2d74.14953651846433!3d32.158439972660055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndroon%20Hafizabad%20Road%2C%20Aalam%20Chowk%20Gujranwala!5e0!3m2!1sen!2s!4v1691705885601!5m2!1sen!2s"></iframe><a href="https://capcuttemplate.org/">Capcut Templates</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {width:100%!important;height:400px!important;}</style></div>
+    <div class="mapouter"><div class="gmap_canvas"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13510.851006844618!2d74.13035305248859!3d32.15804952329179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f2bdfa4b9e017%3A0xa28d3e96d499894d!2sHaider%20Colony%20Kotli%20Rustam%2C%20Gujranwala%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1691706121479!5m2!1sen!2s" width="100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 
 </section>
 <!-- /Contact Us Found -->
