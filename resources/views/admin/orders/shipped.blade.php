@@ -73,6 +73,7 @@
                 <table class="table">
                     <thead>
                     <tr>
+                        <td width="1%"><input type="checkbox" class="check-all" style="cursor: pointer"></td>
                         <td width="1%"></td>
                         <th width="1%">Order No.</th>
                         <th width="10%">Order Date</th>
@@ -86,6 +87,7 @@
                     <tbody class="table-border-bottom-0" id="categoryTable">
                         @foreach ($shippedOrders as $order)
                         <tr>
+                            <td><input type="checkbox" class="check-row" value="{{ $order->id }}" style="cursor: pointer"></td>
                             <td><i class="toggle-button fas fa-plus cursor-pointer" data-id="{{ $order->id }}"></i></td>
                             <td><a href="">#{{ $order->order_no }}</a></td>
                             <td>{{  \Carbon\Carbon::parse($order->received_at)->format('d M Y H:i') }}</td>
@@ -137,6 +139,7 @@
                                         <tr>
                                             <td>
                                                 <p class="m-0">{{ $order->address->fname .' '. $order->address->lname }}</p>
+                                                <p>{{ $order->address->phone }}</p>
                                                 <p class="m-0">{{ $order->address->address }}</p>
                                                 <p class="m-0">{{ $order->address->city  .' '. $order->address->zip }}</p>
                                             </td>

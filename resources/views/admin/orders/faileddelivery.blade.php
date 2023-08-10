@@ -130,6 +130,7 @@
                                         <tr>
                                             <td>
                                                 <p class="m-0">{{ $order->address->fname .' '. $order->address->lname }}</p>
+                                                <p>{{ $order->address->phone }}</p>
                                                 <p class="m-0">{{ $order->address->address }}</p>
                                                 <p class="m-0">{{ $order->address->city  .' '. $order->address->zip }}</p>
                                             </td>
