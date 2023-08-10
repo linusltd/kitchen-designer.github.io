@@ -131,7 +131,7 @@ class BooksController extends Controller
         $categories = Category::with('child')->where('parent_id', 0)->get();
         $languages = Language::all();
         $book =  Book::with('categories', 'authors', 'languages', 'images')->where('id', $id)->first();
-
+        // return $book;
         return view('admin.books.edit', get_defined_vars());
     }
 

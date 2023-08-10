@@ -204,12 +204,9 @@
         <tr>
           <td colspan="4">
             <p><b>Sender:</b></p>
-            <p>Kitchen Designer</p>
-            <p>Shop no 16 New Musaib Khan Market Near</p>
-            <p>Nadeem Variety Store Zahid Colony</p>
-            <p>Gujranwala,Punjab,Gujranwala -</p>
-            <p>Shaheenabad,Zahid Colony</p>
-            <p>Phone 03030126345</p>
+            <p>{{ $general->name }}</p>
+            <p>{{ $general->map }}</p>
+            <p>Phone {{ $general->phone }}</p>
           </td>
         </tr>
         </tbody>

@@ -394,26 +394,39 @@
                                     <div class="col-6">
                                         <div class="row mb-3">
                                             <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Low Stock Max.</label>
+                                                style="text-align: left;padding-right:0">Product Weight (kg)</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="weight" id="weight"
+                                                    class="form-control" placeholder="0.0" value=""
+                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                                    <span class="weight-error"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row mb-3">
+                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
+                                            style="text-align: right;padding-right:0">Low Stock Max.</label>
                                             <div class="col-sm-9">
                                                 <input type="text" name="low_stock_min" id="low_stock_min"
-                                                    class="form-control" placeholder="Low Stock Value" value="5"
-                                                    oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                                class="form-control" placeholder="Low Stock Value" value="5"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="row mb-4">
                                             <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Availability.</label>
+                                            style="text-align: right;padding-right:0">Availability.</label>
                                             <div class="col-sm-9">
-                                               <select name="in_stock" id="in_stock" class="form-control">
+                                                <select name="in_stock" id="in_stock" class="form-control">
                                                     <option value="0">In Stock</option>
                                                     <option value="1">Out Of Stock</option>
-                                               </select>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-6">
                                         <div class="row mb-3">
                                             <label class="col-sm-3 col-form-label" for="basic-default-name"
@@ -429,71 +442,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="card mb-4">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">SEO (Search Engine Opitimization Stuff) Meta </h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-12" >
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="price" id="price" class="form-control"
-                                                    placeholder="0.00"
-                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                                                <span class="text-danger price-error"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Special Price</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="special_price" id="special_price"
-                                                    class="form-control" placeholder="0.00"
-                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                                                <span class=" price-error">Spcial Price is a discount
-                                                    price</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Low Stock Max.</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="low_stock_min" id="low_stock_min"
-                                                    class="form-control" placeholder="Low Stock Value" value="5"
-                                                    oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">SKU (Auto Generated)</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="sku" id="sku" class="form-control"
-                                                    readonly placeholder="SKU">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
+
             </div>
         </div>
     </div>

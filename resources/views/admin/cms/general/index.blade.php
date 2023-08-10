@@ -214,8 +214,9 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="" class="mb-2">Map Link</label>
-                                <input type="text" name="map" placeholder="Map Link" value="{{ $general->map }}" class="form-control">
+                                <label for="" class="mb-2">Shipping Label Address <span class="text-danger">*</span></label>
+                                <input type="text" name="map" placeholder="Shipping Label Address" value="{{ $general->map }}" class="form-control">
+                                <span class="text-danger map-error"></span>
                             </div>
                         </div>
                     </div>

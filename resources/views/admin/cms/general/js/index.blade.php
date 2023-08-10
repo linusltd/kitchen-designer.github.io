@@ -170,7 +170,7 @@
                 const instagram = $('input[name="instagram"]').val();
                 const twitter = $('input[name="twitter"]').val();
 
-                let error_1 = true, error_2, error_3, error_4, error_5, error_6 = true, error_7, error_8 = true;
+                let error_1 = true, error_2, error_3, error_4, error_5, error_6 = true, error_7, error_9 = true,error_8 = true;
                 /*Applying Validation Before Save*/
 
                 @if ($general->logo == "")
@@ -234,6 +234,14 @@
                     error_8 = true;
                 }
 
+                if (!$.trim(map)) {
+                    $('.map-error').html(`The shipping label Address field is required.`);
+                    error_9 = false;
+                }else{
+                    $('.map-error').html(``);
+                    error_9 = true;
+                }
+
                 if (!$.trim(phone)) {
                     $('.phone-error').html(`The phone field is required.`);
                     error_4 = false;
@@ -242,7 +250,7 @@
                     error_4 = true;
                 }
                 console.log({error_1 , error_2 , error_3 , error_4 , error_5 , error_6 , error_7 , error_8})
-                if(error_1 && error_2 && error_3 && error_4 && error_5 && error_6 && error_7 && error_8) {
+                if(error_1 && error_2 && error_3 && error_4 && error_5 && error_6 && error_7 && error_8 && error_9) {
 
                     console.log('working')
                     image = document.getElementById('image').files[0];

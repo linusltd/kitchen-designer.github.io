@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class OrderController extends Controller
+class printShippingLabelsOrderController extends Controller
 {
 
     /**
@@ -174,6 +174,7 @@ class OrderController extends Controller
     public function printShippingLabels(Request $request, $orderIds){
         $orderIds = explode(',' , $orderIds);
         $logo = getGeneral()->logo;
+        $general = getGeneral();
         $orders = Order::with('address','order_items.book')->whereIN('id', $orderIds)->get();
         return view('admin.orders.print', get_defined_vars());
     }

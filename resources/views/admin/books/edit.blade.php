@@ -201,118 +201,7 @@
                         </form>
                     </div>
                 </div>
-                {{-- <div class="card mb-4">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Product Attributes</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row d-flex justify-content-center">
 
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Pages <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="pages" id="pages" class="form-control"
-                                                    placeholder="Pages"
-                                                    oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                    value="{{ $book->pages }}">
-                                                <span class="text-danger pages-error"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Binding</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="binding" id="binding" class="form-control"
-                                                    placeholder="Binding" value="{{ $book->binding }}">
-                                            </div>
-                                            <span class="text-danger binding-error"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Volume</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="volume" id="volume" class="form-control"
-                                                    placeholder="Volume" value="{{ $book->volume }}"
-                                                    oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                                            </div>
-                                            <span class="text-danger volume-error"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Size <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="size" id="size" class="form-control"
-                                                    value="{{ $book->size }}" placeholder='eg. 6" x 9"'>
-                                            </div>
-                                            <span class="text-danger size-error"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Author <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="col-sm-9">
-                                                <select name="author_id[]" id="author_id" class="form-control" multiple>
-                                                    <option value="">--select author--</option>
-                                                    @foreach ($authors as $item)
-                                                        <option value="{{ $item->id }}"
-                                                            @foreach ($book->authors as $author)
-                                                @selected($author->id == $item->id) @endforeach>
-                                                            {{ $item->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <span class="text-danger author_id-error"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: right;padding-right:0">Language <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="col-sm-9">
-                                                <select name="language_id[]" id="language_id" class="form-control"
-                                                    multiple>
-                                                    <option value="">--select language--</option>
-                                                    @foreach ($languages as $item)
-                                                        <option value="{{ $item->id }}"
-                                                            @foreach ($book->languages as $language)
-                                            @selected($language->id == $item->id) @endforeach>
-                                                            {{ $item->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <span class="text-danger language_id-error"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        </form>
-                    </div>
-                </div> --}}
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Highlights</h5>
@@ -420,6 +309,18 @@
                             </div>
                             <div class="col-12">
                                 <div class="row">
+                                    <div class="col-6">
+                                        <div class="row mb-3">
+                                            <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
+                                                style="text-align: left;padding-right:0">Product Weight (kg)</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="weight" id="weight"
+                                                    class="form-control" placeholder="0.0" value="{{ $book->weight }}"
+                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                                    <span class="weight-error"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-6">
                                         <div class="row mb-3">
                                             <label class="col-sm-3 col-form-label text-right" for="basic-default-name"

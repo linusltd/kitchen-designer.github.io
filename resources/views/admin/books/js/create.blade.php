@@ -438,6 +438,7 @@
 
                 let images = $('input[name="images[]"]').val();
                 const price = $('input[name="price"]').val();
+                const weight = $('input[name="weight"]').val();
                 const special_price = $('input[name="special_price"]').val();
                 const low_stock_min = $('input[name="low_stock_min"]').val();
                 const meta_keywords = $('input[name="meta_keywords"]').val();
@@ -516,7 +517,25 @@
                     $('.highlights-error').html(``);
                     $('.price-error').html(`book price should be less than 0`);
                     $('input[name="price"]').focus();
+                } else if (!$.trim(weight).length || weight <= 0) {
+                    $('.main_image-error').html(``);
+                    $('.name-error').html(``);
+                    $('.slug-error').html(``);
+                    $('.category_id-error').html(``);
+                    $('.pages-error').html(``);
+                    $('.binding-error').html(``);
+                    $('.volume-error').html(``);
+                    $('.size-error').html(``);
+                    $('.author_id-error').html(``);
+                    $('.language_id-error').html(``);
+                    $('.description-error').html(``);
+                    $('.images-error').html(``);
+                    $('.highlights-error').html(``);
+                    $('.price-error').html(``);
+                    $('.weight-error').html(`book weight should be less than 0`);
+                    $('input[name="price"]').focus();
                 } else {
+                    $('.weight-error').html(``);
                     $('.main_image-error').html(``);
                     $('.name-error').html(``);
                     $('.slug-error').html(``);
@@ -546,6 +565,7 @@
                     formData.append('meta_keywords', meta_keywords);
                     formData.append('status', status);
                     formData.append('image', image);
+                    formData.append('weight', weight);
                     formData.append('_token', _token);
                     if (sideImgArray.length > 0) {
                         for (let index = 0; index < sideImgArray.length; index++) {
