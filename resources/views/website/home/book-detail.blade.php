@@ -310,12 +310,12 @@
                         <a href="{{ route('website.home.book-detail-view', $item->slug) }}" class="book__name">{{ $item->name }}</a>
 
                         <div class="book__price">
-                            @if ($book->price !== $book->special_price)
+                            @if ($item->price !== $item->special_price)
                                 <span class="book__real__price">
-                                    Rs.{{ $book->price }}
+                                    Rs.{{ $item->price }}
                                 </span>
                             @endif
-                            <span class="book__special__price">Rs.{{$book->special_price}}</span>
+                            <span class="book__special__price">Rs.{{$item->special_price}}</span>
                         </div>
                         <button class="btn book__addtocart-btn" id="addToCartBtn" data-id="{{ $item->id }}">Add To Cart</button>
                     </div>
@@ -376,12 +376,12 @@
                         <a href="{{ route('website.home.book-detail-view', $item->slug) }}" class="book__name">{{ $item->name }}</a>
 
                         <div class="book__price">
-                            @if ($book->price !== $book->special_price)
+                            @if ($item->price !== $item->special_price)
                                 <span class="book__real__price">
-                                    Rs.{{ $book->price }}
+                                    Rs.{{ $item->price }}
                                 </span>
                             @endif
-                            <span class="book__special__price">Rs.{{$book->special_price}}</span>
+                            <span class="book__special__price">Rs.{{$item->special_price}}</span>
                         </div>
                         <button class="btn book__addtocart-btn" id="addToCartBtn" data-id="{{ $item->id }}">Add To Cart</button>
                     </div>
