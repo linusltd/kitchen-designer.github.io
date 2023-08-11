@@ -312,12 +312,13 @@
                                     <div class="col-6">
                                         <div class="row mb-3">
                                             <label class="col-sm-3 col-form-label text-right" for="basic-default-name"
-                                                style="text-align: left;padding-right:0">Product Weight (kg)</label>
+                                                style="text-align: left;padding-right:0">Product Weight (kg) <span
+                                                class="text-danger">*</span></label>
                                             <div class="col-sm-9">
                                                 <input type="text" name="weight" id="weight"
                                                     class="form-control" placeholder="0.0" value="{{ $book->weight }}"
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                                                    <span class="weight-error"></span>
+                                                    <span class="text-danger weight-error"></span>
                                             </div>
                                         </div>
                                     </div>

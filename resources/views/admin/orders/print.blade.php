@@ -168,7 +168,12 @@
           <th colspan="2">STANDARD</th>
         </tr>
         <tr>
-          <th colspan="2">0.4 KG</th>
+            @php
+            $sumOfWeight = $order->order_items->sum(function ($item) {
+                return $item->book->weight;
+            });
+            @endphp
+          <th colspan="2">{{ $sumOfWeight }} KG</th>
         </tr>
         <tr>
           <th colspan="2">STANDARD</th>

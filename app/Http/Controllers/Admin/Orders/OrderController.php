@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class printShippingLabelsOrderController extends Controller
+class OrderController extends Controller
 {
 
     /**

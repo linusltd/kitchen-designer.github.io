@@ -116,7 +116,7 @@
                         <th>SKU</th>
                         <th>Price</th>
                         <th>Stock</th>
-                        <th>Created</th>
+                        <th>Weight</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -141,7 +141,7 @@
                             <td>{{ $book->sku }}</td>
                             <td>{{ $book->price }}</td>
                             <td>{{ $book->quantity }}</td>
-                            <td>{{ $book->created_at }}</td>
+                            <td>{{ $book->weight }}</td>
                             <td></td>
                         </tr>
                         @endforeach

@@ -385,6 +385,11 @@
      padding: 0px 12px;
     }
 
+    .show__wrapper .show {
+        width: 100% !important;
+        height: 350px !important;
+      }
+
     /* ===============Message Section=================== */
     .message__container{
         justify-content: center;

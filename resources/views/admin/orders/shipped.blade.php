@@ -80,6 +80,7 @@
                         <th width="10%">Payment Method</th>
                         <th width="10%">Total Amount</th>
                         <th width="10%">Total Items</th>
+                        <th width="10%">Total Weight</th>
                         <th width="10%">Status</th>
                         <th width="10%">Action</th>
                     </tr>
@@ -94,6 +95,12 @@
                             <td>Cash on delivery</td>
                             <td>{{ $order->total_amount }}</td>
                             <td>{{ $order->qty }}</td>
+                            @php
+                            $sumOfWeight = $order->order_items->sum(function ($item) {
+                                return $item->book->weight;
+                            });
+                            @endphp
+                            <td>{{ $sumOfWeight }}</td>
                             <td>
                                 @if ($order->status == 0)
                                     Pending
@@ -122,7 +129,7 @@
                         </tr>
                         {{-- Nested Table --}}
                         <tr class="nested-table-{{$order->id}}" style="display: none">
-                            <td colspan="9">
+                            <td colspan="10">
                                 <table class="nested-table table">
                                     <thead>
                                         <tr>
@@ -131,6 +138,7 @@
                                             <td width="10%">Product</td>
                                             <td width="5%">Price</td>
                                             <td width="5%">Quantity</td>
+                                            <td width="5%">Weight</td>
                                             <td width="10%">Amount</td>
                                         </tr>
                                     </thead>
@@ -155,6 +163,7 @@
                                             </td>
                                             <td>{{ intval($item->price)}}</td>
                                             <td>{{ intval($item->qty)}}</td>
+                                            <td>{{ intval($item->weight)}}</td>
                                             <td>{{ $item->total_amount }}</td>
                                         </tr>
                                         @endforeach

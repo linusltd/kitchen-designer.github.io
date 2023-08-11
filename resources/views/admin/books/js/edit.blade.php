@@ -515,7 +515,7 @@
                     $('.highlights-error').html(``);
                     $('.price-error').html(``);
                     $('.weight-error').html(`book weight should be less than 0`);
-                    $('input[name="price"]').focus();
+                    $('input[name="weight"]').focus();
                 } else {
                     $('.weight-error').html(``);
                     $('.main_image-error').html(``);

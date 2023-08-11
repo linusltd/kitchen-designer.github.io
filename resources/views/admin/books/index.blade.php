@@ -117,7 +117,7 @@
                         <th width="10%">SKU</th>
                         <th width="10%">Price</th>
                         <th width="10%">Stock</th>
-                        <th width="10%">Created</th>
+                        <th width="10%">Weight</th>
                         <th width="10%">Action</th>
                     </tr>
                     </thead>
@@ -142,7 +142,7 @@
                             <td>{{ $book->sku }}</td>
                             <td>{{ $book->price }}</td>
                             <td>{{ $book->quantity }}</td>
-                            <td>{{ $book->created_at }}</td>
+                            <td>{{ $book->weight }}</td>
                             <td>
                                 <a href="{{ route('admin.books.edit', $book->id) }}" target="_blank" class="">Edit</a>
                                 {{-- <a href="{{ route('admin.books.edit', $book->id) }}" class="text-danger">Deactivate</a> --}}
