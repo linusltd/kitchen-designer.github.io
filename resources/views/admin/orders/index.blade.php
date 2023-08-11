@@ -155,7 +155,7 @@
                                             </td>
                                             <td>{{ intval($item->price)}}</td>
                                             <td>{{ intval($item->qty)}}</td>
-                                            <td>{{ intval($item->weight)}}</td>
+                                            <td>{{ $item->weight}}</td>
                                             <td>{{ $item->total_amount }}</td>
                                         </tr>
                                         @endforeach
