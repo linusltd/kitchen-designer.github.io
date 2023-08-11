@@ -139,7 +139,14 @@
                                 </div>
                             </td>
                             <td>{{ $book->sku }}</td>
-                            <td>{{ $book->price }}</td>
+                            <td>
+                                @if ($book->price == $book->special_price)
+                                <span>{{ $book->price }}</span>
+                                @else
+                                <span style="text-decoration: line-through">{{ $book->price }}</span>{{" "}}
+                                <span>{{ $book->special_price }}</span>
+                                @endif
+                            </td>
                             <td>{{ $book->quantity }}</td>
                             <td>{{ $book->weight }}</td>
                             <td></td>
