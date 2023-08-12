@@ -80,9 +80,9 @@
             </tbody>
         </table>
 
-        <a href="{{ route('website.home.shop') }}">
+        {{-- <a href="{{ route('website.home.shop') }}">
             <button class="btn continue__shopping">Continue Shopping</button>
-        </a>
+        </a> --}}
         {{-- <button class="btn buy_now-btn quick__btn" id="clearCart">Clear Cart</button> --}}
         <p class="returning__customer">Returning customer? <a href="">Click here to login</a></p>
     </div>
@@ -137,7 +137,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="zip" class="lable">Postal Code / Zip <span style="color: red">*</span></label>
+                            <label for="zip" class="lable">Postal Code / Zip </label>
                             <input type="text" name="zip" class="form-control" value="{{ !is_null($address) ? $address->zip : '' }}">
                         </div>
                         <div class="form-group">

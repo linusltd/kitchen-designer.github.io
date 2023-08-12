@@ -52,7 +52,7 @@ class OrderController extends Controller
                 'country' => $request->country,
                 'address' => $request->address,
                 'city' => $request->city,
-                'zip' => $request->zip,
+                'zip' => $request->zip ? $request->zip : '',
                 'is_default' => $addresses > 0 ? 0 : 1
             ]);
 
@@ -82,7 +82,7 @@ class OrderController extends Controller
             'country' => $request->country,
             'address' => $request->address,
             'city' => $request->city,
-            'zip' => $request->zip,
+            'zip' => $request->zip ? $request->zip : '',
             'is_default' => $addresses > 0 ? 0 : 1
         ]);
 

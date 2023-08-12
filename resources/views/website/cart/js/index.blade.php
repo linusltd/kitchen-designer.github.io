@@ -112,9 +112,6 @@
                     state: {
                         required: true,
                     },
-                    zip: {
-                        required: true,
-                    },
                     phone: {
                         required: true
                     },
@@ -138,9 +135,6 @@
                     },
                     city: {
                         required: 'Billing Town / City is a required field.'
-                    },
-                    zip: {
-                        required: 'Billing Postcode / ZIP is a required field..'
                     },
                     phone: {
                         required: 'Billing Phone is a required field.'
