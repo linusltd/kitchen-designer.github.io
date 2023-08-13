@@ -15,8 +15,8 @@ class DashboardController extends Controller
     /*Loading index view*/
     public function index()
     {
-        $todayPendingOrdersCount = getTodayAllOrdersCount(0);
-        $todayCancelledOrdersCount = getTodayAllOrdersCount(2);
+        $todayPendingOrdersCount = getAllOrdersCount(0);
+        $todayCancelledOrdersCount = getAllOrdersCount(2);
         $totalOrdersCount =  Order::where(['type' => 0])->orderBy('id', 'desc')->count();
         $totalShippedOrdersCount = getAllOrdersCount(3);
         $totalCancelledOrdersCount = getAllOrdersCount(2);
