@@ -164,6 +164,7 @@ class OrderController extends Controller
             }
         }elseif($request->status == 1){ // Delivered Delivery
             $order->cancelled_at = Carbon::now();
+            Mail::to($order->address)->send(new \App\Mail\DeliverOrderMail(['details' => $details]));
         }
         $order->update();
 
