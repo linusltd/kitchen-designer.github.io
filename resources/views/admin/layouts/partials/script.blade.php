@@ -68,11 +68,9 @@
             $('body').find(`.nested-table-${orderId}`).toggle();
         });
 
-        $('#mySelect').change(function() {
-            $('#myForm').submit();
-        });
-
-
+        $('body').delegate('#mySelect', 'change', function(){
+            $(this).parent().parent().find('#myForm').submit();
+        })
 
     });
 </script>
