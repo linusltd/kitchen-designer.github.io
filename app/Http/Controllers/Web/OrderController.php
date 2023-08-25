@@ -138,7 +138,7 @@ class OrderController extends Controller
             'order' => $order,
             'date' => Carbon::parse($order->received_at)->format('F j, Y'),
             'orderItems' => $orderItems,
-            'address' => $address,
+            'address' => $order_address,
             'payment_method' => 'Cash on delivery'
         ];
         try{
