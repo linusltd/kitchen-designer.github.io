@@ -1,50 +1,54 @@
 @push('scripts')
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             @include('website.common.jsHelper')
 
             /*Clear Cart Items*/
-            $('#clearCart').click(function(){
+            $('#clearCart').click(function() {
                 $.ajax({
-                    url:"{{ route('website.cart.clear.cart') }}",
-                    method:"GET",
-                    success:function(response){
+                    url: "{{ route('website.cart.clear.cart') }}",
+                    method: "GET",
+                    success: function(response) {
                         window.location.reload();
                     }
                 })
             })
 
             /*Get Cart Items*/
-            function getCartItemsDetails(){
+            function getCartItemsDetails() {
                 $.ajax({
-                    url:"{{ route('website.cart.details') }}",
-                    method:"GET",
-                    success:function(response){
+                    url: "{{ route('website.cart.details') }}",
+                    method: "GET",
+                    success: function(response) {
                         $('#cart__body').html(response.cartItems)
                         $('#cartItemsBillBody').html(response.cartBill)
-                    },error:function(xhr){
+                    },
+                    error: function(xhr) {
                         console.log(xhr.responseText)
                     }
                 })
             }
 
             /*Delete Item From Cart*/
-            $('body').delegate('#deleteCartItem', 'click', function(){
+            $('body').delegate('#deleteCartItem', 'click', function() {
                 const id = $(this).attr('data-id')
 
                 $.ajax({
-                    url:"{{ route('website.cart.delete.from.cart') }}",
-                    method:"GET",
-                    data:{id},
-                    success:function(response){
-                        if(response.success == false){
+                    url: "{{ route('website.cart.delete.from.cart') }}",
+                    method: "GET",
+                    data: {
+                        id
+                    },
+                    success: function(response) {
+                        if (response.success == false) {
                             window.location.reload();
                         }
                         getCartCount();
                         getCartTotal();
                         getCartItemsDetails();
 
-                    },error:function(xhr){
+                    },
+                    error: function(xhr) {
                         console.log(xhr.responseText)
                     }
                 })
@@ -53,18 +57,21 @@
             });
 
             /*Add Item To Cart*/
-            $('body').delegate('#addToCartInternalBtn', 'click', function(){
+            $('body').delegate('#addToCartInternalBtn', 'click', function() {
                 const book_id = $(this).attr('data-id')
                 $.ajax({
-                    url:"{{ route('website.cart.add.to.cart') }}",
-                    method:"POST",
-                    data:{book_id, _token:"{{ csrf_token() }}"},
-                    success:function(response){
+                    url: "{{ route('website.cart.add.to.cart') }}",
+                    method: "POST",
+                    data: {
+                        book_id,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
                         getCartCount();
                         getCartTotal();
                         getCartItemsDetails();
                     },
-                    error:function(xhr){
+                    error: function(xhr) {
                         console.log(xhr.responseText)
                     }
                 })
@@ -72,21 +79,24 @@
             });
 
             /*Remove Item To Cart*/
-            $('body').delegate('#removeFromCartInternalBtn', 'click', function(){
+            $('body').delegate('#removeFromCartInternalBtn', 'click', function() {
                 const id = $(this).attr('data-id')
                 $.ajax({
-                    url:"{{ route('website.cart.remove.from.cart') }}",
-                    method:"POST",
-                    data:{id, _token:"{{ csrf_token() }}"},
-                    success:function(response){
-                        if(response.success == false){
+                    url: "{{ route('website.cart.remove.from.cart') }}",
+                    method: "POST",
+                    data: {
+                        id,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        if (response.success == false) {
                             window.location.reload();
                         }
                         getCartCount();
                         getCartTotal();
                         getCartItemsDetails();
                     },
-                    error:function(xhr){
+                    error: function(xhr) {
                         console.log(xhr.responseText)
                     }
                 })
@@ -149,7 +159,8 @@
                         url: "{{ route('website.order.create-order') }}",
                         data: $(form).serialize(),
                         beforeSend: function() {
-                            $('.place__order-btn').html(`<i class="fas fa-spinner fa-spin spinner"></i>`)
+                            $('.place__order-btn').html(
+                                `<i class="fas fa-spinner fa-spin spinner"></i>`)
                             $('.place__order-btn').attr('disabled', true)
                         },
                         complete: function() {
@@ -157,9 +168,11 @@
                             $('.place__order-btn').removeAttr('disabled')
                         },
                         success: function(response) {
-                            if(response.status == false){
+                            if (response.status == false) {
                                 $('input[name="email"]').focus()
-                                return alert('Your email address is not valid. Please use a valid email address');
+                                return alert(
+                                    'Your email address is not valid. Please use a valid email address'
+                                );
 
                             }
                             window.location = response;

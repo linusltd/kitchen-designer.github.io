@@ -3,7 +3,8 @@
         <article class="book__card">
             <div class="book__img-wrapper">
                 <a href="{{ route('website.home.book-detail-view', $book->slug) }}">
-                    <img src="{{ asset('storage/'. $book->images[0]->filename ) }}" alt="{{ $book->title }}" class="book__img">
+                    <img src="{{ asset('storage/' . $book->images[0]->filename) }}" alt="{{ $book->title }}"
+                        class="book__img">
 
                 </a>
             </div>
@@ -24,28 +25,29 @@
                         @endphp
                         <div class="ratings-wrapper">
                             @for ($i = 1; $i <= $fullStars; $i++)
-                            <img src="{{ asset('assets/website') }}/images/star.svg" class=""/>
+                                <img src="{{ asset('assets/website') }}/images/star.svg" class="" />
                             @endfor
 
                             @if ($halfStar > 0)
-                            {{-- Half Star --}}
-                                <img src="{{ asset('assets/website') }}/images/star.svg" class=""/>
+                                {{-- Half Star --}}
+                                <img src="{{ asset('assets/website') }}/images/star.svg" class="" />
                             @endif
                             {{-- Full Star --}}
                             @for ($i = 1; $i <= $emptyStars; $i++)
-                                <img src="{{ asset('assets/website') }}/images/star.svg" class=""/>
+                                <img src="{{ asset('assets/website') }}/images/star.svg" class="" />
                             @endfor
                         </div>
-                        @else
+                    @else
                         <div class="ratings-wrapper">
-                        <img src="{{ asset('assets/website') }}/images/bland_star.svg" class=""/>
-                        <img src="{{ asset('assets/website') }}/images/bland_star.svg" class=""/>
-                        <img src="{{ asset('assets/website') }}/images/bland_star.svg" class=""/>
-                        <img src="{{ asset('assets/website') }}/images/bland_star.svg" class=""/>
-                        <img src="{{ asset('assets/website') }}/images/bland_star.svg" class=""/>
+                            <img src="{{ asset('assets/website') }}/images/bland_star.svg" class="" />
+                            <img src="{{ asset('assets/website') }}/images/bland_star.svg" class="" />
+                            <img src="{{ asset('assets/website') }}/images/bland_star.svg" class="" />
+                            <img src="{{ asset('assets/website') }}/images/bland_star.svg" class="" />
+                            <img src="{{ asset('assets/website') }}/images/bland_star.svg" class="" />
                         </div>
-                        @endif
-                    <div class="tooltip"><i class="fa-regular fa-heart" id="addToWishList" data-id="{{ $book->id }}"></i>
+                    @endif
+                    <div class="tooltip"><i class="fa-regular fa-heart" id="addToWishList"
+                            data-id="{{ $book->id }}"></i>
                         <div class="top">
                             <p>Add To Wishlist</p>
                             <i></i>
@@ -54,7 +56,7 @@
                 </div>
 
                 <a class="book__name" href="{{ route('website.home.book-detail-view', $book->slug) }}">
-                    {{$book->name}}
+                    {{ $book->name }}
                 </a>
 
                 <div class="book__price">
@@ -65,7 +67,8 @@
                     @endif
                     <span class="book__special__price">Rs.{{ $book->special_price }}</span>
                 </div>
-                <button class="btn book__addtocart-btn" id="addToCartBtn" data-id="{{ $book->id }}">Add To Cart</button>
+                <button class="btn book__addtocart-btn" id="addToCartBtn" data-id="{{ $book->id }}">Add To
+                    Cart</button>
             </div>
         </article>
     @endforeach

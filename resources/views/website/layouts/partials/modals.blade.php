@@ -16,8 +16,9 @@
             <div class="modal-content">
                 <div id="cartContent"></div>
                 <div class="modal-footer">
-                    <a href="{{ route('website.home.shop') }}" class="btn book__addtocart-btn quick__btn">Continue Shopping</a>
-                    <a href="{{ route('website.cart.index') }}" class="btn buy_now-btn quick__btn" >Check Out</a>
+                    <a href="{{ route('website.home.shop') }}" class="btn book__addtocart-btn quick__btn">Continue
+                        Shopping</a>
+                    <a href="{{ route('website.cart.index') }}" class="btn buy_now-btn quick__btn">Check Out</a>
                 </div>
             </div>
         </div>
@@ -29,7 +30,7 @@
             <!-- Modal content -->
             <div class="modal-content cart__modal">
                 <div class="modal-header">
-                    {{-- <i class="fas fa-close cart__modal-close"></i> --}}
+                    <i class="fas fa-close cart__modal-close"></i>
                 </div>
                 <div class="modal-body" id="cartModalHtml">
 

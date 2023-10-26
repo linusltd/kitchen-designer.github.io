@@ -14,11 +14,20 @@ use Illuminate\Support\Facades\Cookie;
 class CartController extends Controller
 {
     /*Loading Cart Index View*/
-    public function index(){
+    public function index()
+    {
         $cart = getCartDetails();
         $cart_items = getCartDetails() ? getCartDetails()->cart_items : [];
         $address = Address::where(['user_id' => Auth::user() ? Auth::user()->id : 0])->orderBy('id', 'desc')->first();
-        return view('website.cart.index', get_defined_vars());
+        return view('new-website.cart.index', get_defined_vars());
+    }
+
+    public function checkout()
+    {
+        $cart = getCartDetails();
+        $cart_items = getCartDetails() ? getCartDetails()->cart_items : [];
+        $address = Address::where(['user_id' => Auth::user() ? Auth::user()->id : 0])->orderBy('id', 'desc')->first();
+        return view('new-website.cart.checkout', get_defined_vars());
     }
 
     /**
@@ -52,67 +61,128 @@ class CartController extends Controller
 
         $cart_items = getCartDetails() ? getCartDetails()->cart_items : [];
         $html = '';
-        foreach($cart_items as $item){
-            $html .= '
-            <tr>
-            <td>
-                <div class="cart__item">
-                    <div class="cart__item-img">
-                        <a href="'.route('website.home.book-detail-view', $item->book->slug).'" class="cart__item-name">
-                            <img src="'.asset('storage/' . $item->book->images[0]->filename) .'" alt="'.$item->book->name.'">
-                        </a>
-                    </div>
+        // foreach ($cart_items as $item) {
+        //     $html .= '
+        //     <tr>
+        //     <td>
+        //         <div class="cart__item">
+        //             <div class="cart__item-img">
+        //                 <a href="' . route('website.home.book-detail-view', $item->book->slug) . '" class="cart__item-name">
+        //                     <img src="' . asset('storage/' . $item->book->images[0]->filename) . '" alt="' . $item->book->name . '">
+        //                 </a>
+        //             </div>
 
-                    <div class="cart__item-info">
-                        <a href="'.route('website.home.book-detail-view', $item->book->slug).'" class="cart__item-name">'.$item->book->name.'
-                        </a>
-                        <span class="cart__mobile_quantity">'.$item->quantity.' x Rs.'.$item->price.' = Rs.'.$item->total_price.'</span>
-                        <i class="cart__mobile_trash fa fa-trash" style="cursor: pointer;color:red" id="deleteCartItem" data-id="'.$item->id.'"></i>
-                    </div>
-                </div>
+        //             <div class="cart__item-info">
+        //                 <a href="' . route('website.home.book-detail-view', $item->book->slug) . '" class="cart__item-name">' . $item->book->name . '
+        //                 </a>
+        //                 <span class="cart__mobile_quantity">' . $item->quantity . ' x Rs.' . $item->price . ' = Rs.' . $item->total_price . '</span>
+        //                 <i class="cart__mobile_trash fa fa-trash" style="cursor: pointer;color:red" id="deleteCartItem" data-id="' . $item->id . '"></i>
+        //             </div>
+        //         </div>
+        //     </td>
+        //     <td>Rs.' . $item->price . '</td>
+        //     <td><div class="quick__qty">
+        //         <div class="qty__wrapper">
+        //             <button class="minus__btn" id="removeFromCartInternalBtn" data-id="' . $item->id . '"><i class="fas fa-minus"></i></button>
+        //             <input type="text" name="" id="" value="' . $item->quantity . '" readonly>
+        //             <button class="plus__btn" id="addToCartInternalBtn" data-id="' . $item->book_id . '"><i class="fas fa-plus"></i></button>
+        //         </div>
+        //     </div></td>
+        //     <td>Rs.' . $item->total_price . '</td>
+        //     <td><i class="fa fa-trash" style="cursor: pointer;color:red" id="deleteCartItem" data-id="' . $item->id . '"></i></td>
+        // </tr>
+        //     ';
+        // }
+        foreach ($cart_items as $item) {
+            $html .= '<tr>
+            <td class="pro-thumbnail">
+                <a
+                    href="' . route('website.home.book-detail-view', $item->book->slug) . '">
+                    <img class="img-fluid"
+                        src="' . asset('storage/' . $item->book->images[0]->filename) . '"
+                        alt="' . $item->book->name . '" />
+                </a>
             </td>
-            <td>Rs.'.$item->price.'</td>
-            <td><div class="quick__qty">
-                <div class="qty__wrapper">
-                    <button class="minus__btn" id="removeFromCartInternalBtn" data-id="'.$item->id.'"><i class="fas fa-minus"></i></button>
-                    <input type="text" name="" id="" value="'.$item->quantity.'" readonly>
-                    <button class="plus__btn" id="addToCartInternalBtn" data-id="'.$item->book_id.'"><i class="fas fa-plus"></i></button>
-                </div>
-            </div></td>
-            <td>Rs.'.$item->total_price.'</td>
-            <td><i class="fa fa-trash" style="cursor: pointer;color:red" id="deleteCartItem" data-id="'.$item->id.'"></i></td>
-        </tr>
-            ';
+            <td class="pro-title">
+                <a
+                    href="' . route('website.home.book-detail-view', $item->book->slug) . '">
+                    ' . $item->book->name . '
+                </a>
+            </td>
+            <td class="pro-price">
+                <span>Rs.' . $item->price . '</span>
+            </td>
+            <td class="pro-quantity">
+            <div class="pro-qty">
+                <span class="dec qtybtn"
+                        id="removeFromCartInternalBtn"
+                        data-id="' . $item->id . '">-</span>
+                            <input type="text" name="" id="" value="' . $item->quantity . '"
+                            readonly="">
+                <span class="inc qtybtn" id="addToCartInternalBtn"
+                        data-id="' . $item->book_id . '">+</span>
+            </div>
+            </td>
+            <td class="pro-subtotal">
+                <span>Rs.' . $item->total_price . '</span>
+            </td>
+            <td class="pro-remove">
+                <a href="#" id="deleteCartItem" data-id="' . $item->id . '">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+            </td>
+        </tr>';
         }
+
 
 
         $totalBillHtml = '';
 
 
-        foreach ($cart_items as $item){
-           $totalBillHtml .= '<tr>
-            <td>'.$item->book->name.' x '.$item->quantity.'</td>
-                <td align="center">Rs.'.number_format($item->total_price, 2).'</td>
-            </tr>';
+        // foreach ($cart_items as $item) {
+        // $totalBillHtml .= '<tr>
+        // <td>' . $item->book->name . ' x ' . $item->quantity . '</td>
+        // <td align="center">Rs.' . number_format($item->total_price, 2) . '</td>
+        // </tr>';
+        // }
+        foreach ($cart_items as $item) {
+            $totalBillHtml .= '
+                                        <tr>
+                                            <td>Sub Total</td>
+                                            <td>Rs.' . number_format($cart->items_subtotal_price, 2) . '</td>
+                                        </tr>
+            ';
         }
 
         $delivery_charges = $cart->items_subtotal_price <= 10000 ? 300 : 0;
-        $totalBillHtml .= '
-            <tr>
-                <td><strong>SUB TOTAL</strong></td>
-                <td align="center">Rs.'.number_format($cart->items_subtotal_price, 2).'</td>
-            </tr>';
+        // $totalBillHtml .= '
+        // <tr>
+        // <td><strong>SUB TOTAL</strong></td>
+        // <td align="center">Rs.' . number_format($cart->items_subtotal_price, 2) . '</td>
+        // </tr>';
 
-            $totalBillHtml .= '<tr>
-            <td><strong>SHIPPING FEE</strong></td>
-                <td align="center" class="shipping__fee">Rs.'.$delivery_charges.'.00</td>
-            </tr>';
+        $totalBillHtml .= '<tr>
+            <td>Shipping</td>
+            <td>Rs.' . $delivery_charges . '.00</td>
+        </tr>';
+
+        // $totalBillHtml .= '<tr>
+        // <td><strong>SHIPPING FEE</strong></td>
+        // <td align="center" class="shipping__fee">Rs.' . $delivery_charges . '.00</td>
+        // </tr>';
+
+        $totalBillHtml .= '<tr class="total">
+            <td>Total</td>
+            <td class="total-amount">
+            Rs. ' .  number_format($cart->items_subtotal_price + $delivery_charges, 2) . '
+            </td>
+        </tr>';
 
 
-           $totalBillHtml .= '<tr>
-                <td class="total"><strong>TOTAL</strong></td>
-                <td align="center" class="total"><strong>Rs.'.number_format($cart->items_subtotal_price + $delivery_charges, 2).'</strong></td>
-            </tr>';
+        // $totalBillHtml .= '<tr>
+        // <td class="total"><strong>TOTAL</strong></td>
+        // <td align="center" class="total"><strong>Rs.' . number_format($cart->items_subtotal_price + $delivery_charges, 2) . '</strong></td>
+        // </tr>';
 
         return response()->json(['cartItems' => $html, 'cartBill' => $totalBillHtml]);
     }
@@ -125,44 +195,92 @@ class CartController extends Controller
     public function getCartContent(Request $request)
     {
         $cart = getCartDetails();
-
         $cart_items = getCartDetails() ? getCartDetails()->cart_items : [];
-        $html = '<div class="modal-header">
-                <h3 class="cart__modal-title">YOUR CART</h3>
-                <p class="cart__items-count">('.$cart->item_count.') ITEMS</p>
-                <a href="'.route('website.cart.index').'" class="cart__view">View Cart</a>
-            </div>
-            <div class="modal-body">
-                <div class="cart__wrapper-container">
+        $address = Address::where(['user_id' => Auth::user() ? Auth::user()->id : 0])->orderBy('id', 'desc')->first();
+        $cart_items = getCartDetails() ? getCartDetails()->cart_items : [];
 
-                ';
-        foreach($cart_items as $item){
-            $html .= '
-            <div class="cart__item-wrapper">
-                        <div class="cart__item-image">
-                            <a href="'.route('website.home.book-detail-view', $item->book->slug).'">
-                                <img src="'.asset('storage/' . $item->book->images[0]->filename) .'" alt="">
-                            </a>
-                        </div>
-                        <div class="cart__info">
-                            <p class="cart__item-name">
-                            <a href="'.route('website.home.book-detail-view', $item->book->slug).'">'.$item->book->name.'</a>
-                            </p>
-                            <p class="cart__item-price">
-                                '.$item->quantity.' x Rs.'.$item->price.'
-                            </p>
-                            <div class="delete-cart">
-                               <!--- <i class="fas fa-close"></i>---->
-                            </div>
-                        </div>
-                    </div>
-            ';
+        $html = '<div class="minicart-item-wrapper">
+        <ul>';
+        foreach ($cart_items as $item) {
+
+            $html .= '<li class="minicart-item">
+                <div class="minicart-thumb">
+                    <a href="' . route('website.home.book-detail-view', $item->book->slug) . '">
+                        <img src="' . asset('storage/' . $item->book->images[0]->filename) . '" alt="product">
+                    </a>
+                </div>
+                <div class="minicart-content">
+                    <h3 class="product-name">
+                        <a href="' . route('website.home.book-detail-view', $item->book->slug) . '">' . $item->book->name . '</a>
+                    </h3>
+                    <p>
+                        <span class="cart-quantity">' . $item->quantity . ' <strong>&times;</strong></span>
+                        <span class="cart-price">' . $item->price . '</span>
+                    </p>
+                </div>
+            </li>
+        ';
         }
 
-        $html .= '</div>
-        </div>';
+        $delivery_charges = $cart->items_subtotal_price <= 10000 ? 300 : 0;
 
-         return $html;
+        $html .= '
+        </ul>
+    </div>
+
+    <div class="minicart-pricing-box">
+        <ul>
+            <li>
+                <span>sub-total</span>
+                <span><strong>Rs.' . number_format($cart->items_subtotal_price, 2) . '</strong></span>
+            </li>
+            <li>
+                <span>Shipping</span>
+                <span><strong>Rs.' . $delivery_charges . '.00</strong></span>
+            </li>
+            <li class="total">
+                <span>total</span>
+                <span><strong>Rs.' . number_format($cart->items_subtotal_price + $delivery_charges, 2) . '</strong></span>
+            </li>
+        </ul>
+    </div>
+    ';
+        // $html = '<div class="modal-header">
+        //         <h3 class="cart__modal-title">YOUR CART</h3>
+        //         <p class="cart__items-count">(' . $cart->item_count . ') ITEMS</p>
+        //         <a href="' . route('website.cart.index') . '" class="cart__view">View Cart</a>
+        //     </div>
+        //     <div class="modal-body">
+        //         <div class="cart__wrapper-container">
+
+        //         ';
+        // foreach ($cart_items as $item) {
+        //     $html .= '
+        //     <div class="cart__item-wrapper">
+        //                 <div class="cart__item-image">
+        //                     <a href="' . route('website.home.book-detail-view', $item->book->slug) . '">
+        //                         <img src="' . asset('storage/' . $item->book->images[0]->filename) . '" alt="">
+        //                     </a>
+        //                 </div>
+        //                 <div class="cart__info">
+        //                     <p class="cart__item-name">
+        //                     <a href="' . route('website.home.book-detail-view', $item->book->slug) . '">' . $item->book->name . '</a>
+        //                     </p>
+        //                     <p class="cart__item-price">
+        //                         ' . $item->quantity . ' x Rs.' . $item->price . '
+        //                     </p>
+        //                     <div class="delete-cart">
+        //                        <!--- <i class="fas fa-close"></i>---->
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //     ';
+        // }
+
+        // $html .= '</div>
+        // </div>';
+
+        return $html;
     }
 
     /**
@@ -222,8 +340,7 @@ class CartController extends Controller
 
 
             return response($html)->withCookie($cookie);
-
-        }else{
+        } else {
             /*Get Cookie Value*/
             $token = Cookie::get('cart-token');
             $cart = Cart::where('token', $token)->first();
@@ -232,13 +349,12 @@ class CartController extends Controller
             $checkCartItem = CartItem::where(['cart_id' => $cart->id, 'book_id' => $request->book_id])->first();
             $price = $book->special_price != $book->price ? $book->special_price : $book->price;
 
-            if(!is_null($checkCartItem)){
+            if (!is_null($checkCartItem)) {
 
                 $checkCartItem->quantity += 1;
                 $checkCartItem->total_price += $price;
                 $checkCartItem->update();
-
-            }else{
+            } else {
 
                 /*Storing Cart Items Data*/
                 CartItem::create([
@@ -248,7 +364,6 @@ class CartController extends Controller
                     'price' => $price,
                     'total_price' => $price,
                 ]);
-
             }
 
             /*Upating Cart Values*/
@@ -300,8 +415,7 @@ class CartController extends Controller
             ]);
 
             return response($html)->withCookie($cookie);
-
-        }else{
+        } else {
             /*Get Cookie Value*/
             $token = Cookie::get('cart-token');
             $cart = Cart::where('token', $token)->first();
@@ -310,13 +424,12 @@ class CartController extends Controller
             $checkCartItem = CartItem::where(['cart_id' => $cart->id, 'book_id' => $request->book_id])->first();
             $price = $book->special_price != $book->price ? $book->special_price : $book->price;
 
-            if(!is_null($checkCartItem)){
+            if (!is_null($checkCartItem)) {
 
                 $checkCartItem->quantity += $request->quantity;
                 $checkCartItem->total_price += $price * $request->quantity;
                 $checkCartItem->update();
-
-            }else{
+            } else {
 
                 /*Storing Cart Items Data*/
                 CartItem::create([
@@ -326,7 +439,6 @@ class CartController extends Controller
                     'price' => $price,
                     'total_price' => $price * $request->quantity,
                 ]);
-
             }
 
             /*Upating Cart Values*/
@@ -344,14 +456,15 @@ class CartController extends Controller
      *
      * @return response()
      */
-    public function addToCartWishList(Request $request){
+    public function addToCartWishList(Request $request)
+    {
         /*Get Book Data*/
         $book = getBookDetails($request->book_id);
         $price = $book->special_price != $book->price ? $book->special_price : $book->price;
         $html = getRecentlyAddedCartItemsHtml($request->book_id);
 
         /*Deleteing Item From WishList*/
-        $wishlilst =  WishList::where('id',$request->id)->first();
+        $wishlilst =  WishList::where('id', $request->id)->first();
         $wishlilsts = WishList::where('token', $wishlilst->token)->get();
         $wishlilst->delete();
         /*Check If Cookie Already Exists*/
@@ -381,8 +494,7 @@ class CartController extends Controller
             ]);
 
             return response()->json(['wishlilsts' => $wishlilsts])->withCookie($cookie);
-
-        }else{
+        } else {
             /*Get Cookie Value*/
             $token = Cookie::get('cart-token');
             $cart = Cart::where('token', $token)->first();
@@ -391,13 +503,12 @@ class CartController extends Controller
             $checkCartItem = CartItem::where(['cart_id' => $cart->id, 'book_id' => $request->book_id])->first();
             $price = $book->special_price != $book->price ? $book->special_price : $book->price;
 
-            if(!is_null($checkCartItem)){
+            if (!is_null($checkCartItem)) {
 
                 $checkCartItem->quantity += 1;
                 $checkCartItem->total_price += $price;
                 $checkCartItem->update();
-
-            }else{
+            } else {
 
                 /*Storing Cart Items Data*/
                 CartItem::create([
@@ -407,7 +518,6 @@ class CartController extends Controller
                     'price' => $price,
                     'total_price' => $price,
                 ]);
-
             }
 
             /*Upating Cart Values*/
@@ -418,7 +528,6 @@ class CartController extends Controller
 
             return response()->json(['wishlilsts' => $wishlilsts]);
         }
-
     }
 
     /**
@@ -426,19 +535,20 @@ class CartController extends Controller
      *
      * @return response()
      */
-    public function addToCartAllWishList(Request $request){
+    public function addToCartAllWishList(Request $request)
+    {
 
         /*Deleteing Item From WishList*/
         $wishListToken = Cookie::get('wishlist-token');
         $wishlists = WishList::where('token', $wishListToken)->get();
 
-        $token = encryptCartId(date('d-m-y').time());
+        $token = encryptCartId(date('d-m-y') . time());
         $cookie = '';
-        foreach($wishlists as $wishlist){
+        foreach ($wishlists as $wishlist) {
             /*Get Book Data*/
             $book = getBookDetails($wishlist->book_id);
             $price = $book->special_price != $book->price ? $book->special_price : $book->price;
-             /*Check If Cookie Already Exists*/
+            /*Check If Cookie Already Exists*/
             if (!Cookie::has('cart-token') || expiredCookie('cart-token')) {
 
                 $data = [
@@ -461,9 +571,7 @@ class CartController extends Controller
                     'price' => $price,
                     'total_price' => $price,
                 ]);
-
-
-            }else{
+            } else {
 
                 /*Get Cookie Value*/
                 $token = Cookie::get('cart-token');
@@ -473,13 +581,12 @@ class CartController extends Controller
                 $checkCartItem = CartItem::where(['cart_id' => $cart->id, 'book_id' => $wishlist->book_id])->first();
                 $price = $book->special_price != $book->price ? $book->special_price : $book->price;
 
-                if(!is_null($checkCartItem)){
+                if (!is_null($checkCartItem)) {
 
                     $checkCartItem->quantity += 1;
                     $checkCartItem->total_price += $price;
                     $checkCartItem->update();
-
-                }else{
+                } else {
 
                     /*Storing Cart Items Data*/
                     CartItem::create([
@@ -489,7 +596,6 @@ class CartController extends Controller
                         'price' => $price,
                         'total_price' => $price,
                     ]);
-
                 }
 
                 /*Upating Cart Values*/
@@ -497,19 +603,16 @@ class CartController extends Controller
                 $cart->items_subtotal_price += $price;
                 $cart->original_total_price += $price;
                 $cart->update();
-
             }
         }
 
         WishList::where('token', $wishListToken)->delete();
-        if(!Cookie::has('cart-token') || expiredCookie('cart-token')){
+        if (!Cookie::has('cart-token') || expiredCookie('cart-token')) {
             $cookie = Cookie::make('cart-token', $token, time() + (10 * 365 * 24 * 60 * 60));
             return response()->withCookie($cookie);
-        }else{
+        } else {
             return true;
         }
-
-
     }
 
     /**
@@ -522,10 +625,10 @@ class CartController extends Controller
         /*Update Quantity From Cart Items*/
         $cartItem = CartItem::where('id', $request->id)->first();
 
-        if($cartItem->quantity == 1){
+        if ($cartItem->quantity == 1) {
             /*Delete Cart Item*/
             $cartItem->delete();
-        }else{
+        } else {
             $cartItem->quantity -= 1;
             $cartItem->total_price -= $cartItem->price;
             $cartItem->update();
@@ -540,7 +643,7 @@ class CartController extends Controller
 
         /*Refetching The Cart*/
         $cart = Cart::where('id', $cartItem->cart_id)->first();
-        if($cart->item_count <= 0){
+        if ($cart->item_count <= 0) {
             $cart->delete();
             $cookie = Cookie::forget('cart-token');
             return response()->json(['success'   => false, 'response' => 'Cart Is Empty'])->withCookie($cookie);
@@ -570,14 +673,12 @@ class CartController extends Controller
 
         /*Refetching The Cart*/
         $cart = Cart::where('id', $cartItem->cart_id)->first();
-        if($cart->item_count <= 0){
+        if ($cart->item_count <= 0) {
             $cart->delete();
             $cookie = Cookie::forget('cart-token');
             return response()->json(['success'   => false, 'response' => 'Cart Is Empty'])->withCookie($cookie);
         }
 
         return  response()->json(['success'   => true, 'response' => 'Cart Item Delete Successfully!']);
-
     }
-
 }

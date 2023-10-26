@@ -11,13 +11,13 @@
             </p>
             <div class="message__social-wrapper">
                 <a href="{{ $general->facebook }}" target="_blank">
-                    <img src="{{ asset('assets/website') }}/images/fb.svg" alt="Facebook" class="social__img"/>
+                    <img src="{{ asset('assets/website') }}/images/fb.svg" alt="Facebook" class="social__img" />
                 </a>
                 <a href="{{ $general->instagram }}" target="_blank">
-                    <img src="{{ asset('assets/website') }}/images/instagram.svg" alt="Instagram" class="social__img"/>
+                    <img src="{{ asset('assets/website') }}/images/instagram.svg" alt="Instagram" class="social__img" />
                 </a>
                 <a href="{{ $general->twitter }}" target="_blank">
-                    <img src="{{ asset('assets/website') }}/images/twitter.svg" alt="Twitter" class="social__img"/>
+                    <img src="{{ asset('assets/website') }}/images/twitter.svg" alt="Twitter" class="social__img" />
                 </a>
                 {{-- <a href="" class="track__myorder">
                     TRACK MY ORDER
@@ -26,7 +26,7 @@
         </div>
     </div>
     <!-- /Message Div -->
-    <nav class="navbar" >
+    <nav class="navbar">
         <div class="container navbar__container">
             <!-- Mobile Hamburger Menu -->
             <button class="btn hamburger__btn">
@@ -36,7 +36,7 @@
             <!-- Logo -->
             <div class="navbar__brand">
                 <a href="{{ route('website.home.index') }}">
-                    <img src="{{ asset('storage/'. $general->logo) }}" alt="{{ $general->name }}" class="navbar__logo">
+                    <img src="{{ asset('storage/' . $general->logo) }}" alt="{{ $general->name }}" class="navbar__logo">
                 </a>
             </div>
             <!-- /Logo -->
@@ -54,10 +54,10 @@
             <div class="navbar__right">
                 <!-- Seacrh Input -->
                 <div class="navbar__search-wrapper">
-                    <input type="text" class="navbar__search-input"  id="navbar__search-input"
-                    placeholder="What are you looking for"
-                    />
-                    <img src="{{ asset('assets/website/images/search-icon.svg') }}" alt="Magnifier" class="navbar__search-icon">
+                    <input type="text" class="navbar__search-input" id="navbar__search-input"
+                        placeholder="What are you looking for" />
+                    <img src="{{ asset('assets/website/images/search-icon.svg') }}" alt="Magnifier"
+                        class="navbar__search-icon">
                     <div class="search__books">
                         <div class="search__books-wrapper" id="bookSearchWrapper">
 
@@ -88,27 +88,27 @@
                         </div>
                         <span class="cart__count" id="cart__count">{{ getCartCount() }}</span>
                     </a>
-                    <span class="desktop__user" data-id="0" >
+                    <span class="desktop__user" data-id="0">
                         @auth
-                        <a href="{{ route('website.profile.index') }}">
-                            <span class="nav__detail-menu">
-                                <img src="{{ asset('assets/website/') }}/images/user.svg" alt="User">
-                                <div class="nav__detail">
-                                    <span class="nav__detail-light">{{ Auth::user()->fname }}</span>
-                                    <span class="nav__detail-dark">Your Account</span>
-                                </div>
-                            </span>
-                        </a>
+                            <a href="{{ route('website.profile.index') }}">
+                                <span class="nav__detail-menu">
+                                    <img src="{{ asset('assets/website/') }}/images/user.svg" alt="User">
+                                    <div class="nav__detail">
+                                        <span class="nav__detail-light">{{ Auth::user()->fname }}</span>
+                                        <span class="nav__detail-dark">Your Account</span>
+                                    </div>
+                                </span>
+                            </a>
                         @else
-                        <a href="{{ route('website.auth.login') }}">
-                            <span class="nav__detail-menu">
-                                <img src="{{ asset('assets/website/') }}/images/user.svg" alt="User">
-                                <div class="nav__detail">
-                                    <span class="nav__detail-light">Sign In</span>
-                                    <span class="nav__detail-dark">Your Account</span>
-                                </div>
-                            </span>
-                        </a>
+                            <a href="{{ route('website.auth.login') }}">
+                                <span class="nav__detail-menu">
+                                    <img src="{{ asset('assets/website/') }}/images/user.svg" alt="User">
+                                    <div class="nav__detail">
+                                        <span class="nav__detail-light">Sign In</span>
+                                        <span class="nav__detail-dark">Your Account</span>
+                                    </div>
+                                </span>
+                            </a>
                         @endauth
                         {{-- Login Popup --}}
                         {{-- <div class="login__popup d-none">
@@ -163,11 +163,11 @@
                 <li><a href="{{ route('website.cart.index') }}">My Cart</a></li>
                 <li><a href="{{ route('website.wishlist.index') }}">Wishlist</a></li>
                 @auth
-                <li><a href="{{ route('website.profile.index') }}">Profile</a></li>
-                <li><a href="{{ route('website.auth.logout') }}">Logout</a></li>
+                    <li><a href="{{ route('website.profile.index') }}">Profile</a></li>
+                    <li><a href="{{ route('website.auth.logout') }}">Logout</a></li>
                 @else
-                <li><a href="{{ route('website.auth.login') }}">Login</a></li>
-                <li><a href="{{ route('website.auth.register') }}">Register</a></li>
+                    <li><a href="{{ route('website.auth.login') }}">Login</a></li>
+                    {{-- <li><a href="{{ route('website.auth.register') }}">Register</a></li> --}}
                 @endauth
             </ul>
         </div>
@@ -175,14 +175,14 @@
             @php $categoriesList = getAllCategories(); @endphp
             <ul class="mb__menu mb__menu_categories">
                 @foreach ($categoriesList as $category)
-                <li>
-                    <a href="{{ route('website.home.category-detail-view', $category->slug) }}">
-                        <p>{{ $category->name }}</p>
-                        <span class="category__count">
-                            ({{$category->books->count()}})
-                        </span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="{{ route('website.home.category-detail-view', $category->slug) }}">
+                            <p>{{ $category->name }}</p>
+                            <span class="category__count">
+                                ({{ $category->books->count() }})
+                            </span>
+                        </a>
+                    </li>
                 @endforeach
             </ul>
         </div>

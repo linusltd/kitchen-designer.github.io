@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Web\HomeController;
@@ -46,12 +47,13 @@ use App\Http\Controllers\Admin\Purchases\PurchaseOrderController;
 
 
 /*Web Routes*/
+
 Route::group(['prefix' => '/', 'as' => 'website.'], function () {
     /*Loading Auth Routes*/
     Route::controller(WebAuthController::class)->group(function () {
         Route::get('/login', 'login')->name('auth.login');
         Route::post('/login', 'loginCustomer')->name('auth.submit-login-form');
-        Route::get('/register', 'register')->name('auth.register');
+        // Route::get('/register', 'register')->name('auth.register');
         Route::post('/register', 'registerCustomer')->name('auth.submit-register-form');
         Route::get('/verification/${token}', 'registerEmailVerification')->name('auth.register-emial-verification');
         Route::get('/forgot-password', 'forgotPassword')->name('auth.forgot-password');
@@ -61,17 +63,17 @@ Route::group(['prefix' => '/', 'as' => 'website.'], function () {
     });
 
     /*Protected Routes*/
-    Route::group(['middleware' => 'auth'], function(){
-            /*Logout User*/
-            Route::get('logout',[ WebAuthController::class, 'logout'])->name('auth.logout');
-            /*Loading Profile Routes*/
-            Route::prefix('profile')->controller(ProfileController::class)->group(function () {
-                Route::get('/', 'index')->name('profile.index');
-                Route::get('/update', 'UpdateView')->name('profile.update');
-                Route::post('/update', 'UpdateAddress')->name('profile.update-address');
-                Route::get('/orders', 'MyOrders')->name('profile.my-orders');
-                Route::get('/change-password', 'ChangePasswordView')->name('profile.change-password');
-            });
+    Route::group(['middleware' => 'auth'], function () {
+        /*Logout User*/
+        Route::get('logout', [WebAuthController::class, 'logout'])->name('auth.logout');
+        /*Loading Profile Routes*/
+        Route::prefix('profile')->controller(ProfileController::class)->group(function () {
+            Route::get('/', 'index')->name('profile.index');
+            Route::get('/update', 'UpdateView')->name('profile.update');
+            Route::post('/update', 'UpdateAddress')->name('profile.update-address');
+            Route::get('/orders', 'MyOrders')->name('profile.my-orders');
+            Route::get('/change-password', 'ChangePasswordView')->name('profile.change-password');
+        });
     });
 
     /*Loading Home Routes*/
@@ -92,6 +94,7 @@ Route::group(['prefix' => '/', 'as' => 'website.'], function () {
     /*Loading Cart Routes*/
     Route::prefix('cart')->controller(CartController::class)->group(function () {
         Route::get('/', 'index')->name('cart.index');
+        Route::get('/checkout', 'checkout')->name('cart.checkout');
         Route::get('get-cart-details', 'getCartItemsDetails')->name('cart.details');
         Route::get('get-cart-count', 'getCartCount')->name('cart.get.cart.count');
         Route::get('get-cart-total', 'getCartTotal')->name('cart.get.cart.total');
@@ -116,13 +119,12 @@ Route::group(['prefix' => '/', 'as' => 'website.'], function () {
         Route::get('clear-all', 'clearWishList')->name('wishlist.clear-all');
     });
 
-     /*Loading Order Routes*/
-     Route::controller(OrderController::class)->group(function () {
+    /*Loading Order Routes*/
+    Route::controller(OrderController::class)->group(function () {
         Route::post('/create-order', 'create')->name('order.create-order');
         Route::get('/complete-order/{order_no}/thankyou', 'index')->name('order.complete-order');
         Route::post('/cancel-order-request', 'cancelOrderRequest')->name('order.create-order-request');
     });
-
 });
 
 /*Super Admin Routes*/
@@ -145,7 +147,7 @@ Route::group(['prefix' => "portal-control-head-quarter", 'as' => 'admin.'], func
         });
 
         /*Administration Routes*/
-        Route::group(['prefix' => 'administration'], function(){
+        Route::group(['prefix' => 'administration'], function () {
             Route::resources([
                 'role' => RoleController::class,
                 'staff' => StaffController::class,
@@ -153,7 +155,7 @@ Route::group(['prefix' => "portal-control-head-quarter", 'as' => 'admin.'], func
         });
 
         /*Parameters Routes*/
-        Route::group(['prefix' => 'parameters'], function(){
+        Route::group(['prefix' => 'parameters'], function () {
             Route::resources([
                 'categories' => CategoryController::class,
                 'authors' => AuthorController::class,
@@ -192,7 +194,6 @@ Route::group(['prefix' => "portal-control-head-quarter", 'as' => 'admin.'], func
             Route::get('failed-delivery', 'failedDelivery')->name('order.failed-delivery');
             Route::get('change-order-status', 'changeOrderStatus')->name('order.change-order-status');
             Route::get('print-shipping-label/{orderIds}', 'printShippingLabels')->name('order.print-shipping-label');
-
         });
 
         Route::resource('cart', OrdersCartController::class);
@@ -203,7 +204,7 @@ Route::group(['prefix' => "portal-control-head-quarter", 'as' => 'admin.'], func
         ]);
 
         /*Customer Routes*/
-        Route::group(['prefix' => 'manage-customers'],function(){
+        Route::group(['prefix' => 'manage-customers'], function () {
             Route::resources([
                 'customer' => CustomerController::class,
                 'quries' => QueryController::class
@@ -224,7 +225,7 @@ Route::group(['prefix' => "portal-control-head-quarter", 'as' => 'admin.'], func
         });
 
         /*CMS*/
-        Route::group(['prefix' => 'cms'], function(){
+        Route::group(['prefix' => 'cms'], function () {
             Route::resources([
                 'general' => GeneralController::class,
                 'slider' => SliderController::class
