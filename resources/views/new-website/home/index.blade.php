@@ -52,59 +52,6 @@
 </div>
 </section>
 
-<!-- service policy start -->
-<section class="service-policy-area section-space">
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 col-sm-6">
-            <!-- start policy single item -->
-            <div class="service-policy-item">
-                <div class="icons">
-                    <img src="{{ asset('new-assets/website/img/icon/free_shipping.png') }}" alt="">
-                </div>
-                <h5>free shipping</h5>
-                <p>Free shipping all order</p>
-            </div>
-            <!-- end policy single item -->
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <!-- start policy single item -->
-            <div class="service-policy-item">
-                <div class="icons">
-                    <img src="{{ asset('new-assets/website/img/icon/money_back.png') }}" alt="">
-                </div>
-                <h5>Money Return</h5>
-                <p>30 days for free return</p>
-            </div>
-            <!-- end policy single item -->
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <!-- start policy single item -->
-            <div class="service-policy-item">
-                <div class="icons">
-                    <img src="{{ asset('new-assets/website/img/icon/support247.png') }}" alt="">
-                </div>
-                <h5>Online Support</h5>
-                <p>Support 24 hours a day</p>
-            </div>
-            <!-- end policy single item -->
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <!-- start policy single item -->
-            <div class="service-policy-item">
-                <div class="icons">
-                    <img src="{{ asset('new-assets/website/img/icon/promotions.png') }}" alt="">
-                </div>
-                <h5>Deals & Promotions</h5>
-                <p>Price savings, discounts</p>
-            </div>
-            <!-- end policy single item -->
-        </div>
-    </div>
-</div>
-</section>
-<!-- service policy end -->
-
 {{-- Trending Section --}}
 <section class="trending-products section-space">
 <div class="container">
