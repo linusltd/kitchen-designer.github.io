@@ -148,7 +148,7 @@ class OrderController extends Controller
             return response()->json(['status' => false]);
         }
         /*Sending Mail To My Staff*/
-        // Mail::to('zainveeray@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
+        Mail::to('zainveeray@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
         // Mail::to('talhaashraf235@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
 
         return response(route('website.order.complete-order', $order->order_no))->withCookie($cookie);

@@ -126,6 +126,31 @@
 
             });
 
+            $('body').delegate('#addToCartWishList', 'click', function() {
+                const id = $(this).parent().find('input[name="id"]').val()
+                const book_id = $(this).parent().find('input[name="book_id"]').val()
+                $.ajax({
+                    url: "{{ route('website.cart.add.to.cart-wishlist') }}",
+                    method: "POST",
+                    data: {
+                        id,
+                        book_id,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        getCartItems();
+                        getCartCount();
+                        getWishList()
+                        if (response.wishlilsts.length <= 1) {
+                            window.location.reload()
+                        }
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText)
+                    }
+                })
+            })
+
             /*Opening Cart Modal*/
             $('#openCartModal').click(function() {
                 $.ajax({

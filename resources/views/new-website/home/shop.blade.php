@@ -52,8 +52,11 @@
                             <div class="sidebar-body">
                                 <ul class="shop-categories">
                                     @foreach ($categoriesList as $category)
-                                        <li><a href="{{ route('website.home.category-detail-view', $category->slug) }}">{{ $category->name }}
-                                                <span>{{ $category->books->count() }}</span></a></li>
+                                        <li>
+                                            <a href="{{ route('website.home.category-detail-view', $category->slug) }}">{{ $category->name }}
+                                                <span>{{ $category->books->count() }}</span>
+                                            </a>
+                                        </li>
                                     @endforeach
 
                                 </ul>
@@ -148,20 +151,6 @@
                                                         <span><i class="lnr lnr-star"></i></span>
                                                     </div>
                                                 </div>
-                                                <ul class="color-categories">
-                                                    <li>
-                                                        <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="c-darktan" href="#" title="Darktan"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="c-grey" href="#" title="Grey"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="c-brown" href="#" title="Brown"></a>
-                                                    </li>
-                                                </ul>
                                                 <p class="product-name">
                                                     <a href="{{ route('website.home.book-detail-view', $book->slug) }}">
                                                         {{ $book->name }}</a>
@@ -248,11 +237,23 @@
                             <!-- start pagination area -->
                             <div class="paginatoin-area text-center">
                                 <ul class="pagination-box">
-                                    <li><a class="previous" href="#"><i class="lnr lnr-chevron-left"></i></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a class="next" href="#"><i class="lnr lnr-chevron-right"></i></a></li>
+                                    <li class="{{ $books->onFirstPage() ? ' disabled' : '' }}">
+                                        <a class="previous" href="{{ $books->previousPageUrl() }}">
+                                            <i class="lnr lnr-chevron-left"></i>
+                                        </a>
+                                    </li>
+
+                                    @for ($i = 1; $i <= $books->lastPage(); $i++)
+                                        <li class="{{ $books->currentPage() == $i ? '' : '' }}">
+                                            <a class="active" href="{{ $books->url($i) }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+
+                                    <li class="{{ $books->hasMorePages() ? '' : ' disabled' }}">
+                                        <a class="next" href="{{ $books->nextPageUrl() }}">
+                                            <i class="lnr lnr-chevron-right"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- end pagination area -->
@@ -263,4 +264,5 @@
             </div>
         </div>
         <!-- page main wrapper end -->
-    @endsection
+    </div>
+@endsection

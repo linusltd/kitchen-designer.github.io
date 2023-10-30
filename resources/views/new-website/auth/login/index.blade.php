@@ -73,7 +73,8 @@
                                     <input type="password" name="password" placeholder="********" required />
                                 </div>
                                 <div class="single-input-item">
-                                    This is for Recaptcha
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
                                 </div>
                                 <div class="single-input-item">
                                     <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
@@ -99,6 +100,24 @@
                     <div class="col-lg-6">
                         <div class="login-reg-form-wrap sign-up-form">
                             <h2>Singup Form</h2>
+                            @error('fname')
+                                <span class="error">The First Name Field is Required.</span>
+                            @enderror
+                            @if (Session::has('message'))
+                                <span class="error">{{ Session::get('message') }}</span>
+                            @endif
+                            @error('lname')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
+                            @error('email')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
+                            @error('password')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
+                            @error('g-recaptcha-response')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
                             <form action="{{ route('website.auth.submit-register-form') }}" method="post"
                                 class="add__review-form">
                                 @csrf
@@ -134,18 +153,8 @@
                                     </div>
                                 </div>
                                 <div class="single-input-item">
-                                    This is for Recaptcha
-                                </div>
-                                <div class="single-input-item">
-                                    <div class="login-reg-form-meta">
-                                        <div class="remember-meta">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="subnewsletter">
-                                                <label class="custom-control-label" for="subnewsletter">Subscribe
-                                                    Our Newsletter</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
                                 </div>
                                 <div class="single-input-item">
                                     <button class="btn btn__bg">Register</button>

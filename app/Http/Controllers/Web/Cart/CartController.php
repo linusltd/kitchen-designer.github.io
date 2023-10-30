@@ -27,7 +27,11 @@ class CartController extends Controller
         $cart = getCartDetails();
         $cart_items = getCartDetails() ? getCartDetails()->cart_items : [];
         $address = Address::where(['user_id' => Auth::user() ? Auth::user()->id : 0])->orderBy('id', 'desc')->first();
-        return view('new-website.cart.checkout', get_defined_vars());
+        if (!empty($cart_items)) {
+            return view('new-website.cart.checkout', get_defined_vars());
+        } else {
+            return redirect()->route('website.cart.index');
+        }
     }
 
     /**

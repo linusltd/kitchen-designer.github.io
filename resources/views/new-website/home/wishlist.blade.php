@@ -76,7 +76,7 @@
                                                 <td class="pro-subtotal">
                                                     <input type="hidden" name="id" value="{{ $wishlist->id }}">
                                                     <input type="hidden" name="book_id" value="{{ $wishlist->book_id }}">
-                                                    <a href="" class="btn btn__bg" id="addToCartWishList">
+                                                    <a href="#" class="btn btn__bg" id="addToCartWishList">
                                                         Add to
                                                         Cart
                                                     </a>

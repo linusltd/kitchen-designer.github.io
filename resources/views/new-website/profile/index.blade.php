@@ -54,13 +54,6 @@
                                             Dashboard</a>
                                         <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i>
                                             Orders</a>
-                                        <a href="#download" data-bs-toggle="tab"><i class="fa fa-cloud-download"></i>
-                                            Download</a>
-                                        <a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i>
-                                            Payment
-                                            Method</a>
-                                        <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i>
-                                            address</a>
                                         <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Account
                                             Details</a>
                                         <a href="#changepassword" data-bs-toggle="tab"><i class="fa fa-user"></i> Change
@@ -78,14 +71,40 @@
                                         <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
                                             <div class="myaccount-content">
                                                 <h3>Dashboard</h3>
-                                                <div class="welcome">
-                                                    <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni
-                                                            !</strong><a href="login-register.html" class="logout">
-                                                            Logout</a>)</p>
+                                                <div class="statics__wrapper">
+                                                    <article class="startics__item">
+                                                        <div class="startics__item-img">
+                                                            <img src="{{ asset('assets/website/images/totalorder.svg') }}"
+                                                                alt="">
+                                                            <span class="startics__item-span">{{ $totalOrders }}</span>
+                                                        </div>
+                                                        <p class="total__order">Total Order</p>
+                                                    </article>
+                                                    <article class="startics__item">
+                                                        <div class="startics__item-img">
+                                                            <img src="{{ asset('assets/website/images/pendingorder.svg') }}"
+                                                                alt="">
+                                                            <span class="startics__item-span">{{ $pendingOrders }}</span>
+                                                        </div>
+                                                        <p class="total__order">Pending Order</p>
+                                                    </article>
+                                                    <article class="startics__item">
+                                                        <div class="startics__item-img">
+                                                            <img src="{{ asset('assets/website/images/processingorder.svg') }}"
+                                                                alt="">
+                                                            <span class="startics__item-span">{{ $shippedOrders }}</span>
+                                                        </div>
+                                                        <p class="total__order">Processing Order</p>
+                                                    </article>
+                                                    <article class="startics__item">
+                                                        <div class="startics__item-img">
+                                                            <img src="{{ asset('assets/website/images/deliveredorder.svg') }}"
+                                                                alt="">
+                                                            <span class="startics__item-span">{{ $deliveredOrders }}</span>
+                                                        </div>
+                                                        <p class="total__order">Delivered Order</p>
+                                                    </article>
                                                 </div>
-                                                <p class="mb-0">From your account dashboard. you can easily check &
-                                                    view your recent orders, manage your shipping and billing addresses
-                                                    and edit your password and account details.</p>
                                             </div>
                                         </div>
                                         <!-- Single Tab Content End -->
@@ -142,69 +161,6 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Tab Content End -->
-
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade" id="download" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Downloads</h3>
-                                                <div class="myaccount-table table-responsive text-center">
-                                                    <table class="table table-bordered">
-                                                        <thead class="thead-light">
-                                                            <tr>
-                                                                <th>Product</th>
-                                                                <th>Date</th>
-                                                                <th>Expire</th>
-                                                                <th>Download</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Haven - Free Real Estate PSD Template</td>
-                                                                <td>Aug 22, 2018</td>
-                                                                <td>Yes</td>
-                                                                <td><a href="#" class="btn btn__bg"><i
-                                                                            class="fa fa-cloud-download"></i>
-                                                                        Download File</a></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>HasTech - Profolio Business Template</td>
-                                                                <td>Sep 12, 2018</td>
-                                                                <td>Never</td>
-                                                                <td><a href="#" class="btn btn__bg"><i
-                                                                            class="fa fa-cloud-download"></i>
-                                                                        Download File</a></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Tab Content End -->
-
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade" id="payment-method" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Payment Method</h3>
-                                                <p class="saved-message">You Can't Saved Your Payment Method yet.</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single Tab Content End -->
-
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade" id="address-edit" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Billing Address</h3>
-                                                <address>
-                                                    <p><strong>Alex Tuntuni</strong></p>
-                                                    <p>1355 Market St, Suite 900 <br>
-                                                        San Francisco, CA 94103</p>
-                                                    <p>Mobile: (123) 456-7890</p>
-                                                </address>
-                                                <a href="#" class="btn btn__bg"><i class="fa fa-edit"></i>
-                                                    Edit Address</a>
                                             </div>
                                         </div>
                                         <!-- Single Tab Content End -->

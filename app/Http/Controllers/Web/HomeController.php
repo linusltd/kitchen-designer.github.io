@@ -89,7 +89,7 @@ class HomeController extends Controller
         $category = Category::with('books')->where('slug', $slug)->first();
         $books = $category->books()->paginate(52);
         $sliders = Slider::where(['type' => 1, 'status' => 0])->get();
-        return view('website.home.category', get_defined_vars());
+        return view('new-website.home.category', get_defined_vars());
     }
 
     /*Loading Quick View*/
