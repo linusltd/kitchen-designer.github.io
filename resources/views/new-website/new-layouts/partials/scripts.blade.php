@@ -215,5 +215,74 @@
                 var x = document.getElementById("snackbar");
                 x.className = "close";
             })
+
+            // Search
+            /*Implementing Search Functionality*/
+            $('#navbar__search-input').keyup(function() {
+                const search = $(this).val()
+
+                if (search == "") {
+                    $('.search__books').css({
+                        display: 'none'
+                    })
+                    $('#bookSearchWrapper').html('')
+                    return
+                }
+
+                $.ajax({
+                    url: "{{ route('website.home.search-book') }}",
+                    method: "GET",
+                    data: {
+                        search
+                    },
+                    success: function(response) {
+                        if (response !== '') {
+                            $('.search__books').css({
+                                display: 'block'
+                            })
+                            $('#bookSearchWrapper').html(response)
+                        } else {
+                            $('.search__books').css({
+                                display: 'none'
+                            })
+                            $('#bookSearchWrapper').html('')
+                        }
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText)
+                    }
+                })
+
+            });
+
+            /*Implementing Search Functionality*/
+            $('#mobilenavbar__search-input').keyup(function() {
+                const search = $(this).val()
+
+                if (search == "") {
+                    $('#mobilebookSearchWrapper').html('')
+                    return
+                }
+
+                $.ajax({
+                    url: "{{ route('website.home.search-book') }}",
+                    method: "GET",
+                    data: {
+                        search
+                    },
+                    success: function(response) {
+                        if (response !== '') {
+                            $('#searchWrapper').html(response)
+                        } else {
+                            $('#searchWrapper').html('')
+                        }
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText)
+                    }
+                })
+
+            });
+
         })
     </script>

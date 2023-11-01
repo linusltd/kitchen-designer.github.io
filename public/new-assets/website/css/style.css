@@ -5804,6 +5804,86 @@ blockquote {
 
 /* ---------Order End ----------- */
 
+/* ---------------- Search Start ---------------- */
+.search__books{
+    position: absolute;
+    top: 110%;
+    width: 170%;
+    left: -70%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: none;
+    height: auto;
+    max-height: 550px;
+    overflow-y: scroll;
+}
+
+.search__book-item{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+.search__book_info{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search__book_info .book__img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.search__book_info .book__name{
+    font-size: 13px;
+}
+
+.search__book_info .book__real__price,
+.search__book_info .book__special__price
+{
+    font-size: 12px !important;
+}
+
+.search__page .navbar__search-wrapper{
+    width: 100%;
+    display: block !important;
+}
+
+/*=============Pagination=============*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .pagination .page-item {
+    list-style-type: none;
+    margin-right: 5px;
+  }
+
+  .pagination .page-link {
+    display: block;
+    padding: 5px 10px;
+    background: var(--color-primary);
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .pagination .page-item.active .page-link {
+    color: var(--color-primary);
+    background: var(--color-white);
+    border: 1px solid var(--color-primary);
+
+  }
+
+/* ---------- Search End ------------- */
+
+
 /* ---------Dashboard Start ----------- */
 
 .statics__wrapper {

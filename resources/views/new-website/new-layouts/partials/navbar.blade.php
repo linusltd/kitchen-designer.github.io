@@ -76,7 +76,7 @@
                             <div class="header-configure-area">
                                 <ul class="nav justify-content-end">
                                     <li>
-                                        <a href="#" class="offcanvas-btn">
+                                        <a href="{{ route('website.home.search') }}" class="offcanvas-btn">
                                             <i class="lnr lnr-magnifier"></i>
                                         </a>
                                     </li>

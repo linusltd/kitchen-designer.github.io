@@ -23,10 +23,11 @@
         <div class="container">
             <div class="offcanvas-search-box">
                 <form class="d-flex bdr-bottom w-100">
-                    <input type="text" id="navbar__search-input"
-                        placeholder="What are you looking
-                        for">
-                    <button class="search-btn"><i class="lnr lnr-magnifier"></i>search</button>
+                    <input type="text" id="navbar__search-input" placeholder="What are you looking for">
+                    <button class="search-btn">
+                        <i class="lnr lnr-magnifier"></i>
+                        search
+                    </button>
                 </form>
             </div>
         </div>

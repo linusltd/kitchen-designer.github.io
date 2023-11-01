@@ -299,7 +299,7 @@ class HomeController extends Controller
     /*Search Book View*/
     public function search(Request $request)
     {
-        return view('website.home.search');
+        return view('new-website.home.search');
     }
 
     /*Search Book Function*/
@@ -314,26 +314,24 @@ class HomeController extends Controller
         if ($books->count()) {
             foreach ($books as $book) {
                 $html .= '
-                    <article class="search__book-item">
-                    <div class="search__book_info">
-                        <a href="' . route('website.home.book-detail-view', $book->slug) . '">
-                            <img src="' . asset('storage/' . $book->images[0]->filename) . '" alt="" class="book__img">
-
-                        </a>
-                        <a class="book__name" href="' . route('website.home.book-detail-view', $book->slug) . '">
-                            ' . $book->name . '
-                        </a>
-                    </div>
-                    <div class="book__price">';
-
+                <article class="search__book-item">
+                <div class="search__book_info">
+                <a href="' . route('website.home.book-detail-view', $book->slug) . '">
+                <img src="' . asset('storage/' . $book->images[0]->filename) . '" alt="" class="book__img">
+                </a>
+                <a class="book__name" href="' . route('website.home.book-detail-view', $book->slug) . '">
+                ' . $book->name . '
+                </a>
+                </div>
+                <div class="book__price">';
                 if ($book->price !== $book->special_price) {
                     $html .= '<span class="book__real__price">
-                            Rs.' . number_format($book->price) . '
-                        </span>';
+                Rs.' . number_format($book->price) . '
+                </span>';
                 }
                 $html .= '<span class="book__special__price">Rs.' . number_format($book->special_price) . '</span>
-                    </div>
-                    </article>
+                </div>
+                </article>
                 ';
             }
         }

@@ -360,10 +360,10 @@
     /*------ product slider box active end ------*/
 
     /*------- offcanvas search form active start -------*/
-    $(".offcanvas-btn").on("click", function () {
-        $("body").addClass("fix");
-        $(".offcanvas-search-inner").addClass("show");
-    });
+    // $(".offcanvas-btn").on("click", function () {
+    //     $("body").addClass("fix");
+    //     $(".offcanvas-search-inner").addClass("show");
+    // });
 
     $(".minicart-btn").on("click", function () {
         $("body").addClass("fix");
