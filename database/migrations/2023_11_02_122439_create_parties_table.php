@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_items', function (Blueprint $table) {
+        Schema::create('parties', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained();
-            $table->foreignId('book_id')->constrained()->nullable();
-            $table->decimal('price', 8, 2)->default(0);
-            $table->decimal('discount', 8, 2)->default(0);
-            $table->decimal('qty', 8, 2)->default(0);
-            $table->decimal('total_amount', 8, 2)->default(0);
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
+            $table->integer('status')->comment('0=Active, 1=Inactive')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_items');
+        Schema::dropIfExists('parties');
     }
 };

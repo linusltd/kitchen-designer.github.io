@@ -155,6 +155,46 @@
                 </li>
             </ul>
         </li>
+        <!-- Parties -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+                <div data-i18n="Layouts">Parties</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.party.index') }}" class="menu-link">
+                        <div data-i18n="Without menu">Manage Parties</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.party.create') }}" class="menu-link">
+                        <div data-i18n="Without menu">Add Party</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Parties -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+                <div data-i18n="Layouts">Sales</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.sales-order.index') }}" class="menu-link">
+                        <div data-i18n="Without menu">Sales Order</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.sales-order.create') }}" class="menu-link">
+                        <div data-i18n="Without menu">Manage Sales</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <!-- Accounts -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">

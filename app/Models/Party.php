@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Supplier extends Model
+class Party extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = ['id', '_method', '_token'];
-
+    protected $guarded = ['_token', 'id', '_method'];
 
     public function order()
     {

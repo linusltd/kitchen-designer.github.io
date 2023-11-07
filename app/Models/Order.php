@@ -13,7 +13,8 @@ class Order extends Model
     protected $guarded = ['_token', '_id', '_method'];
 
 
-    public function orderable(){
+    public function orderable()
+    {
         return $this->morphTo();
     }
 
@@ -37,6 +38,11 @@ class Order extends Model
         return $this->belongsTo(Supplier::class, 'orderable_id', 'id');
     }
 
+
+    public function party()
+    {
+        return $this->belongsTo(Party::class, 'orderable_id', 'id');
+    }
     /**
      * Get all of the order_items for the PurchaseOrder
      *

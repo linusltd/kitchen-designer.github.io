@@ -27,11 +27,13 @@ use App\Http\Controllers\Admin\Books\ReviewController;
 use App\Http\Controllers\Admin\Cms\GeneralController;
 use App\Http\Controllers\Admin\Cms\SliderController;
 use App\Http\Controllers\Admin\Customer\CustomerController;
+use App\Http\Controllers\Admin\Party\PartyController;
 use App\Http\Controllers\Admin\Customer\QueryController;
 use App\Http\Controllers\Admin\Orders\OrderController as OrdersOrderController;
 use App\Http\Controllers\Admin\Orders\CartController as OrdersCartController;
 use App\Http\Controllers\Admin\Parameters\SupplierController;
 use App\Http\Controllers\Admin\Purchases\PurchaseOrderController;
+use App\Http\Controllers\Admin\Sales\SalesOrderController;
 
 
 /*
@@ -203,11 +205,22 @@ Route::group(['prefix' => "portal-control-head-quarter", 'as' => 'admin.'], func
             'purchase-order' => PurchaseOrderController::class
         ]);
 
+        /*Sales Route*/
+        Route::resources([
+            'sales-order' => SalesOrderController::class
+        ]);
+
         /*Customer Routes*/
         Route::group(['prefix' => 'manage-customers'], function () {
             Route::resources([
                 'customer' => CustomerController::class,
                 'quries' => QueryController::class
+            ]);
+        });
+
+        Route::group(['prefix' => 'manage-party'], function () {
+            Route::resources([
+                'party' => PartyController::class,
             ]);
         });
 
