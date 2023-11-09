@@ -116,7 +116,6 @@
                 </div>
                 <div class="col-md-6 order-1 order-md-2">
                     <div class="payment-method">
-                        <img src="assets/img/payment.png" alt="">
                     </div>
                 </div>
             </div>

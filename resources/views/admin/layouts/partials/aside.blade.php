@@ -62,12 +62,12 @@
                     <a href="{{ route('admin.authors.index') }}" class="menu-link">
                         <div data-i18n="Without menu">Authors</div>
                     </a>
-                </li>
+                </li> --}}
                 <li class="menu-item">
                     <a href="{{ route('admin.suppliers.index') }}" class="menu-link">
                         <div data-i18n="Without menu">Suppliers</div>
                     </a>
-                </li> --}}
+                </li>
             </ul>
         </li>
         <!-- Products -->

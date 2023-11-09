@@ -68,7 +68,8 @@
                         <div class="sidebar-banner">
                             <div class="img-container">
                                 <a href="#">
-                                    <img src="assets/img/banner/sidebar-banner.jpg" alt="">
+                                    <img src="{{ asset('new-assets/website/img/banner/sidebar-banner.jpg') }}"
+                                        alt="">
                                 </a>
                             </div>
                         </div>

@@ -18,15 +18,17 @@
                             <ul class="nav align-items-center justify-content-end">
                                 <li>
                                     <a href="{{ $general->facebook }}" target="_blank" data-bs-toggle="tooltip"
-                                        title="Facebook"><i class="fa fa-facebook"></i></a>
+                                        style="color: #000" title="Facebook"><i class="fa fa-facebook"></i></a>
                                 </li>
                                 <li>
-                                    <a href="{{ $general->twitter }}" target="_blank" data-bs-toggle="tooltip"
-                                        title="Twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="{{ $general->twitter }}" target="_blank"
+                                        data-bs-toggle="tooltip"style="color: #000" title="Twitter"><i
+                                            class="fa fa-twitter"></i></a>
                                 </li>
                                 <li>
-                                    <a href="{{ $general->instagram }}" target="_blank" data-bs-toggle="tooltip"
-                                        title="Instagram"><i class="fa fa-instagram"></i></a>
+                                    <a href="{{ $general->instagram }}" target="_blank"
+                                        data-bs-toggle="tooltip"style="color: #000" title="Instagram"><i
+                                            class="fa fa-instagram"></i></a>
                                 </li>
                             </ul>
                         </div>
