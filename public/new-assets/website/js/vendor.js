@@ -7061,7 +7061,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
     })(jQuery, window);
 
 /*====================================*/
-
+/*
 $(function () {
     // Get the form.
     var form = $("#contact-form");
@@ -7110,7 +7110,7 @@ $(function () {
             });
     });
 });
-
+*/
 /*====================================*/
 
 /*

@@ -78,12 +78,7 @@
                                 </div>
                                 <div class="single-input-item">
                                     <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
-                                        <div class="remember-meta">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="rememberMe">
-                                                <label class="custom-control-label" for="rememberMe">Remember Me</label>
-                                            </div>
-                                        </div>
+
                                         <a href="{{ route('website.auth.forgot-password') }}" class="forget-pwd">Forget
                                             Password?</a>
                                     </div>

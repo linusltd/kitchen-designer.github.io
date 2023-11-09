@@ -33,7 +33,7 @@
                 href="{{ route('website.home.index') }}{{ $slider->url }}" @endif>
 
 
-                    <div class="hero-single-slide">
+                    <div class="hero-single-slide" style="background-color: {{ $slider->color }}">
                         <div class="hero-slider-item bg-img"
                             data-bg="@mobile
 {{ asset('storage/' . $slider->mobile_image) }}

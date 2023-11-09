@@ -60,6 +60,7 @@
                         @enderror
                         <form id="contact-form" action="{{ route('website.home.contact-post') }}" method="post"
                             class="contact-form">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <input name="name" value="{{ old('name') }}" placeholder="Name *" type="text"
@@ -82,7 +83,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-center">
-                                    <p class="form-messege"></p>
+
                                 </div>
                             </div>
                         </form>

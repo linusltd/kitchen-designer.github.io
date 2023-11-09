@@ -86,7 +86,7 @@ Route::group(['prefix' => '/', 'as' => 'website.'], function () {
         Route::get('contact', 'contact')->name('home.contact');
         Route::get('search', 'search')->name('home.search');
         Route::get('search-book', 'searchBook')->name('home.search-book');
-        Route::post('contact', 'contactPost')->name('home.contact-post');
+        Route::post('contactpost', 'contactPost')->name('home.contact-post');
         Route::get('products/{slug}', 'BookDetailView')->name('home.book-detail-view');
         Route::get('collections/{slug}', 'CategoryDetailView')->name('home.category-detail-view');
         Route::get('quick-view', 'quickView')->name('home.quick-view');
