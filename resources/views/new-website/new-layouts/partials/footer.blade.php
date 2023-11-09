@@ -63,17 +63,11 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer-widget-item mb-30">
                             <div class="footer-widget-title">
-                                <h5>newsletter and social</h5>
+                                <h5>social</h5>
                             </div>
                             <div class="footer-widget-body">
                                 <!-- newsletter area start -->
                                 <div class="newsletter-inner">
-                                    <p>Get E-mail updates about our latest shop and special offers.</p>
-                                    <form id="mc-form">
-                                        <input type="email" class="news-field" id="mc-email" autocomplete="off"
-                                            placeholder="Enter your email address">
-                                        <button class="news-btn" id="mc-submit">Subscribe</button>
-                                    </form>
                                     <!-- mailchimp-alerts Start -->
                                     <div class="mailchimp-alerts">
                                         <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
