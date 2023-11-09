@@ -152,14 +152,16 @@
 
 
                                     <div class="useful-links">
-                                        <a href="#" data-bs-toggle="tooltip" title="Wishlist" id="addToWishList" data-id="{{ $book->id }}"><i
-                                                class="lnr lnr-heart"></i>wishlist</a>
+                                        <a href="#" data-bs-toggle="tooltip" title="Wishlist" id="addToWishList"
+                                            data-id="{{ $book->id }}"><i class="lnr lnr-heart"></i>wishlist</a>
                                     </div>
                                     <div class="like-icon">
-                                        <a class="facebook" href="#"><i class="fa fa-facebook"></i>like</a>
-                                        <a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
-                                        <a class="pinterest" href="#"><i class="fa fa-pinterest"></i>save</a>
-                                        <a class="google" href="#"><i class="fa fa-google-plus"></i>share</a>
+                                        <a class="facebook" target="_blank"
+                                            href="https://www.facebook.com/sharer.php?u={{ Request::url() }}"><i
+                                                class="fa fa-facebook"></i>like</a>
+                                        <a class="twitter" target="_blank"
+                                            href="https://twitter.com/intent/tweet?text={{ $book->name }}&url={{ Request::url() }}"><i
+                                                class="fa fa-twitter"></i>tweet</a>
                                     </div>
                                 </div>
                             </div>
@@ -362,29 +364,38 @@ value="{{ Auth::user()->email }}" @endauth required>
                                 </figure>
                                 <div class="product-caption">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.html">mony</a></p>
-                                        <div class="ratings">
-                                            <span><i class="lnr lnr-star"></i></span>
-                                            <span><i class="lnr lnr-star"></i></span>
-                                            <span><i class="lnr lnr-star"></i></span>
-                                            <span><i class="lnr lnr-star"></i></span>
-                                            <span><i class="lnr lnr-star"></i></span>
-                                        </div>
+                                        @if ($item->reviews->count())
+                                            @php
+                                                $averageRating = $item->reviews->avg('ratings');
+                                                $fullStars = floor($averageRating);
+                                                $halfStar = $averageRating - $fullStars;
+                                                $emptyStars = 5 - $fullStars - ceil($halfStar);
+                                            @endphp
+
+                                            <div class="ratings">
+                                                @for ($i = 1; $i <= $fullStars; $i++)
+                                                    <i class="fa fa-star"></i>
+                                                @endfor
+
+                                                @if ($halfStar > 0)
+                                                    {{-- Half Star --}}
+                                                    <i class="fa fa-star"></i>
+                                                @endif
+                                                {{-- Full Star --}}
+                                                @for ($i = 1; $i <= $emptyStars; $i++)
+                                                    <i class="fa fa-star"></i>
+                                                @endfor
+                                            </div>
+                                        @else
+                                            <div class="ratings">
+                                                <span><i class="lnr lnr-star"></i></span>
+                                                <span><i class="lnr lnr-star"></i></span>
+                                                <span><i class="lnr lnr-star"></i></span>
+                                                <span><i class="lnr lnr-star"></i></span>
+                                                <span><i class="lnr lnr-star"></i></span>
+                                            </div>
+                                        @endif
                                     </div>
-                                    <ul class="color-categories">
-                                        <li>
-                                            <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-darktan" href="#" title="Darktan"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-brown" href="#" title="Brown"></a>
-                                        </li>
-                                    </ul>
                                     <p class="product-name">
                                         <a
                                             href="{{ route('website.home.book-detail-view', $item->slug) }}">{{ $item->name }}</a>

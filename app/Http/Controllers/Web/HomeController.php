@@ -67,7 +67,6 @@ class HomeController extends Controller
         ];
 
         Mail::to('zainveeray@gmail.com')->send(new \App\Mail\ContactUsMail(['details' => $details]));
-        Mail::to('ahmermughal820@gmail.com@gmail.com')->send(new \App\Mail\ContactUsMail(['details' => $details]));
 
         return redirect()->back()->with('message', 'Your contact inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.');
     }
