@@ -23,7 +23,6 @@
                 <div class="col-12">
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
-                            <h1>Forgot Password</h1>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('website.home.index') }}"><i
                                             class="fa fa-home"></i></a></li>
