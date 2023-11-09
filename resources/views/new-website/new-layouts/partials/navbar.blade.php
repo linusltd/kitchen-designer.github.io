@@ -89,7 +89,7 @@
                                         </a>
                                         <ul class="dropdown-list">
                                             <li><a href="{{ route('website.auth.login') }}">login</a></li>
-                                            <li><a href="{{ route('website.auth.login') }}">register</a></li>
+                                            <li><a href="{{ route('website.auth.register') }}">register</a></li>
                                             <li><a href="{{ route('website.profile.index') }}">my account</a></li>
                                         </ul>
                                     </li>
@@ -125,13 +125,14 @@
                 <div class="col-12">
                     <div class="mobile-main-header">
                         <div class="mobile-logo">
-                            <a href="index.html">
-                                <img src="{{ asset('storage/' . $general->logo) }}" alt="{{ $general->name }}">
+                            <a href="{{ route('website.home.index') }}">
+                                <img src="{{ asset('storage/' . $general->logo) }}" alt="{{ $general->name }}"
+                                    style="height: 50px">
                             </a>
                         </div>
                         <div class="mobile-menu-toggler">
                             <div class="mini-cart-wrap">
-                                <a href="cart.html">
+                                <a href="{{ route('website.cart.index') }}">
                                     <i class="lnr lnr-cart"></i>
                                 </a>
                             </div>
@@ -158,29 +159,23 @@
         </div>
 
         <div class="off-canvas-inner">
-            <!-- search box start -->
-            <div class="search-box-offcanvas">
-                <form>
-                    <input type="text" placeholder="Search Here...">
-                    <button class="search-btn"><i class="lnr lnr-magnifier"></i></button>
-                </form>
-            </div>
-            <!-- search box end -->
 
             <!-- mobile menu start -->
             <div class="mobile-navigation">
-
                 <!-- mobile menu navigation start -->
                 <nav>
                     <ul class="mobile-menu">
                         <li class="menu-item">
-                            <a href="index.html">Home</a>
+                            <a href="{{ route('website.home.index') }}">Home</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#">Shop</a>
+                            <a href="{{ route('website.home.shop') }}">Shop</a>
                         </li>
                         <li class="mega-title menu-item">
-                            <a href="#">Contact Us</a>
+                            <a href="{{ route('website.home.contact') }}">Contact Us</a>
+                        </li>
+                        <li class="mega-title menu-item">
+                            <a href="{{ route('website.home.search') }}">Search Product</a>
                         </li>
                     </ul>
                 </nav>
@@ -192,26 +187,13 @@
                 <ul class="nav">
                     <li>
                         <div class="dropdown mobile-top-dropdown">
-                            <a href="#" class="dropdown-toggle" id="currency" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Currency
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="currency">
-                                <a class="dropdown-item" href="#">$ USD</a>
-                                <a class="dropdown-item" href="#">$ EURO</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dropdown mobile-top-dropdown">
                             <a href="#" class="dropdown-toggle" id="myaccount" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 My Account
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="myaccount">
-                                <a class="dropdown-item" href="my-account.html">my account</a>
+                                <a class="dropdown-item" href="{{ route('website.profile.index') }}">my account</a>
                                 <a class="dropdown-item" href="{{ route('website.auth.login') }}"> login</a>
                                 <a class="dropdown-item" href="{{ route('website.auth.login') }}">register</a>
                             </div>

@@ -135,8 +135,10 @@
                                         <h5>qty:</h5>
                                         <div class="quantity">
                                             <div class="pro-qty">
+                                                <span class="dec qtybtn">-</span>
                                                 <input type="text" name="quantity" id="quantity" value="1"
                                                     readonly />
+                                                <span class="inc qtybtn">+</span>
                                             </div>
                                         </div>
                                         @if ($book->in_stock == 0)
@@ -148,25 +150,9 @@
                                         @endif
                                     </div>
 
-                                    <div class="color-option">
-                                        <h5>color :</h5>
-                                        <ul class="color-categories">
-                                            <li>
-                                                <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                            </li>
-                                            <li>
-                                                <a class="c-darktan" href="#" title="Darktan"></a>
-                                            </li>
-                                            <li>
-                                                <a class="c-grey" href="#" title="Grey"></a>
-                                            </li>
-                                            <li>
-                                                <a class="c-brown" href="#" title="Brown"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+
                                     <div class="useful-links">
-                                        <a href="#" data-bs-toggle="tooltip" title="Wishlist"><i
+                                        <a href="#" data-bs-toggle="tooltip" title="Wishlist" id="addToWishList" data-id="{{ $book->id }}"><i
                                                 class="lnr lnr-heart"></i>wishlist</a>
                                     </div>
                                     <div class="like-icon">
@@ -209,29 +195,49 @@
                                                     <h5>{{ $book->reviews->count() }} review for
                                                         <span>{{ $book->name }}</span>
                                                     </h5>
-                                                    <div class="total-reviews">
-                                                        <div class="rev-avatar">
-                                                            <img src="{{ asset('assets/website/images/reviewer.jpeg') }}"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="review-box">
-                                                            <div class="ratings">
-                                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                                <span><i class="fa fa-star"></i></span>
+                                                    @foreach ($reviews as $item)
+                                                        <div class="total-reviews">
+                                                            <div class="rev-avatar">
+                                                                <img src="{{ asset('assets/website/images/reviewer.jpeg') }}"
+                                                                    alt="">
                                                             </div>
-                                                            <div class="post-author">
-                                                                <p><span>{{ $item->name }} -</span>
-                                                                    {{ \Carbon\Carbon::parse($item->created_at)->format('F j, Y') }}
-                                                                </p>
+                                                            <div class="review-box">
+                                                                @php
+                                                                    $averageRating = $item->ratings;
+                                                                    $fullStars = floor($averageRating);
+                                                                    $halfStar = $averageRating - $fullStars;
+                                                                    $emptyStars = 5 - $fullStars - ceil($halfStar);
+                                                                @endphp
+                                                                <div class="ratings">
+                                                                    @for ($i = 1; $i <= $fullStars; $i++)
+                                                                        <img src="{{ asset('assets/website') }}/images/star.svg"
+                                                                            class="ratin__star" />
+                                                                    @endfor
+
+                                                                    @if ($halfStar > 0)
+                                                                        {{-- Half Start --}}
+                                                                        <img src="{{ asset('assets/website') }}/images/hald_star.svg"
+                                                                            class="ratin__star" />
+                                                                    @endif
+
+                                                                    @for ($i = 1; $i <= $emptyStars; $i++)
+                                                                        {{-- Full Start --}}
+                                                                        <img src="{{ asset('assets/website') }}/images/bland_star.svg"
+                                                                            class="ratin__star" />
+                                                                    @endfor
+                                                                </div>
+                                                                <div class="post-author">
+                                                                    <p><span>{{ $item->name }} -</span>
+                                                                        {{ \Carbon\Carbon::parse($item->created_at)->format('F j, Y') }}
+                                                                    </p>
+                                                                </div>
+                                                                <p>{{ $item->review }}</p>
                                                             </div>
-                                                            <p>{{ $item->review }}</p>
                                                         </div>
-                                                    </div>
+                                                    @endforeach
                                                 @else
-                                                    <p>No Review Found for {{ $book->name }}. Be the first to review this
+                                                    <p>No Review Found for {{ $book->name }}. Be the first to review
+                                                        this
                                                         product.</p>
                                                 @endif
                                                 <div class="reviewmessage"></div>
@@ -289,7 +295,8 @@ value="{{ Auth::user()->email }}" @endauth required>
                                                     </div>
                                                 </div>
                                                 <div class="buttons">
-                                                    <button class="sqr-btn" type="submit">Submit</button>
+                                                    <button class="sqr-btn" id="submitReview"
+                                                        type="submit">Submit</button>
                                                 </div>
                                             </form> <!-- end of review-form -->
                                         </div>
@@ -313,7 +320,6 @@ value="{{ Auth::user()->email }}" @endauth required>
                 <div class="col-12">
                     <div class="section-title text-center">
                         <h2>Related Products</h2>
-                        <p>Accumsan vitae pede lacus ut ullamcorper sollicitudin quisque libero</p>
                     </div>
                 </div>
             </div>
@@ -341,16 +347,17 @@ value="{{ Auth::user()->email }}" @endauth required>
                                         </div>
                                     </div>
                                     <div class="button-group">
-                                        <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to wishlist"><i class="lnr lnr-heart"></i></a>
-                                        <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to Compare"><i class="lnr lnr-sync"></i></a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span
-                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i
+                                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="left"
+                                            id="addToWishList" data-id="{{ $item->id }}" title="Add to wishlist"><i
+                                                class="lnr lnr-heart"></i></a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"
+                                            id="quickView" data-id="{{ $item->id }}"><span data-bs-toggle="tooltip"
+                                                data-bs-placement="left" title="Quick View"><i
                                                     class="lnr lnr-magnifier"></i></span></a>
                                     </div>
                                     <div class="box-cart">
-                                        <button type="button" class="btn btn-cart">add to cart</button>
+                                        <button type="button" class="btn btn-cart" id="addToCartBtn"
+                                            data-id="{{ $item->id }}">add to cart</button>
                                     </div>
                                 </figure>
                                 <div class="product-caption">
@@ -400,4 +407,5 @@ value="{{ Auth::user()->email }}" @endauth required>
             </div>
         </div>
     </section>
+    @include('new-website.home.js.book-details')
 @endsection

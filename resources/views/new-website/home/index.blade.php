@@ -36,139 +36,132 @@
                     <div class="hero-single-slide">
                         <div class="hero-slider-item bg-img"
                             data-bg="@mobile
-{{ asset('storage/' . $slider->mobile_image) }}"
-                    @elsemobile {{ asset('storage/' . $slider->image) }} @endmobile">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
+{{ asset('storage/' . $slider->mobile_image) }}
+@elsemobile
+{{ asset('storage/' . $slider->image) }}
+@endmobile">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
 
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </section>
+
+    <!-- Products Section-->
+    <div class="shop-main-wrapper section-space">
+        <div class="container">
+            <div class="row">
+                <!-- shop main wrapper start -->
+                <div class="col-lg-12 order-1 order-lg-2">
+                    <div class="shop-product-wrapper">
+                        <!-- product item list wrapper start -->
+                        <div class="shop-product-wrap grid-view row mbn-30">
+                            @foreach ($categoriesWithProducts as $book)
+                                <!-- product single item start -->
+                                <div class="col-md-3 col-sm-6">
+                                    <!-- product grid start -->
+                                    <div class="product-item">
+                                        <figure class="product-thumb">
+                                            <a href="{{ route('website.home.book-detail-view', $book->slug) }}">
+                                                <img class="pri-img"
+                                                    src="{{ asset('storage/' . $book->images[0]->filename) }}"
+                                                    alt="{{ $book->title }}" />
+                                                <img class="sec-img"
+                                                    src="{{ asset('storage/' . $book->images[0]->filename) }}"
+                                                    alt="{{ $book->title }}" />
+                                            </a>
+                                            <div class="product-badge">
+                                                <div class="product-label new">
+                                                    <span>new</span>
+                                                </div>
+                                                <div class="product-label discount">
+                                                    <span>10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="#" data-bs-toggle="tooltip" data-bs-placement="left"
+                                                    id="addToWishList" data-id="{{ $book->id }}"
+                                                    title="Add to wishlist"><i class="lnr lnr-heart"></i></a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span
+                                                        data-bs-toggle="tooltip" id="quickView"
+                                                        data-id="{{ $book->id }}" data-bs-placement="left"
+                                                        title="Quick View"><i class="lnr lnr-magnifier"></i></span></a>
+                                            </div>
+                                            <div class="box-cart">
+                                                <button type="button" class="btn btn-cart" id="addToCartBtn"
+                                                    data-id="{{ $book->id }}">
+                                                    add to cart
+                                                </button>
+                                            </div>
+                                        </figure>
+                                        <div class="product-caption">
+                                            <div class="product-identity">
+                                                @if ($book->reviews->count())
+                                                    @php
+                                                        $averageRating = $book->reviews->avg('ratings');
+                                                        $fullStars = floor($averageRating);
+                                                        $halfStar = $averageRating - $fullStars;
+                                                        $emptyStars = 5 - $fullStars - ceil($halfStar);
+                                                    @endphp
+
+                                                    <div class="rating">
+                                                        @for ($i = 1; $i <= $fullStars; $i++)
+                                                            <img src="{{ asset('assets/website') }}/images/star.svg"
+                                                                class="" />
+                                                        @endfor
+
+                                                        @if ($halfStar > 0)
+                                                            {{-- Half Star --}}
+                                                            <img src="{{ asset('assets/website') }}/images/star.svg"
+                                                                class="" />
+                                                        @endif
+                                                        {{-- Full Star --}}
+                                                        @for ($i = 1; $i <= $emptyStars; $i++)
+                                                            <img src="{{ asset('assets/website') }}/images/star.svg"
+                                                                class="" />
+                                                        @endfor
+                                                    </div>
+                                                @else
+                                                    <div class="ratings">
+                                                        <span><i class="lnr lnr-star"></i></span>
+                                                        <span><i class="lnr lnr-star"></i></span>
+                                                        <span><i class="lnr lnr-star"></i></span>
+                                                        <span><i class="lnr lnr-star"></i></span>
+                                                        <span><i class="lnr lnr-star"></i></span>
+                                                    </div>
+                                                @endif
+
+                                            </div>
+                                            <p class="product-name">
+                                                <a
+                                                    href="{{ route('website.home.book-detail-view', $book->slug) }}">{{ $book->name }}</a>
+                                            </p>
+                                            <div class="price-box">
+                                                <span class="price-regular">Rs.{{ $book->special_price }}</span>
+                                                @if ($book->price !== $book->special_price)
+                                                    <span class="price-old"><del>Rs.{{ $book->price }}</del></span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- product grid end -->
+                                </div>
+                                <!-- product single item start -->
+                            @endforeach
+
+                        </div>
+                        <!-- product item list wrapper end -->
                     </div>
                 </div>
-            </div>
-        </a>
-    @endforeach
-</div>
-</section>
-
-{{-- Trending Section --}}
-<section class="trending-products section-space">
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="section-title text-center">
-                <h2>All Products</h2>
+                <!-- shop main wrapper end -->
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="product-carousel--4 slick-row-15 slick-sm-row-10 slick-arrow-style">
-                <!-- product single item start -->
-                @foreach ($categoriesWithProducts as $book)
-                    <div class="product-item">
-                        <figure class="product-thumb">
-                            <a href="{{ route('website.home.book-detail-view', $book->slug) }}">
-                                <img class="pri-img" src="{{ asset('storage/' . $book->images[0]->filename) }}"
-                                    alt="{{ $book->title }}">
-                                <img class="sec-img" src="{{ asset('storage/' . $book->images[1]->filename) }}"
-                                    alt="{{ $book->title }}">
-                            </a>
-                            <div class="product-badge">
-                                <div class="product-label new">
-                                    <span>new</span>
-                                </div>
-                                <div class="product-label discount">
-                                    <span>10%</span>
-                                </div>
-                            </div>
-                            <div class="button-group">
-                                <a href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-                                    data-bs-target="#whislist__modal" id="addToWishList"
-                                    data-id="{{ $book->id }}" title="Add to wishlist">
-                                    <i class="lnr lnr-heart"></i></a>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"
-                                    data-id="{{ $book->id }}" id="quickView">
-                                    <span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
-                                        <i class="lnr lnr-magnifier"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="box-cart">
-                                <button type="button" class="btn btn-cart" id="addToCartBtn"
-                                    data-id="{{ $book->id }}">add to cart</button>
-                            </div>
-                        </figure>
-                        @php
-                            $averageRating = $book->reviews->avg('ratings');
-                            $fullStars = floor($averageRating);
-                            $halfStar = $averageRating - $fullStars;
-                            $emptyStars = 5 - $fullStars - ceil($halfStar);
-                        @endphp
-                        <div class="product-caption">
-                            <div class="product-identity">
-                                <p class="manufacturer-name"><a
-                                        href="{{ route('website.home.book-detail-view', $book->slug) }}">mony</a>
-                                </p>
-                                @if ($book->reviews->count())
-                                    @php
-                                        $averageRating = $book->reviews->avg('ratings');
-                                        $fullStars = floor($averageRating);
-                                        $halfStar = $averageRating - $fullStars;
-                                        $emptyStars = 5 - $fullStars - ceil($halfStar);
-                                    @endphp
-                                    <div class="ratings-wrapper">
-                                        @for ($i = 1; $i <= $fullStars; $i++)
-                                            <img src="{{ asset('assets/website') }}/images/star.svg"
-                                                class="" />
-                                        @endfor
-
-                                        @if ($halfStar > 0)
-                                            {{-- Half Star --}}
-                                            <img src="{{ asset('assets/website') }}/images/star.svg"
-                                                class="" />
-                                        @endif
-                                        {{-- Full Star --}}
-                                        @for ($i = 1; $i <= $emptyStars; $i++)
-                                            <img src="{{ asset('assets/website') }}/images/star.svg"
-                                                class="" />
-                                        @endfor
-                                    </div>
-                                @else
-                                    <div class="ratings">
-                                        <img src="{{ asset('assets/website') }}/images/bland_star.svg"
-                                            class="" />
-                                        <img src="{{ asset('assets/website') }}/images/bland_star.svg"
-                                            class="" />
-                                        <img src="{{ asset('assets/website') }}/images/bland_star.svg"
-                                            class="" />
-                                        <img src="{{ asset('assets/website') }}/images/bland_star.svg"
-                                            class="" />
-                                        <img src="{{ asset('assets/website') }}/images/bland_star.svg"
-                                            class="" />
-                                    </div>
-                                @endif
-                            </div>
-                            <p class="product-name">
-                                <a
-                                    href="{{ route('website.home.book-detail-view', $book->slug) }}">{{ $book->name }}</a>
-                            </p>
-                            <div class="price-box">
-                                @if ($book->price !== $book->special_price)
-                                    <span class="price-old"><del>Rs.{{ $book->price }}</del></span>
-                                @endif
-                                <span class="price-regular">Rs.{{ $book->special_price }}</span>
-
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-                <!-- product single item end -->
-            </div>
-        </div>
-    </div>
-</div>
-</section>
 @endsection

@@ -20,7 +20,7 @@ class AuthController extends Controller
     /*Loading Resgiter View*/
     public function register()
     {
-        return view('website.auth.register.index', get_defined_vars());
+        return view('new-website.auth.register.index', get_defined_vars());
     }
 
     /*Register New Customer*/
@@ -30,7 +30,7 @@ class AuthController extends Controller
             [
                 'email' => 'required',
                 'password' => 'required',
-                // 'g-recaptcha-response' => 'required|captcha',
+                'g-recaptcha-response' => 'required|captcha',
             ],
             [
                 'email.required' => 'Email can\'t be blank.',
@@ -53,7 +53,7 @@ class AuthController extends Controller
             [
                 'email' => ['required', Rule::unique('users')->where('customer_type', 0)],
                 'password' => 'required|confirmed|min:8',
-                // 'g-recaptcha-response' => 'required|captcha',
+                'g-recaptcha-response' => 'required|captcha',
             ],
             [
                 'email.required' => 'Email can\'t be blank.',

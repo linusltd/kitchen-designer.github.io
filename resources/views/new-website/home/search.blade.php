@@ -28,7 +28,7 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('website.home.index') }}"><i
                                             class="fa fa-home"></i></a></li>
-                                <li class="breadcrumb-item active" aria-current="page">contact us</li>
+                                <li class="breadcrumb-item active" aria-current="page">Search</li>
                             </ul>
                         </nav>
                     </div>

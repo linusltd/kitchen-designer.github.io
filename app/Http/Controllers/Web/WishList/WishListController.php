@@ -20,7 +20,6 @@ class WishListController extends Controller
     /*Add To Wish List Function*/
     public function addToWishList(Request $request)
     {
-
         $book_id = $request->book_id;
         $book = getBookDetails($book_id);
 

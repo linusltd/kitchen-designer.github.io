@@ -146,11 +146,12 @@ class HomeController extends Controller
                         <div class="quantity">
                             <div class="pro-qty">
                                 <span class="dec qtybtn">-</span>
-                                    <input type="text" name="quantity" id="quantity" value="1" readonly />
+                                <input type="text" name="quantity" id="quantity" value="1"
+                                        readonly />
                                 <span class="inc qtybtn">+</span>
                             </div>
                         </div>
-                            <a class="btn btn-cart2" href="#" id="addToCartBtnQuickView" data-id="' . $book->id . '">Add to cart</a>
+                        <a class="btn btn-cart2" href="#" id="addToCartBtnQuickView" data-id="' . $book->id . '">Add to cart</a>
                     </div>
                     <div class="useful-links">
                         <a href="#" data-bs-toggle="tooltip" title="Wishlist" id="addToWishList" data-id="' . $book->id . '"><i

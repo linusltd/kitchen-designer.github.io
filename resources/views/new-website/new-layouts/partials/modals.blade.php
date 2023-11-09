@@ -60,19 +60,3 @@
 <div id="snackbar">
 
 </div>
-
-<!-- Add To Cart Modal -->
-<div id="addToCartModal" class="modalCart">
-    <!-- Cross Modal Button -->
-    <i class="fa fa-times modal__close-icon"></i>
-    <!-- Modal content -->
-    <div class="modal-content cart__modal">
-        <div class="modal-header">
-            {{-- <i class="fas fa-close cart__modal-close"></i> --}}
-        </div>
-        <div class="modal-body" id="cartModalHtml">
-
-        </div>
-    </div>
-
-</div>

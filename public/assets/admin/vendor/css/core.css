@@ -2808,7 +2808,9 @@ textarea.form-control-lg {
     border-bottom-right-radius: 0;
 }
 .input-group
-    > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
+        .valid-feedback
+    ):not(.invalid-tooltip):not(.invalid-feedback) {
     margin-left: -1px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -15884,7 +15886,9 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
         padding-left: 16.25rem;
     }
 }
-html:not(.layout-navbar-fixed):not(.layout-menu-fixed):not(.layout-menu-fixed-offcanvas)
+html:not(.layout-navbar-fixed):not(.layout-menu-fixed):not(
+        .layout-menu-fixed-offcanvas
+    )
     .layout-page,
 html:not(.layout-navbar-fixed) .layout-content-navbar .layout-page {
     padding-top: 0 !important;
@@ -16087,7 +16091,9 @@ html:not(.layout-footer-fixed) .content-wrapper {
     }
 }
 @media (min-width: 1200px) {
-    .layout-menu-collapsed:not(.layout-transitioning):not(.layout-menu-offcanvas):not(.layout-menu-fixed):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-transitioning):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed):not(.layout-menu-fixed-offcanvas)
         .layout-menu {
         transition-duration: 0.3s;
         transition-property: margin-left, margin-right, width;
@@ -16116,7 +16122,9 @@ html:not(.layout-footer-fixed) .content-wrapper {
         transition-duration: 0.3s;
         transition-property: left, right;
     }
-    .layout-transitioning:not(.layout-menu-offcanvas):not(.layout-menu-fixed):not(.layout-menu-fixed-offcanvas)
+    .layout-transitioning:not(.layout-menu-offcanvas):not(
+            .layout-menu-fixed
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu {
         transition-duration: 0.3s;
         transition-property: margin-left, margin-right, width;
@@ -16244,24 +16252,34 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 
 @media (min-width: 1200px) {
-    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-menu-hover):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu
         .app-brand {
         width: 5.25rem;
     }
-    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-menu-hover):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu
         .app-brand-logo,
-    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-menu-hover):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu
         .app-brand-link,
-    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-menu-hover):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu
         .app-brand-text {
         margin-right: auto;
         margin-left: auto;
     }
-    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-menu-hover):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu
         .app-brand-logo
         ~ .app-brand-text {
@@ -16270,18 +16288,24 @@ html:not(.layout-footer-fixed) .content-wrapper {
         white-space: nowrap;
         opacity: 0;
     }
-    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-menu-hover):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu
         .app-brand
         .layout-menu-toggle {
         display: none !important;
     }
-    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-menu-hover):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu
         .app-brand-img {
         display: none;
     }
-    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas)
+    .layout-menu-collapsed:not(.layout-menu-hover):not(
+            .layout-menu-offcanvas
+        ):not(.layout-menu-fixed-offcanvas)
         .layout-menu
         .app-brand-img-collapsed {
         display: block;

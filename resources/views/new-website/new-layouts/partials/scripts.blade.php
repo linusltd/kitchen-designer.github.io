@@ -187,11 +187,12 @@
                     },
                     success: function(response) {
                         if (obj.classList.contains('buy_now-btn')) {
-                            window.location = "{{ route('website.cart.index') }}";
+                            window.location = "{{ route('website.cart.checkout') }}";
                         } else {
                             getCartItems();
                             getCartCount();
                             getCartTotal();
+
                         }
 
                     },

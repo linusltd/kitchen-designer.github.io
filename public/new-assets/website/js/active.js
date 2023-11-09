@@ -104,7 +104,7 @@
         fade: false,
         speed: 1000,
         slidesToShow: 4,
-        rows: 2,
+        rows: 3,
         adaptiveHeight: true,
         prevArrow:
             '<button type="button" class="slick-prev"><i class="lnr lnr-chevron-left"></i></button>',
@@ -444,7 +444,7 @@
     /*--------- quantity change js start ---------*/
     $(".qtybtn").on("click", function () {
         var $button = $(this);
-        var oldValue = $button.parent().find("input").val();
+        var oldValue = $button.parent().find("#quantity").val();
         if ($button.hasClass("inc")) {
             var newVal = parseFloat(oldValue) + 1;
         } else {

@@ -55,7 +55,7 @@ Route::group(['prefix' => '/', 'as' => 'website.'], function () {
     Route::controller(WebAuthController::class)->group(function () {
         Route::get('/login', 'login')->name('auth.login');
         Route::post('/login', 'loginCustomer')->name('auth.submit-login-form');
-        // Route::get('/register', 'register')->name('auth.register');
+        Route::get('/register', 'register')->name('auth.register');
         Route::post('/register', 'registerCustomer')->name('auth.submit-register-form');
         Route::get('/verification/${token}', 'registerEmailVerification')->name('auth.register-emial-verification');
         Route::get('/forgot-password', 'forgotPassword')->name('auth.forgot-password');

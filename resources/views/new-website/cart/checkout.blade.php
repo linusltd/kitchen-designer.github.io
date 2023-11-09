@@ -198,11 +198,7 @@
                             </div>
 
                             <div class="summary-footer-area">
-                                <div class="custom-control custom-checkbox mb-20">
-                                    <input type="checkbox" class="custom-control-input" id="terms" required />
-                                    <label class="custom-control-label" for="terms">I have read and agree to
-                                        the website <a href="#">terms and conditions.</a></label>
-                                </div>
+
                                 <button type="submit" class="btn btn__bg place__order-btn" id="place__order-btn">Place
                                     Order</button>
                             </div>
