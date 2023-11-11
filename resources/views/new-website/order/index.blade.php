@@ -154,25 +154,26 @@
                                         <td>{{ intval($item->qty) }}x</td>
                                         <td>Rs.{{ $item->price }}</td>
                                     </tr>
-                                    <tr>
-                                        <td><strong>SUB TOTAL</strong></td>
-                                        <td></td>
-                                        <td align="center">Rs.{{ number_format($order->sub_total) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>SHIPPING FEE</strong></td>
-                                        <td></td>
-                                        <td align="center" class="shipping__fee">
-                                            Rs.{{ number_format($order->delivery_charges) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="total"><strong>TOTAL</strong></td>
-                                        <td></td>
-                                        <td align="center" class="total">
-                                            <strong>Rs.{{ number_format($order->total_amount) }}</strong>
-                                        </td>
-                                    </tr>
                                 @endforeach
+
+                                <tr>
+                                    <td><strong>SUB TOTAL</strong></td>
+                                    <td></td>
+                                    <td align="center">Rs.{{ number_format($order->sub_total) }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SHIPPING FEE</strong></td>
+                                    <td></td>
+                                    <td align="center" class="shipping__fee">
+                                        Rs.{{ number_format($order->delivery_charges) }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="total"><strong>TOTAL</strong></td>
+                                    <td></td>
+                                    <td align="center" class="total">
+                                        <strong>Rs.{{ number_format($order->total_amount) }}</strong>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
