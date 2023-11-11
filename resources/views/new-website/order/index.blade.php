@@ -43,8 +43,7 @@
             <div class="section-bg-color">
                 <div class="order__header">
                     <div class="complete__img-wrapper">
-                        <img src="http://127.0.0.1:8000/assets/website/images/tick.png" alt="Tick Image"
-                            class="complete__img">
+                        <img src="{{ asset('assets/website/images/tick.png') }}" alt="Tick Image" class="complete__img">
                     </div>
                     <div class="order__no-wrapper">
                         <span class="order__no">Order No #{{ $order->order_no }} </span>
@@ -89,7 +88,8 @@
                                     <p class="custom__contact-info">
                                         {{ $order->address->fname . ' ' . $order->address->lname }}</p>
                                     <p class="custom__contact-info">{{ $order->address->address }}</p>
-                                    <p class="custom__contact-info">{{ $order->address->city . ' ' . $order->address->zip }}
+                                    <p class="custom__contact-info">
+                                        {{ $order->address->city . ' ' . $order->address->zip }}
                                     </p>
                                     <p class="custom__contact-info">Pakistan</p>
                                     <p class="custom__contact-info ">{{ $order->address->phone }}</p>
