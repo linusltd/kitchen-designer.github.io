@@ -3,10 +3,9 @@
 @section('seo')
     <meta property="og:site_name" content="Kitchen Designer">
     <meta property="og:url" content="{{ Request::url() }}">
-    <meta property="og:title" content="{{ $book->title }}">
+    <meta property="og:title" content="{{ $book->name }}">
     <meta property="og:type" content="product">
-    <meta property="og:description"
-        content="{{ 'Author: ' . $authors . ': Pages: ' . $book->pages . ': UrduBinding: ' . $book->binding . ': CoverSize: ' . $book->size . ': Volume: ' . $book->volume }}">
+    <meta property="og:description" content="{{ 'Name: ' . $book->name . ':category: ' . $categories . ' ?>' }}">
 
     <meta property="og:price:amount"
         content="{{ $book->special_price != $book->price ? $book->special_price : $book->price }}">
@@ -16,11 +15,9 @@
     <meta property="og:image:secure_url" content="{{ asset('storage/' . $book->images[0]->filename) }}">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $book->title }}">
-    <meta name="twitter:description"
-        content="{{ 'Author: ' . $authors . ': Pages: ' . $book->pages . ': UrduBinding: ' . $book->binding . ': CoverSize: ' . $book->size . ': Volume: ' . $book->volume }}">
-    <meta name="description"
-        content="{{ 'Author: ' . $authors . ': Pages: ' . $book->pages . ': UrduBinding: ' . $book->binding . ': CoverSize: ' . $book->size . ': Volume: ' . $book->volume }}">
+    <meta name="twitter:title" content="{{ $book->name }}">
+    <meta name="twitter:description" content="{{ 'Name: ' . $book->name . ': category: ' . $categories }}">
+    <meta name="description" content="{{ 'Name: ' . $book->name . ': category: ' . $categories . ' ?>' }}">
     <link rel="canonical" href="{{ Request::url() }}">
 
 @endsection

@@ -158,10 +158,8 @@ class HomeController extends Controller
                                 class="lnr lnr-heart"></i>wishlist</a>
                     </div>
                     <div class="like-icon">
-                        <a class="facebook" href="#"><i class="fa fa-facebook"></i>like</a>
-                        <a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
-                        <a class="pinterest" href="#"><i class="fa fa-pinterest"></i>save</a>
-                        <a class="google" href="#"><i class="fa fa-google-plus"></i>share</a>
+                        <a class="facebook" href="https://www.facebook.com/sharer.php?u=' . request()->url() . '"><i class="fa fa-facebook"></i>like</a>
+                        <a class="twitter" href="https://twitter.com/intent/tweet?text=' . $book->name . '&url=' . request()->url() . '"><i class="fa fa-twitter"></i>tweet</a>
                     </div>
                 </div>
             </div>

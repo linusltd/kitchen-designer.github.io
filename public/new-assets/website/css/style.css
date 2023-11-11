@@ -5777,12 +5777,12 @@ blockquote {
     color: #cc2121;
     padding: 12px 19px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 400ms ease;
 }
 
 .need__help button:hover {
-    background-color: #0053a8;
-    color: var(--color-white);
+    background-color: #cc2121;
+    color: #fff;
 }
 
 .order__summary .cart__table {

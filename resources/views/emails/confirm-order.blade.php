@@ -32,7 +32,7 @@
                 <div class="summary">
                     <div class="summary__details">
                         <a href="{{ route('website.home.book-detail-view', $item['book']['slug']) }}"><img
-                                src="{{ asset('storage/' . $item['book'][0]['filename']) }}"
+                                src="{{ asset('storage/' . $item['book']['images'][0]['filename']) }}"
                                 alt="{{ $item['book']['name'] }}" width="300" height="200" /></a>
                         <a href="{{ route('website.home.book-detail-view', $item['book']['slug']) }}">
                             <p class="product__name">{{ $item['book']['name'] }}</p>
