@@ -162,7 +162,7 @@
                         data: $(form).serialize(),
                         beforeSend: function() {
                             $('.place__order-btn').html(
-                                `<i class="fa-solid fa-spinner"></i>`
+                                `<i class="fa fa-spinner fa-spin"></i>`
                             )
                             $('.place__order-btn').attr('disabled', true)
                         },
