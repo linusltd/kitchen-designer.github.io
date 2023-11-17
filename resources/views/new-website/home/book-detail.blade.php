@@ -23,7 +23,33 @@
 @endsection
 @push('styles')
     <!-- Basic Styles For Gallery -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/website/js/jquery-zoom-image-carousel/style.css') }}">
+
+    <style>
+        .stars__wrapper {
+            width: 130px;
+            padding: 0;
+        }
+
+        .stars__wrapper input {
+            display: none;
+        }
+
+        .stars__wrapper label {
+            font-size: 25px;
+            color: #ccc;
+            cursor: pointer;
+            float: right;
+        }
+
+        .stars__wrapper label::before {
+            content: '\2605';
+            transition: color 0.2s linear;
+        }
+
+        input[type="radio"]:checked~label {
+            color: #e28265;
+        }
+    </style>
 @endpush
 @section('title')
     {{ $book->name }}
@@ -79,7 +105,6 @@
                             <div class="col-lg-7">
                                 <div class="product-details-des">
                                     <div class="manufacturer-name">
-                                        <a href="product-details.html">HasTech</a>
                                     </div>
                                     <h3 class="product-name">{{ $book->name }}</h3>
                                     @if ($book->reviews->count())
@@ -91,7 +116,7 @@
                                         @endphp
                                         <div class="ratings d-flex">
                                             @for ($i = 1; $i <= $fullStars; $i++)
-                                                <span><i class="lnr lnr-star"></i></span>
+                                                <img src="{{ asset('assets/website') }}/images/star.svg" class="" />
                                             @endfor
 
                                             @if ($halfStar > 0)
@@ -272,25 +297,30 @@ value="{{ Auth::user()->email }}" @endauth required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <div class="col">
-                                                        <label class="col-form-label"><span class="text-danger">*</span>
-                                                            Rating</label>
-                                                        &nbsp;&nbsp;&nbsp; Bad&nbsp;
-                                                        <input type="radio" id="star1" value="1"
+                                                    <label class="col-form-label">
+                                                        <span class="text-danger">*</span>
+                                                        Rating
+                                                    </label>
+                                                    <div class="stars__wrapper">
+                                                        <input type="radio" id="star5" value="5"
                                                             name="rating">
-                                                        &nbsp;
-                                                        <input type="radio" id="star2" value="2"
-                                                            name="rating">
-                                                        &nbsp;
-                                                        <input type="radio" id="star3" value="3"
-                                                            name="rating">
+                                                        <label for="star5"></label>
                                                         &nbsp;
                                                         <input type="radio" id="star4" value="4"
                                                             name="rating">
+                                                        <label for="star4"></label>
                                                         &nbsp;
-                                                        <input type="radio" id="star5" value="5"
+                                                        <input type="radio" id="star3" value="3"
                                                             name="rating">
-                                                        &nbsp;Good
+                                                        <label for="star3"></label>
+                                                        &nbsp;
+                                                        <input type="radio" id="star2" value="2"
+                                                            name="rating">
+                                                        <label for="star2"></label>
+                                                        &nbsp;
+                                                        <input type="radio" id="star1" value="1"
+                                                            name="rating">
+                                                        <label for="star1"></label>
                                                     </div>
                                                 </div>
                                                 <div class="buttons">

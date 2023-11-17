@@ -119,13 +119,13 @@
 
                                                         @if ($halfStar > 0)
                                                             {{-- Half Star --}}
-                                                            <img src="{{ asset('assets/website') }}/images/star.svg"
-                                                                class="" />
+                                                            <img src="{{ asset('assets/website') }}/images/hald_star.svg"
+                                                                class="ratin__star" />
                                                         @endif
                                                         {{-- Full Star --}}
                                                         @for ($i = 1; $i <= $emptyStars; $i++)
-                                                            <img src="{{ asset('assets/website') }}/images/star.svg"
-                                                                class="" />
+                                                            <img src="{{ asset('assets/website') }}/images/bland_star.svg"
+                                                                class="ratin__star" />
                                                         @endfor
                                                     </div>
                                                 @else

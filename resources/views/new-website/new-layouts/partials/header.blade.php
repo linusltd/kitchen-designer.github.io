@@ -3,6 +3,7 @@
 <link href="{{ asset('new-assets/website/css/vendor.css') }}" rel="stylesheet">
 <link href="{{ asset('new-assets/website/css/style.css') }}" rel="stylesheet">
 
+@stack('styles')
 <style>
     .logo {
         width: 106px;

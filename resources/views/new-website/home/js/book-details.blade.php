@@ -12,7 +12,7 @@
                 if (!$.trim(name) || !$.trim(name) || !$.trim(ratings) || !$.trim(review)) {
                     $('.reviewmessage').html(
                         `<span style="color:red">Not all the fields have been filled out correctly!</span>`
-                        )
+                    )
                 } else {
                     $('.reviewmessage').html('');
 
@@ -31,7 +31,7 @@
                         success: function(response) {
                             $('.reviewmessage').html(
                                 `<span style="color:green">Your Review has been submited successfully!. it will list once verified!</span>`
-                                )
+                            )
                             $('#add__review-form input[name="name"]').val('');
                             $('#add__review-form input[name="email"]').val('');
                             $('input[name="rating"]:checked').val('');
