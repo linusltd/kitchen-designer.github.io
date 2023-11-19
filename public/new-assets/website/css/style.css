@@ -6106,3 +6106,92 @@ blockquote {
 }
 
 /*-------- footer bottom area end --------*/
+@media screen and (max-width:840px) {
+    .order__wrapper{
+        flex-direction: column;
+        flex-wrap: row wrap;
+    }
+    .order__info-wrapper{
+        width: 100%;
+        flex-basis: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .order__summary{
+        width: 100%;
+        flex-basis: 100%;
+        padding: 0px;
+        margin-top: 10px;
+    }
+
+    .order__basic {
+        flex-direction: column;
+    }
+
+    /* ===============Profile=================== */
+    .profile__wrapper, .notfound__container{
+        flex-direction: column;
+        flex-wrap: column wrap;
+    }
+    .profile__navigation, .profile__statics, .left__container, .right__container{
+        width: 100%;
+        flex-basis: 100%;
+    }
+    .notfound__container .right__container{
+        padding: 0;
+    }
+    .notfound__container{
+        padding: 20px;
+        gap: 20px;
+    }
+
+     /* ===============Add To Cart Modal=================== */
+     .newitem__added-wrapper{
+        border: 1px solid #C9C9C9;
+        padding: 10px 20px;
+
+    }
+    .cart__modal-left, .cart__modal-right {
+        border: none;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .welcome__admin {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .statics__wrapper{
+        flex-wrap: wrap;
+        row-gap: 15px;
+    }
+    .startics__item{
+        width: 49%;
+        flex-basis: 49%;
+    }
+
+    .profile__updateform {
+        padding: 25px 15px;
+    }
+
+    #cartModal .modal-content{
+        width: 95%;
+        margin-top: 50px;
+    }
+    /* ===============Snackbar=================== */
+    .tooltip {
+        display: none;
+    }
+    #snackbar {
+        min-width: 80%;
+        margin-left: 0px;
+        right: 0;
+    }
+
+    .wishlist__alert-error {
+        text-align: center;
+    }
+}
