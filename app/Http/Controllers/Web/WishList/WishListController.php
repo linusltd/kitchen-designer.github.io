@@ -50,8 +50,7 @@ class WishListController extends Controller
             /*Create Cookie If Not Exists*/
             $cookie = Cookie::make('wishlist-token', $token, null);
 
-            // return response()->json(['success' => true, 'html' => $html])->withCookie($cookie);
-            return response()->json(['success' => true])->withCookie($cookie);
+            return response()->json(['success' => true, 'html' => $html])->withCookie($cookie);
         } else {
             /*Get Cookie Value*/
             $token = Cookie::get('wishlist-token');

@@ -1,4 +1,4 @@
-<div class="modal" id="quick_view">
+<div class="modal" id="quick_view" style="z-index: 10">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -36,7 +36,7 @@
 <!-- offcanvas search form end -->
 
 <!-- offcanvas mini cart start -->
-<div class="offcanvas-minicart-wrapper">
+<div class="offcanvas-minicart-wrapper" style="z-index: 1000000000;position:fixed">
     <div class="minicart-inner">
         <div class="offcanvas-overlay"></div>
         <div class="minicart-inner-content">
@@ -57,6 +57,6 @@
     </div>
 </div>
 
-<div id="snackbar">
+<div id="snackbar" style="z-index: 1000000000">
 
 </div>
