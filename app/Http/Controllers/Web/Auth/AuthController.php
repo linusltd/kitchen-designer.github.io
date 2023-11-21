@@ -150,12 +150,13 @@ class AuthController extends Controller
             ]
         );
 
-        $user = User::where('reset_password_token', $request->token)->first();
+        $user = User::where('reset_password_token', $request->reset_password_token)->first();
 
         if (is_null($user)) {
             return redirect()->route('website.auth.login');
         }
 
+        $user->password =  $request->password;
         $user->reset_password_token = '';
         $user->update();
 
