@@ -25,4 +25,16 @@
         opacity: 0.6;
         cursor: not-allowed;
     }
+
+    .whatsapp-btn {
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        z-index: 100;
+    }
+
+    .whatsapp-btn img {
+        width: 50px;
+        height: 50px;
+    }
 </style>

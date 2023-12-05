@@ -6160,6 +6160,11 @@ blockquote {
 }
 
 @media screen and (max-width:600px) {
+    .whatsapp-btn img{
+        width: 30px;
+        height: 30px;
+    }
+    
     .welcome__admin {
         font-size: 18px;
         margin-bottom: 20px;

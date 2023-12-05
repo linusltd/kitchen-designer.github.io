@@ -21,6 +21,11 @@
         @yield('content')
     </main>
 
+    <div class="whatsapp-btn">
+        <a href="https://wa.me/+923004716058">
+            <img src="{{ asset('assets/website/images/whatsapp.png') }}" alt="">
+        </a>
+    </div>
     {{-- Footer --}}
     @include('new-website.new-layouts.partials.footer')
 
