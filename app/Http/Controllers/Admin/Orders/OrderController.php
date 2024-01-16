@@ -162,6 +162,7 @@ class OrderController extends Controller
             foreach ($order->order_items as $cartItem) {
                 Book::where('id', $cartItem->book_id)->increment('quantity', intval($cartItem->qty));
             }
+            Mail::to($order->address)->send(new \App\Mail\FailedOrderDeliveryMail(['details' => $details]));
         }elseif($request->status == 1){ // Delivered Delivery
             $order->cancelled_at = Carbon::now();
             Mail::to($order->address)->send(new \App\Mail\DeliverOrderMail(['details' => $details]));

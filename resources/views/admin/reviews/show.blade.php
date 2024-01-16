@@ -41,7 +41,7 @@
                     </td>
                     <td>{{ $item->total_amount }}</td>
                     <td>
-                        <a href="{{ route('website.order.complete-order', $item->order_no) }}" target="_blank" class="edit text-success me-2" style="cursor:pointer">View Order</a>
+                        <a href="{{ route('website.order.complete-order', $item->order_secret) }}" target="_blank" class="edit text-success me-2" style="cursor:pointer">View Order</a>
                     </td>
                 </tr>
                 @endforeach

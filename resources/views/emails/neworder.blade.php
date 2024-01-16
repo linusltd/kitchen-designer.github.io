@@ -15,7 +15,7 @@
 
   <!-- Buttons -->
   <div class="buttons">
-    <a href="{{ route('website.order.complete-order', $details['details']['order']['order_no']) }}" class="btn btn__vieworder">View Order</a>
+    <a href="{{ route('website.order.complete-order', $details['details']['order']['order_secret']) }}" class="btn btn__vieworder">View Order</a>
     <span>Or</span>
     <a href="{{ route('website.home.index') }}" class="btn btn__visitourstore">Visit our store</a>
   </div>

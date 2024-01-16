@@ -65,7 +65,7 @@
                                 </td>
                                 <td data-label="Total">{{ $item->total_amount }}</td>
                                 <td data-label="Actions">
-                                    <a href="{{ route('website.order.complete-order', $item->order_no) }}" >
+                                    <a href="{{ route('website.order.complete-order', $item->order_secret) }}" >
                                         <button class="btn orderbtn">
                                             View
                                         </button>

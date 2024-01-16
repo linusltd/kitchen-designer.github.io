@@ -7,12 +7,12 @@
   <!-- Purchase -->
 
   <p class="thankforpurchase">
-    Your order is on the way</p>
+    Your order has been delivered</p>
   <br>
   <!-- Order Reminder -->
 
   <p class="orderreminder">
-    Your order is on the way. Track your shipment to see the delivery status.
+     We are regret to inform you that your order has been delivered failed.
   </p>
 
   <!-- Buttons -->
@@ -21,7 +21,7 @@
     <span>Or</span>
     <a href="{{ route('website.home.index') }}" class="btn btn__visitourstore">Visit our store</a>
   </div>
-  <p>Chronopost tracking number: <a href="">GUJ671551781916</a></p>
+  {{-- <p>Chronopost tracking number: <a href="">GUJ671551781916</a></p> --}}
 
   <!-- Order Summary Section -->
   <div class="order__summary">
@@ -30,7 +30,8 @@
     @foreach ($details['details']['orderItems'] as $item)
     <div class="summary">
         <div class="summary__details">
-          <a href="{{ route('website.home.book-detail-view', $item['book']['slug']) }}"><img src="{{ asset('storage/'. $item['book']['images'][0]['filename'] ) }}" alt="{{ $item['book']['name'] }}" width="300" height="200"/></a>
+          <a href="{{ route('website.home.book-detail-view', $item['book']['slug']) }}">
+            <img src="{{ asset('storage/'. $item['book']['images'][0]['filename'] ) }}" alt="{{ $item['book']['name'] }}" width="150" height="200"/></a>
           <a href="{{ route('website.home.book-detail-view', $item['book']['slug']) }}"><p class="product__name">{{ $item['book']['name'] }}</p>
           </a>
           <p class="product__quantity">{{ intval($item['qty']) }} x {{ intval($item['price']) }}</p>

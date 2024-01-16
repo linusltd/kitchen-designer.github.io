@@ -147,7 +147,7 @@
                                                                     </td>
                                                                     <td>{{ $item->total_amount }}</td>
                                                                     <td>
-                                                                        <a href="{{ route('website.order.complete-order', $item->order_no) }}"
+                                                                        <a href="{{ route('website.order.complete-order', $item->order_secret) }}"
                                                                             class="btn btn__bg">View</a>
                                                                         @if ($item->status == 0)
                                                                             <button class="btn orderbtn"

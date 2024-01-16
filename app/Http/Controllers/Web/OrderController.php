@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Mail;
 class OrderController extends Controller
 {
     /*Loading Complete Order View*/
-    public function index($order_no)
+    public function index($order_secret)
     {
-        $order = Order::with('address', 'order_items.book')->where('order_no', $order_no)->firstOrFail();
+        $order = Order::with('address', 'order_items.book')->where('order_secret', $order_secret)->firstOrFail();
         return view('new-website.order.index', get_defined_vars());
     }
 
@@ -102,6 +102,7 @@ class OrderController extends Controller
         /*Creating Order*/
         $order = $user->orders()->create([
             'order_no' => $order_no,
+            'order_secret' => encrypt_value($order_no),
             'address_id' => $order_address->id,
             'qty' => $cart->item_count,
             'sub_total' => $cart->items_subtotal_price,
@@ -148,10 +149,10 @@ class OrderController extends Controller
             return response()->json(['status' => false]);
         }
         /*Sending Mail To My Staff*/
-        Mail::to('zainveeray@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
-        // Mail::to('talhaashraf235@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
+        // Mail::to('zainveeray@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
+        Mail::to('talhaashraf235@gmail.com')->send(new \App\Mail\NewOrderMail(['details' => $details]));
 
-        return response(route('website.order.complete-order', $order->order_no))->withCookie($cookie);
+        return response(route('website.order.complete-order', $order->order_secret))->withCookie($cookie);
     }
 
     /*Cancel Order Reuqest*/

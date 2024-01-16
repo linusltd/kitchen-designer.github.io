@@ -292,3 +292,25 @@ function compressImage($image)
 
     return 'images/' . $imageName;
 }
+
+function encrypt_value($value)
+{
+    $ciphering = "AES-128-CTR";
+    $options = 0;
+    $encryption_iv = '1234567891011121';
+    $encryption_key = 'H%$^&%!@)(*)^%0';
+    $value = openssl_encrypt($value, $ciphering, $encryption_key, $options, $encryption_iv);
+    $value = str_replace('/', '_', $value);
+    return $value;
+}
+
+function decrypt_value($value)
+{
+    $ciphering = "AES-128-CTR";
+    $options = 0;
+    $encryption_iv = '1234567891011121';
+    $encryption_key = 'H%$^&%!@)(*)^%0';
+    $value = str_replace('_', '/', $value);
+    $value = openssl_decrypt($value, $ciphering, $encryption_key, $options, $encryption_iv);
+    return $value;
+}

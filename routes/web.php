@@ -124,7 +124,7 @@ Route::group(['prefix' => '/', 'as' => 'website.'], function () {
     /*Loading Order Routes*/
     Route::controller(OrderController::class)->group(function () {
         Route::post('/create-order', 'create')->name('order.create-order');
-        Route::get('/complete-order/{order_no}/thankyou', 'index')->name('order.complete-order');
+        Route::get('/complete-order/{order_secret}/thankyou', 'index')->name('order.complete-order');
         Route::post('/cancel-order-request', 'cancelOrderRequest')->name('order.create-order-request');
     });
 });
