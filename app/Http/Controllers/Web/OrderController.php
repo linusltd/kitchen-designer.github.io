@@ -102,7 +102,7 @@ class OrderController extends Controller
         /*Creating Order*/
         $order = $user->orders()->create([
             'order_no' => $order_no,
-            'order_secret' => encrypt_value($order_no),
+            'order_secret' => md5($order_no),
             'address_id' => $order_address->id,
             'qty' => $cart->item_count,
             'sub_total' => $cart->items_subtotal_price,
